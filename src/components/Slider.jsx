@@ -7,7 +7,7 @@ import slide4 from '../assets/img/slide4.png';
 import { NavLink } from 'react-router-dom'
 
 const Slider = () => {
-    const slideeContent = [
+    const slideContent = [
         {
             slideTitle: 'Welcome To Fashion Heaven',
             slideImg: slide1,
@@ -38,7 +38,7 @@ const Slider = () => {
 
 
     const nextImage = () => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slideeContent.length);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slideContent.length);
     };
   
     const setActivePagination = (pagIndex) => {
@@ -49,12 +49,12 @@ const Slider = () => {
     return (
       <div className="image-slider-container">
         <div className="slider-content">
-            <div className="slide-title">{slideeContent[currentImageIndex].slideTitle}</div>
+            <div className="slide-title">{slideContent[currentImageIndex].slideTitle}</div>
             <NavLink className="explore-btn" to={"/products"} >Explore</NavLink>
         </div>
-        <img src={slideeContent[currentImageIndex].slideImg} alt={`Slide ${currentImageIndex + 1}`} className="slider-image" />
+        <img src={slideContent[currentImageIndex].slideImg} alt={`Slide ${currentImageIndex + 1}`} className="slider-image" />
         <div className="pagination">
-            {slideeContent.map((image, index) => (
+            {slideContent.map((image, index) => (
                 <div className={`pagination-item ${setActivePagination(index)}`} key={index} onClick={() => setCurrentImageIndex(index)}></div>
             ))}
         </div>
