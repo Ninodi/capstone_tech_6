@@ -1,13 +1,18 @@
 import React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import Section from '../components/section'
+import Slider from '../components/Slider'
+import BestSellers from '../components/BestSellers'
+import CategoriesSection from '../components/CategoriesSection'
 
 const MainPage = () => {
   return (
     <div>
         <Header/>
-        <Section/>
+        <main>
+          <Slider/>
+          <CategoriesSection />
+        </main>
         <Footer/>
     </div>
   )
