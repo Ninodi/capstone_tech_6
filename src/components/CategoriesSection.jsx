@@ -5,7 +5,7 @@ import SpecialClothing from './SpecialClothing'
 
 const CategoriesSection = () => {
   return (
-    <div style={{paddingTop: '40px', paddingBottom: '85px'}}>
+    <div style={{paddingTop: '40px', paddingBottom: '20px'}}>
         <BestSellers />
         <WomenAndKids />
         <SpecialClothing />
