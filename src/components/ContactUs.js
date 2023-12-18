@@ -25,7 +25,7 @@ const ContactUs = ()=>
      
    
     <div>
-    <input type="text" className='contact-form-input' placeholder='Email'/>
+    <input type="email" className='contact-form-input' placeholder='Email'/>
     </div>
     
     
