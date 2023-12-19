@@ -1,14 +1,11 @@
-import ShopNow from './components/ShopNow';
-
-import ContactUs from './components/ContactUs';
 import './App.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import router from './router';
 
 function App() {
   return (
-    <div>
-      <ShopNow/>
-      <ContactUs/>
-        
+    <div className="App">
+      <RouterProvider router={createBrowserRouter(router)}/>
     </div>
   );
 }
