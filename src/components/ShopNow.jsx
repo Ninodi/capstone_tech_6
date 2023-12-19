@@ -1,4 +1,4 @@
-import shopnowImg from '../assets/images/shopnow-img.png'
+import shopnowImg from '../assets/img/shopnow-img.png'
 import '../assets/styles/shopnow.css'
 import '../assets/styles/fonts.css'
 

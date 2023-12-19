@@ -1,5 +1,5 @@
 import '../assets/styles/contact-form.css'
-import contactFormImg from '../assets/images/contact-form-img.png'
+import contactFormImg from '../assets/img/contact-form-img.png'
 import '../assets/styles/fonts.css'
 const ContactUs = ()=>
 {
