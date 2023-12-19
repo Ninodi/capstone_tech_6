@@ -4,6 +4,7 @@ import { GrFacebookOption } from "react-icons/gr";
 import { FiTwitter } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 import { RiLinkedinLine } from "react-icons/ri";
+import '../assets/styles/footer.css'
 
 
 const Footer = () => {
