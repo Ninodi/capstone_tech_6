@@ -18,7 +18,7 @@ const ContactUs = ()=>
     <p className='contactus-title'>Contact Us</p>
     
     
-   <form className='contact-form'>
+   <form id="contactus-form" className='contact-form'>
     <div>
     <input type="text" className='contact-form-input' placeholder='Full Name'/>
     </div>
