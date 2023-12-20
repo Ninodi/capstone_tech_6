@@ -5,6 +5,7 @@
     flex-direction: row;
     justify-content: space-around;
     margin-top:50px;
+    margin-bottom:50px;
 }
 
 
@@ -12,6 +13,7 @@
 {
     width:378px;
     height:578px;
+    margin-right:10px;
 }
 
 .contact-form-input
@@ -24,14 +26,19 @@
     border-bottom-style: solid;
     border-bottom-width: 1px;
     outline: none;
+    margin-top: 50px;
+    margin-left:10px;
 }
 
-.contact-form-input
+
+
+.contact-form-msg
 {
   
-   margin-bottom: 50px;
+   margin-top: 80px;
    
 }
+
 
 .contact-info
 {
@@ -55,16 +62,16 @@
 .contactus-title
 {
     font-family: 'Quicksand-Regular';
-    font-style: normal;
-    font-size: 50px;
- letter-spacing: 0.2em;   
+    font-size: 77px;
+    letter-spacing: 0.2em;   
+   
 }
 
-.contact-us-btn
+.contactus-btn
 {
     font-size:20px;
-    letter-spacing: 0.05em;
-   
+    letter-spacing: 0.02em;
+    font-family: 'Quicksand-SemiBold';
     color:#ffffff;
     background-color: #3391a1;
     width:289px;
@@ -73,11 +80,63 @@
     border-style: none;
     cursor:pointer;
     transition: background-color 0.1s, transform 0.1s;
+    margin-top:60px;
 }
 
 
-  .contact-us-btn:active
+  .contactus-btn:active
   {
     background-color: #26707d;
     transform: scale(0.97);
   }
+
+
+
+  @media (max-width: 767px) {
+    
+  
+    .contact-form-container
+    {
+        margin-top:35px;
+        margin-bottom:0cqw;
+    }
+    .contact-form-img-container {
+      display: none;
+    }
+  
+    
+    .contactus-title
+    {
+        font-size:22px;
+        margin-bottom:10px;
+    }
+
+    .contact-form-input
+    {
+        font-size:10px;
+        width:121px;
+        margin-top:25px;
+    }
+
+    .contact-form-msg
+    {
+        
+        margin-top:40px;
+    }
+
+    .contactus-btn
+    {
+        font-size:10px;
+        width:109px;
+        height:21px;
+        margin-top:30px;
+    }
+
+    .contact-info
+    {
+        font-size:10px;
+        margin-right:10px;
+        margin-top:105px;
+    }
+
+}
