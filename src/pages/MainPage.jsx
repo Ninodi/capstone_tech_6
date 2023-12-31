@@ -2,7 +2,6 @@ import React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Slider from '../components/Slider'
-import BestSellers from '../components/BestSellers'
 import CategoriesSection from '../components/CategoriesSection'
 
 const MainPage = () => {
