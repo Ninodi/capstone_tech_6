@@ -75,15 +75,16 @@
 .page-container
     max-width: 1224px
     margin: 0 auto    
-    padding: 0 25px
     margin-bottom: 65px
-
+    padding: 0 25px
+    @include plus1025()
+        padding: 0
 
 .categories-section-container
     padding-top: 25px
     padding-bottom: 20px
     position: relative
-    @include plus1025()
+    @include plus1441()
         padding-top: 45px
 
 .best-sellers
@@ -93,6 +94,8 @@
     overflow-x: auto
     overflow-y: hidden
     padding-right: 25px
+    @include plus1025()
+        padding-right: 0
 
 .best-sellers-title
     @include center()
