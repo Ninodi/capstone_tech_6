@@ -32,18 +32,3 @@ function ProductCategoryPage() {
 }
 
 export default ProductCategoryPage
-
-
-            {/* <div className="products-mobile-container">
-              <Banner />
-              <ProductFiltersMobile  />
-              <ProductDisplaySettings />
-            </div>
-            <div className="desktop-container">
-              <div className="breadcrumbs">
-                  <p>Home / Products / {capitalizeCategory()}</p>
-                  <SortingOptions activeSorting='Most popular'/>
-              </div>
-              <ProductFilters filterOptions={filterOptions} setFilterOptions={setFilterOptions}/>
-              <Products />
-            </div> */}

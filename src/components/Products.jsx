@@ -82,36 +82,6 @@ function Products({filterOptions, setFilterOptions, capitalizeCategory}) {
           <p style={{textAlign: 'center', color: '#171717', fontWeight: '700', marginTop: '40px'}} className="prod-num-tracker">Showing {Math.min(prodNum, products.length)} out of {products.length} items</p>
           <button id="load-more" onClick={loadMore} ref={loadBtn}>Load More</button>
       </div>
-      {/* <div className="products-container">
-        {displayedProducts.map((prod, index) => (
-          <NavLink to={`/products/women/${prod.name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={index}>
-            <div className="prod-image">
-              <img src={prod.img} alt="" />
-            </div>
-            <p style={{color: '#000000', marginTop: '17px'}}>{prod.name}</p>
-          </NavLink>
-        ))}
-      </div>
-      <ProductPagination 
-        totalPages={totalPages} 
-        currentPage={currentPage} 
-        setCurrentPage={setCurrentPage} 
-        setProdNum={setProdNum}
-      />
-      <div className="products-container-mobile">
-        <div className="products-mobile">
-          {products.map((prod, index) => index < prodNum && (
-            <NavLink to={`/products/women/${prod.name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={index}>
-              <div className="prod-image">
-                <img src={prod.img} alt="" />
-              </div>
-              <p style={{color: '#000000', marginTop: '17px'}}>{prod.name}</p>
-            </NavLink>
-            ))}
-        </div>
-        <p style={{textAlign: 'center', color: '#171717', fontWeight: '700', marginTop: '40px'}} className="prod-num-tracker">Showing {Math.min(prodNum, products.length)} out of {products.length} items</p>
-        <button id="load-more" onClick={loadMore} ref={loadBtn}>Load More</button>
-      </div> */}
     </div>
   );
 }
