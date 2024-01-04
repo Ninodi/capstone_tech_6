@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import { IoMdClose } from 'react-icons/io';
 import '../assets/styles/header.css';
+import { IoIosArrowDown } from "react-icons/io";
 
 
 const Header = () => {
@@ -29,7 +30,7 @@ const Header = () => {
               <ul className="navbar" ref={navRef}>
                 <li><NavLink className="list-item" to={'/'}>Home</NavLink></li>
                 <li className='megaDropdown'>
-                  <NavLink to={"/products"} className="list-item" >Products</NavLink>
+                  <NavLink to={"/products"} className="list-item" >Products <IoIosArrowDown /></NavLink>
                   <div className="mega-box">
                   <div className="content">
                     <div className="row">
