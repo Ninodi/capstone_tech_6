@@ -52,8 +52,7 @@ html {
 }
 .navbar .list-item:hover{
   font-weight: 800;
-  transform: scale(1); 
-}
+} 
 .active{
   font-weight: 800;
 }
@@ -83,19 +82,21 @@ html {
 @media only screen and (max-width:1400px){
   .navbar{
     position: absolute;
-    top: 0 ;
+    top: 25 ;
+    opacity: 0.9;
     left: 0;
-    height: 100vh;
+    min-height: 572px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 35px;
-    background-color: #FF6767;
+    background-color: #fff;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius:25px ;
     transition: 1s;
-    transform: translateY(-100vh);
+    transform: translatex(-100vh);
     z-index: 111;
+    flex-direction: column;
   }
   .responsive_nav{
     transform: none;
@@ -103,6 +104,14 @@ html {
   .nav_btn{
     display: block;
   }
+  .mega-box {
+    top: 65px;
+  }
+
+  .megaDropdown:hover .mega-box {
+    top: 65px;
+  }
+  
 }
 @media only screen and (max-width:600px){
   .container{
@@ -113,5 +122,38 @@ html {
     display: none;
   }
 }
-
+.mega-box{
+  position: absolute;
+  top: 110px;
+  left: 0;
+  background-color: #FFFFFF;
+  width: 100%;
+  padding: 54px 0;
+  color: #000;
+  z-index: 11;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.mega-links-item{
+  font-weight: 500;
+  color: #000;
+  font-size: 20px;
+}
+.mega-box .content{
+  display: flex;
+  justify-content: space-around;
+}
+.content .row{
+  line-height: 45px;
+}
+.row span{
+  font-weight: 600;
+  font-size: 25px;
+}
+.megaDropdown:hover  .mega-box{
+  top:125px;
+  opacity: 0.9;
+  visibility: visible;
+}
 /* ============================HEADER END ============================ */
