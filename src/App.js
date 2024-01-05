@@ -7,12 +7,14 @@ import ProductPage from './pages/ProductPage';
 import ContactPage from './pages/ContactPage';
 import ProductCategoryPage from './pages/ProductCategoryPage';
 import ProductItemPage from './pages/ProductItemPage';
+import Header from './components/Header';
 // import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter basename='capstone_tech_6'>
+        <Header />
         <Routes>
           <Route exact path='/capstone_tech_6' element={<MainPage/>} />
           <Route path='/about' element={<AboutPage/>} />
