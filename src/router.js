@@ -2,6 +2,7 @@ import AboutPage  from "./pages/AboutPage"
 import ContactPage from "./pages/ContactPage"
 import MainPage from "./pages/MainPage"
 import ProductPage from "./pages/ProductPage"
+import NotFoundPage from "./pages/NotFoundPage"
 
 
 const router = [
@@ -20,6 +21,10 @@ const router = [
     {
         element: <ContactPage/>,
         path: '/contact'
+    },
+    {
+        element: <NotFoundPage/>,
+        path: ':pagenotfound'
     }
 ]
 export default router
