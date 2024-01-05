@@ -25,11 +25,11 @@ const router = [
     },
     {
         element: <ProductCategoryPage/>,
-        path: 'products/:category'
+        path: '/products/:category'
     },
     {
         element: <ProductItemPage/>,
-        path: 'products/:category/:itemId'
+        path: '/products/:category/:itemId'
     },
 ]
 export default router
