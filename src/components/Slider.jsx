@@ -42,7 +42,7 @@ const Slider = () => {
     };
   
     const setActivePagination = (pagIndex) => {
-        if(currentImageIndex == pagIndex) return "pagination-item-active"
+        if(currentImageIndex === pagIndex) return "pagination-item-active"
     }
 
     return (
