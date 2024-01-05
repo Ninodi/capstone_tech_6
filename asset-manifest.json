@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/capstone_tech_6/static/css/main.a94d188a.css",
-    "main.js": "/capstone_tech_6/static/js/main.d8a06513.js",
+    "main.js": "/capstone_tech_6/static/js/main.aef4510f.js",
     "static/js/787.23cc2797.chunk.js": "/capstone_tech_6/static/js/787.23cc2797.chunk.js",
     "static/media/slide2.png": "/capstone_tech_6/static/media/slide2.a2ce370af703be3d98e7.png",
     "static/media/slide3.png": "/capstone_tech_6/static/media/slide3.beb6c6be9f7e1d4006a6.png",
@@ -34,11 +34,11 @@
     "static/media/prod2.png": "/capstone_tech_6/static/media/prod2.fa92411d8b302ba47335.png",
     "index.html": "/capstone_tech_6/index.html",
     "main.a94d188a.css.map": "/capstone_tech_6/static/css/main.a94d188a.css.map",
-    "main.d8a06513.js.map": "/capstone_tech_6/static/js/main.d8a06513.js.map",
+    "main.aef4510f.js.map": "/capstone_tech_6/static/js/main.aef4510f.js.map",
     "787.23cc2797.chunk.js.map": "/capstone_tech_6/static/js/787.23cc2797.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a94d188a.css",
-    "static/js/main.d8a06513.js"
+    "static/js/main.aef4510f.js"
   ]
 }
