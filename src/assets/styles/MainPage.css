@@ -94,8 +94,13 @@
 .page-container {
   max-width: 1224px;
   margin: 0 auto;
-  padding: 0 25px;
   margin-bottom: 65px;
+  padding: 0 25px;
+}
+@media screen and (min-width: 1025px) {
+  .page-container {
+    padding: 0;
+  }
 }
 
 .categories-section-container {
@@ -103,7 +108,7 @@
   padding-bottom: 20px;
   position: relative;
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1441px) {
   .categories-section-container {
     padding-top: 45px;
   }
@@ -116,6 +121,11 @@
   overflow-x: auto;
   overflow-y: hidden;
   padding-right: 25px;
+}
+@media screen and (min-width: 1025px) {
+  .best-sellers {
+    padding-right: 0;
+  }
 }
 
 .best-sellers-title {
