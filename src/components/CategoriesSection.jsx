@@ -3,9 +3,10 @@ import BestSellers from './BestSellers'
 import WomenAndKids from './WomenAndKids'
 import SpecialClothing from './SpecialClothing'
 
+
 const CategoriesSection = () => {
   return (
-    <div style={{paddingTop: '40px', paddingBottom: '20px'}}>
+    <div className='categories-section-container'>
         <BestSellers />
         <WomenAndKids />
         <SpecialClothing />
