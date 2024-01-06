@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import "../assets/styles/slider.css"
 import slide1 from '../assets/img/slide1.png';
 import slide2 from '../assets/img/slide2.png';
 import slide3 from '../assets/img/slide3.png';
@@ -42,7 +41,6 @@ const Slider = () => {
     };
   
     const setActivePagination = (pagIndex) => {
-        // console.log(pagIndex)
         if(currentImageIndex === pagIndex) return "pagination-item-active"
     }
 

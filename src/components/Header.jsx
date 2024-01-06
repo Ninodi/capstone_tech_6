@@ -5,7 +5,7 @@ import { NavLink,Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <div>
+    <div className='full-header'>
         <div className='fHeader'>
             <div className="conatiner">
                 <span>"Dress for the life you deserve."</span>
