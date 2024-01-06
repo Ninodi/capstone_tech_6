@@ -13,12 +13,16 @@ const Header = () => {
   };
 
   return (
-    <div>
-      <div className="fHeader">
-        <div className="container">
-          <span>"Dress for the life you deserve."</span>
+    <div className='full-header'>
+        <div className='fHeader'>
+            <div className="conatiner">
+                <span>"Dress for the life you deserve."</span>
+            </div>
+            <select name="select" id="select">
+                <option value="English">English</option>
+                <option value="Georgian">Georgian</option>
+            </select>
         </div>
-      </div>
       <header>
         <div className="container">
           <div className="header">
