@@ -8,6 +8,7 @@ import ShopNow from '../components/ShopNow'
 import ContactUs from '../components/ContactUs'
 import BackToTop from '../components/BackToTop'
 
+
 const MainPage = () => {
   return (
     <div>
@@ -16,7 +17,7 @@ const MainPage = () => {
           <Slider/>
           <CategoriesSection />
           <ShopNow />
-          <ContactUs />
+          <ContactUs pageType='spa'/>
           <BackToTop/>
         </main>
         <Footer/>

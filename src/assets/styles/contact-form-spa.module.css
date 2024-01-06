@@ -1,0 +1,181 @@
+
+.contact-form-container
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.contact-form-img-container {
+    margin-left:10px;
+  }
+
+.contact-form-img
+{
+    width:378px;
+    height:578px;
+    margin-right:10px;
+    
+}
+
+.contact-form-input
+{
+    font-family: 'Montserrat-SemiBold';
+    font-size:100%;
+    width:275px;
+    height:53px;
+    border-style:none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    outline: none;
+    margin-top: 45px;
+    
+}
+
+.input-fields-container
+{
+    margin-left:10px;
+}
+
+
+.contact-form-msg
+{
+  
+   margin-top: 80px;
+   
+}
+.contactus-title
+{
+    font-family: 'Quicksand-Regular';
+    font-size: 50px;
+    letter-spacing: 0.2em;   
+   
+}
+
+.contact-info
+{
+   
+    margin-top:1px;
+}
+
+.contact-info-title
+{
+    font-family: 'Quicksand-Bold';
+    margin-top:15px;
+}
+
+.contact-info-text
+{
+    font-family: 'Quicksand-regular';
+    margin-top:5px;
+    
+    
+
+}
+
+
+.contactus-btn
+{
+    font-size:20px;
+    letter-spacing: 0.05em;
+    font-family: 'Quicksand-SemiBold';
+    color:#ffffff;
+    background-color: #3391a1;
+    width:289px;
+    height:56px;
+    border-radius: 5px;
+    border-style: none;
+    cursor:pointer;
+    transition: background-color 0.1s, transform 0.1s;
+    margin-top:60px;
+}
+
+
+  .contactus-btn:active
+  {
+    background-color: #26707d;
+    transform: scale(0.97);
+  }
+  
+  .location-div
+  {
+      display: none;
+  }
+
+
+  @media (max-width: 767px) {
+    
+  
+    .contact-form-container
+    {
+        margin-top:35px;
+        margin-bottom:25px;
+    }
+    .contact-form-img-container {
+      display: none;
+    }
+
+    .input-fields-container
+    {
+    margin-left:1px;
+    }
+  
+
+    .contactus-title
+    {
+        font-size:22px;
+        margin-bottom:10px;
+    }
+
+    .input-fields-container
+{
+    margin-left:10px;
+}
+
+    .contact-form-input
+    {
+        font-size:10px;
+        width:121px;
+        margin-top:25px;
+        margin-left:10px;
+    }
+
+    .contact-form-msg
+    {
+        
+        margin-top:40px;
+    }
+
+    
+    .contactus-btn
+    {
+        font-size:10px;
+        width:109px;
+        height:21px;
+        margin-top:30px;
+        letter-spacing: 0.02px;
+    }
+
+    .contact-info
+    {
+        font-size:10px;
+        margin-right:10px;
+        margin-top:10px;
+    }
+    
+    .contact-info-title
+{
+    font-family: 'Quicksand-Bold';
+    margin-top:15px;
+}
+
+    .location-div
+    {
+        display: none;
+    }
+
+    
+    
+}
