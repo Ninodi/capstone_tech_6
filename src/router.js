@@ -21,10 +21,6 @@ const router = [
     {
         element: <ContactPage/>,
         path: '/contact'
-    },
-    {
-        element: <NotFoundPage/>,
-        path: ':pagenotfound'
     }
 ]
 export default router
