@@ -40,23 +40,23 @@ const Header = () => {
                     <div className="row">
                       <span>Women's</span>
                       <ul className="mega-links">
-                        <li><Link to={"/dresses"} className='mega-links-item'>Dresses</Link></li>
-                        <li><Link to={"/accessories"} className='mega-links-item'>Accessories</Link></li>
-                        <li><Link to={"/weddingdresses"} className='mega-links-item'>Wedding Dresses</Link></li>
+                        <li><Link to={"/products/dresses"} className='mega-links-item'>Dresses</Link></li>
+                        <li><Link to={"/products/accessories"} className='mega-links-item'>Accessories</Link></li>
+                        <li><Link to={"/products/weddingdresses"} className='mega-links-item'>Wedding Dresses</Link></li>
                       </ul>
                     </div>
                     <div className="row">
                       <span>Kid's</span>
                       <ul className="mega-links">
-                        <li><Link to={"/kiddresses"} className='mega-links-item'>Dresses</Link></li>
-                        <li><Link to={"/kidaccessories"} className='mega-links-item'>Accessories</Link></li>
+                        <li><Link to={"/products/kiddresses"} className='mega-links-item'>Dresses</Link></li>
+                        <li><Link to={"/products/kidaccessories"} className='mega-links-item'>Accessories</Link></li>
                       </ul>
                     </div>
                     <div className="row">
                       <span>Special Clothing</span>
                       <ul className="mega-links">
-                        <li><Link to={"/christening"} className='mega-links-item'>Christening</Link></li>
-                        <li><Link to={"/christmas"} className='mega-links-item'>Christmas</Link></li>
+                        <li><Link to={"/products/christening"} className='mega-links-item'>Christening</Link></li>
+                        <li><Link to={"/products/christmas"} className='mega-links-item'>Christmas</Link></li>
                       </ul>
                     </div>
                   </div>
