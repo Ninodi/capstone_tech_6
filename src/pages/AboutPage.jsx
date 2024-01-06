@@ -5,6 +5,7 @@ import AboutHero from '../components/AboutHero'
 import AboutText from '../components/AboutText'
 
 const AboutPage = () => {
+  
   return (
     <div>
         <Header/>
