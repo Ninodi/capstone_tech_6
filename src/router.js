@@ -4,7 +4,6 @@ import MainPage from "./pages/MainPage"
 import ProductPage from "./pages/ProductPage"
 import ProductCategoryPage from "./pages/ProductCategoryPage"
 import ProductItemPage from "./pages/ProductItemPage"
->>>>>>>>> Temporary merge branch 2
 
 
 const router = [

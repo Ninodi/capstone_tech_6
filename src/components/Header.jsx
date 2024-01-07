@@ -32,7 +32,7 @@ const Header = () => {
               <ul className="navbar" ref={navRef}>
                 <li><NavLink className="list-item" to={'/'}>Home</NavLink></li>
                 <li className='megaDropdown'>
-                  <NavLink to={"/products"} className="list-item" >Products <IoIosArrowDown /></NavLink>
+                  <NavLink to={"/products"} className="list-item product-megadropdown" >Products <IoIosArrowDown /></NavLink>
                   <div className="mega-box">
                   <div className="content">
                     <div className="row">
