@@ -18,10 +18,6 @@ const Header = () => {
             <div className="conatiner">
                 <span>"Dress for the life you deserve."</span>
             </div>
-            <select name="select" id="select">
-                <option value="English">English</option>
-                <option value="Georgian">Georgian</option>
-            </select>
         </div>
       <header>
         <div className="container">
