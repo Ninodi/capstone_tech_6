@@ -32,5 +32,9 @@ const router = [
         element: <ProductItemPage/>,
         path: '/products/:category/:itemId'
     },
+    {
+        element: <NotFoundPage/>,
+        path: ':pagenotfound'
+    },
 ]
 export default router

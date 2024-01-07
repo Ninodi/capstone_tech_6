@@ -9,27 +9,27 @@ import { IoIosArrowDown } from "react-icons/io";
 const Header = () => {
   const navRef = useRef();
   const showNavbar = () => {
-    navRef.current.classList.toggle('responsive_nav');
+    navRef.current.classList.toggle('responsive-nav');
   };
 
   return (
     <div className='full-header'>
-        <div className='fHeader'>
-            <div className="conatiner">
+        <div className='first-header'>
+            <div className="container">
                 <span>"Dress for the life you deserve."</span>
             </div>
         </div>
       <header>
         <div className="container">
           <div className="header">
-            <FaBars className="nav_btn" onClick={showNavbar} />
+            <FaBars className="nav-btn" onClick={showNavbar} />
             <Link to={'/'} className="logo">
               Mariamis Atelier
             </Link>
             <nav >
               <ul className="navbar" ref={navRef}>
                 <li><NavLink className="list-item" to={'/'}>Home</NavLink></li>
-                <li className='megaDropdown'>
+                <li className='mega-dropdown'>
                   <NavLink to={"/products"} className="list-item" >Products <IoIosArrowDown /></NavLink>
                   <div className="mega-box">
                   <div className="content">
@@ -61,7 +61,7 @@ const Header = () => {
                 <li><NavLink className="list-item" to={'/about'}>About</NavLink></li>
                 <li><NavLink className="list-item" to={'/contact'}>Contact</NavLink></li>
                 <IoMdClose
-                className="nav_btn nav_close_btn"
+                className="nav-btn nav-close-btn"
                 onClick={showNavbar}
               />
               </ul>

@@ -16,7 +16,7 @@ html {
 }
 /* ========================HEADER START====================== */
 
-.fHeader{
+.first-header{
   background-color: #FF6767;
   padding: 14px 0;
   color: #fff;
@@ -69,17 +69,17 @@ html {
   width: 160px;
   border-bottom: 1.5px solid #3391A1;
 }
-.nav_btn{
+.nav-btn{
   cursor: pointer;
   font-size: 20px;
   display: none;
 }
-.nav_close_btn{
+.nav-close-btn{
   position: absolute;
   right: 15px;
   top: 15px;
 }
-.responsive_nav{
+.responsive-nav{
   padding: 28px 0;
 }
 
@@ -112,11 +112,14 @@ html {
   font-weight: 600;
   font-size: 25px;
 }
-.megaDropdown:hover  .mega-box{
-  top:125px;
+.mega-dropdown:hover  .mega-box{
+  top:115px;
   opacity: 0.9;
   visibility: visible;
   
+}
+option:hover{
+  backgroun: #000;
 }
 @media only screen and (max-width:1400px){
   .navbar{
@@ -136,18 +139,18 @@ html {
     transform: translatex(-100vh);
     z-index: 111;
   }
-  .responsive_nav{
+  .responsive-nav{
     opacity: 0.9;
     transform: none;
   }
-  .nav_btn{
+  .nav-btn{
     display: block;
   }
   .mega-box .content{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  .megaDropdown:hover  .mega-box{
+  .mega-dropdown:hover  .mega-box{
     visibility: visible;
     position: static;
   }
@@ -160,7 +163,7 @@ html {
     padding:0 36px;
     margin:  auto;
   }
-  .fHeader{
+  .first-header{
     display: none;
   }
   .mega-box{
@@ -170,4 +173,3 @@ html {
     margin: 18px;
   }
 }
-/* ============================HEADER END ============================ */
