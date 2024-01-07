@@ -1,29 +1,12 @@
 import './App.css';
-import { RouterProvider, createBrowserRouter, BrowserRouter, Routes, Route } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import router from './router';
-import MainPage from './pages/MainPage';
-import AboutPage from './pages/AboutPage';
-import ProductPage from './pages/ProductPage';
-import ContactPage from './pages/ContactPage';
-import ProductCategoryPage from './pages/ProductCategoryPage';
-import ProductItemPage from './pages/ProductItemPage';
-import Header from './components/Header';
-// import { HashRouter as Router, Route, Routes } from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename='capstone_tech_6'>
-        <Header />
-        <Routes>
-          <Route exact path='/capstone_tech_6' element={<MainPage/>} />
-          <Route path='/about' element={<AboutPage/>} />
-          <Route path='/products' element={<ProductPage/>} />
-          <Route path='/contact' element={<ContactPage/>} />
-          <Route path='/products/:category' element={<ProductCategoryPage/>} />
-          <Route path='/products/:category/:itemId' element={<ProductItemPage/>} />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={createBrowserRouter(router)}/>
     </div>
   );
 }

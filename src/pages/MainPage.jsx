@@ -7,7 +7,6 @@ import "../assets/styles/MainPage.css"
 import ShopNow from '../components/ShopNow'
 import ContactUs from '../components/ContactUs'
 import BackToTop from '../components/BackToTop'
-// import BackToTop from '../components/BackToTop'
 
 const MainPage = () => {
   return (
@@ -19,7 +18,6 @@ const MainPage = () => {
           <ShopNow />
           <ContactUs />
           <BackToTop/>
-          {/* <BackToTop/> */}
         </main>
         <Footer/>
     </div>

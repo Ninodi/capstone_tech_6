@@ -5,6 +5,7 @@ import BestSeller2 from '../assets/img/bestSellers2.png'
 import BestSeller3 from '../assets/img/bestSellers3.png'
 import Messenger from '../assets/img/messenger.png'
 import MessengerLarge from '../assets/img/messengerLarge.png'
+import { Link } from 'react-router-dom'
 
 const BestSellers = () => {
     const bestSellers = [
@@ -28,14 +29,14 @@ const BestSellers = () => {
                 <div className="best-sellers-title" style={{display: 'flex'}}>
                     <h1>Best Sellers</h1>
                     <div className="messenger-icon">
-                        <a href="" >
+                        <Link to={'/'}>
                             <img src={Messenger} alt="" />
-                        </a>
+                        </Link>
                     </div>
                     <div className="messenger-icon-large">
-                        <a href="">
+                        <Link to={'/'}>
                             <img src={MessengerLarge} alt="Contact us on Messenger" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className='best-sellers'>

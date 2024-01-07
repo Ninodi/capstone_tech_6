@@ -4,7 +4,7 @@ import MainPage from "./pages/MainPage"
 import ProductPage from "./pages/ProductPage"
 import ProductCategoryPage from "./pages/ProductCategoryPage"
 import ProductItemPage from "./pages/ProductItemPage"
-import NotFoundPage from "./pages/NotFoundPage"
+>>>>>>>>> Temporary merge branch 2
 
 
 const router = [
@@ -23,10 +23,6 @@ const router = [
     {
         element: <ContactPage/>,
         path: '/contact'
-    },
-    {
-        element: <NotFoundPage/>,
-        path: ':pagenotfound'
     },
     {
         element: <ProductCategoryPage/>,

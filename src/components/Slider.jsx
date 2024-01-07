@@ -25,20 +25,20 @@ const Slider = () => {
         },
     ]; 
 
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
   
     useEffect(() => {
         const intervalId = setInterval(() => {
-            nextImage();
-        }, 4000);
+            nextImage()
+        }, 4000)
 
-        return () => clearInterval(intervalId);
-    }, [currentImageIndex]);
+        return () => clearInterval(intervalId)
+    }, [currentImageIndex])
 
 
     const nextImage = () => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slideContent.length);
-    };
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slideContent.length)
+    }
   
     const setActivePagination = (pagIndex) => {
         if(currentImageIndex === pagIndex) return "pagination-item-active"
