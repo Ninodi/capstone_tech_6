@@ -79,8 +79,13 @@
 }
 @media screen and (min-width: 1025px) {
   .products-desktop-container {
+    width: 100%;
     display: block;
   }
+}
+
+.empty-list {
+  width: 100%;
 }
 
 .products-mobile-container {
@@ -138,6 +143,9 @@
   height: 180px;
   -o-object-fit: contain;
      object-fit: contain;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 8px;
 }
 @media screen and (min-width: 1025px) {
   .prod-image {

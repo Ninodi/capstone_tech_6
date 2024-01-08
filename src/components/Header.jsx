@@ -40,9 +40,9 @@ const Header = () => {
                     <div className="row">
                       <span>Women's</span>
                       <ul className="mega-links">
-                        <li><Link to={"/products/dresses"} className='mega-links-item'>Dresses</Link></li>
-                        <li><Link to={"/products/accessories"} className='mega-links-item'>Accessories</Link></li>
-                        <li><Link to={"/products/weddingdresses"} className='mega-links-item'>Wedding Dresses</Link></li>
+                        <li><Link to={"/products/dresses"} state={{ mainCategory: '2' }} className='mega-links-item'>Dresses</Link></li>
+                        <li><Link to={"/products/accessories"} state={{ mainCategory: '3' }} className='mega-links-item'>Accessories</Link></li>
+                        <li><Link to={"/products/weddingdresses"} state={{ mainCategory: '4' }} className='mega-links-item'>Wedding Dresses</Link></li>
                       </ul>
                     </div>
                     <div className="row">
