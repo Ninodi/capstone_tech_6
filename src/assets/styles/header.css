@@ -16,7 +16,7 @@ html {
 }
 /* ========================HEADER START====================== */
 
-.fHeader{
+.first-header{
   background-color: #FF6767;
   padding: 14px 0;
   color: #fff;
@@ -69,23 +69,23 @@ html {
   width: 160px;
   border-bottom: 1.5px solid #3391A1;
 }
-.nav_btn{
+.nav-btn{
   cursor: pointer;
   font-size: 20px;
   display: none;
 }
-.nav_close_btn{
+.nav-close-btn{
   position: absolute;
   right: 15px;
   top: 15px;
 }
-.responsive_nav{
+.responsive-nav{
   padding: 28px 0;
 }
 
 .mega-box{
   position: absolute;
-  top: 110px;
+  top: 120px;
   left: 0;
   background-color: #FFFFFF;
   width: 100%;
@@ -93,7 +93,7 @@ html {
   color: #000;
   z-index: 11;
   opacity: 0;
-  /* visibility: hidden; */
+  visibility: hidden;
   transition: all 0.3s ease;
 }
 .mega-links-item{
@@ -112,20 +112,23 @@ html {
   font-weight: 600;
   font-size: 25px;
 }
-.megaDropdown:hover  .mega-box{
-  top:125px;
+.mega-dropdown:hover  .mega-box{
+  top:115px;
   opacity: 0.9;
   visibility: visible;
   
+}
+option:hover{
+  backgroun: #000;
 }
 @media only screen and (max-width:1400px){
   .navbar{
     position: absolute;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    top: 130px;
+    top: 110px;
     left: 0;
     min-height: 572px;
-    min-width: 80%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     gap: 35px;
@@ -136,29 +139,21 @@ html {
     transform: translatex(-100vh);
     z-index: 111;
   }
-  .responsive_nav{
+  .responsive-nav{
+    opacity: 0.9;
     transform: none;
   }
-  .nav_btn{
+  .nav-btn{
     display: block;
-  }
-
-  .megaDropdown:hover .mega-box {
-    top: -1px;
   }
   .mega-box .content{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    position: relative;
   }
-  .megaDropdown:hover  .mega-box{
-    opacity: 0.9;
+  .mega-dropdown:hover  .mega-box{
     visibility: visible;
-    position: relative;
+    position: static;
   }
-  .responsive_nav li:nth-child(1) {
-    margin-top: 18px;
-}
   .navbar .list-item{
     font-size: 25px;
 }
@@ -168,7 +163,7 @@ html {
     padding:0 36px;
     margin:  auto;
   }
-  .fHeader{
+  .first-header{
     display: none;
   }
   .mega-box{
@@ -178,4 +173,3 @@ html {
     margin: 18px;
   }
 }
-/* ============================HEADER END ============================ */
