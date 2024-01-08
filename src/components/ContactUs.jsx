@@ -1,13 +1,17 @@
    
-    import React, { useState } from 'react'
-    
+       import React, {useState,useEffect } from 'react'
        import styleSpa from '../assets/styles/contact-form-spa.module.css'
        import styleNav from '../assets/styles/contact-form-nav.module.css'
+       import contactFormImg from '../assets/img/contact-form-img.png'
+       //import useFetch from './useFetch'  // custom hook import, not used
+      
 
-    import contactFormImg from '../assets/img/contact-form-img.png'
-
-const ContactUs = ({pageType})=>
+    const ContactUs = ({pageType})=>
 {
+
+    const contactStyle = pageType === 'spa' ? styleSpa : styleNav
+
+
    
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -15,91 +19,70 @@ const ContactUs = ({pageType})=>
     const [url, setUrl] = useState('')
     const [message, setMessage ] = useState('')
     const [submitStatus, setSubmitStatus] = useState(null)
-    
+    const [formData, setformData] = useState(null)
 
- 
-    const contactStyle = pageType === 'spa' ? styleSpa : styleNav
-
-
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
    
-      
-    
 
+        //const {jsonData,error,loading} = useFetch(request_url, 'POST', formData)
        
-           
-         
-                
-            
+    
+       
 
+
+
+
+
+    
    const handleSubmit =(e)=>
     {
         e.preventDefault()
        
+        setformData({fl_name:name,mail:email,mobile:phone,fb_url:url,message:message })
 
+      //  const request_url = 'http://94.137.187.198:3535/leadcreate/' // django backend
 
+        //const request_url = 'https://jsonplaceholder.typicode.com/posts' // test fake api
 
-        const formData ={fl_name:name,mail:email,mobile:phone,fb_url:url,message:message }
-
-       // const url1 = 'http://94.137.187.198:9876/leadcreate/' // django backend
-
-        const url2 = 'https://jsonplaceholder.typicode.com/posts' // test fake api
+      const request_url = 'http://94.137.187.198:3535/products/'
        
-
-        fetch(url2, {
-
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-          },
-        body: JSON.stringify(formData),
-       
-
-        } ).then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          })
-          .then(jsonData => {
-            // Handle the JSON response (an array in this case)
-            console.log(jsonData)
-            //setSubmitStatus(jsonData.fl_name);
-          })
-          .catch(error => {
-            setSubmitStatus(error.message);
-          });
-
-
+     
+            const fetchData = async () => {
+              try {
+                setLoading(true);
         
-
-        setTimeout(() => {
-            setSubmitStatus(null)
-            
-        }, 2000);
-
-
-        // fetch('https://jsonplaceholder.typicode.com/posts', {
-
-        // method: 'POST',
-        // headers: {
-        //     'Content-type': 'application/json; charset=UTF-8',
-        //   },
-        // body: JSON.stringify(formData),
-
-        // } ).then((response) => response.json())
-        // .then((json) => setSubmitStatus("მონაცემები შენახულია"));
-
+                  const response = await fetch(request_url, {
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                  },
+                  body: JSON.stringify(formData),
+                });
         
-
-        // setTimeout(() => {
-        //     setSubmitStatus(null)
-            
-        // }, 2000);
+                if (!response.ok) {
+                  //throw new Error('Network response was not ok')
+                 console.log("status kodi aris: " +response.status)
+                }
+        
+                const jsonData = await response.json()
+                setData(jsonData)
+              } catch (error) {
+                setError(error.message)
+               
+              } finally {
+                setLoading(false)
+              }
+            };
+        
+            fetchData()
+          
 
 
     }
 
-    // const  combinedStyles = `${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`
+
 
     return (
         <div>
@@ -138,8 +121,9 @@ const ContactUs = ({pageType})=>
       
     <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder='Message' onChange={(e)=>setMessage(e.target.value)} />
     </div>
-    <button type="submit" className={contactStyle['contactus-btn']}>Contact Us</button> <span>{submitStatus}</span>
+    <button type="submit" className={contactStyle['contactus-btn']}>Contact Us</button> 
     </form>
+    <div id={contactStyle['submit-status']}>{submitStatus}</div>
     
             
  

@@ -90,6 +90,7 @@
     cursor:pointer;
     transition: background-color 0.1s, transform 0.1s;
     margin-top:60px;
+    
 }
 
 
@@ -97,6 +98,14 @@
   {
     background-color: #26707d;
     transform: scale(0.97);
+  }
+
+  #submit-status
+  {
+    width:289px;
+    text-align: center;
+    height: 50px;
+    margin-top:30px;
   }
   
   .location-div
@@ -112,6 +121,7 @@
     {
         margin-top:35px;
         margin-bottom:25px;
+        justify-content: space-between;
     }
     .contact-form-img-container {
       display: none;
@@ -137,8 +147,9 @@
     .contact-form-input
     {
         font-size:10px;
-        width:121px;
-        margin-top:25px;
+        width:128.55px;
+        height:25.07px;
+        margin-top:145px;
         margin-left:10px;
     }
 
@@ -164,6 +175,15 @@
         margin-right:10px;
         margin-top:10px;
     }
+
+    #submit-status
+  {
+    width:150px;
+    text-align: center;
+    height: 50px;
+    margin-top:30px;
+  }
+
     
     .contact-info-title
 {

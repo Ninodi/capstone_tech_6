@@ -100,6 +100,14 @@
     transform: scale(0.97);
   }
   
+  #submit-status
+  {
+    width:289px;
+    text-align: center;
+    height: 100px;
+    margin-top:30px;
+  }
+
   .icons
   {
     margin-top:30px;
@@ -147,6 +155,7 @@
     {
         font-size:10px;
         width:121px;
+        height:25px;
         margin-top:5px;
         margin-left:10px;
     }
@@ -166,6 +175,14 @@
         margin-top:15px;
         margin-left:15px;
         letter-spacing: 0.02px;
+    }
+
+    #submit-status
+    {
+        width:289px;
+        text-align: center;
+        height: 100px;
+        margin-top:30px;
     }
 
     .contact-info
