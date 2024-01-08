@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import "../assets/styles/slider.css"
 import slide1 from '../assets/img/slide1.png';
 import slide2 from '../assets/img/slide2.png';
 import slide3 from '../assets/img/slide3.png';
@@ -26,23 +25,22 @@ const Slider = () => {
         },
     ]; 
 
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
   
     useEffect(() => {
         const intervalId = setInterval(() => {
-            nextImage();
-        }, 4000);
+            nextImage()
+        }, 4000)
 
-        return () => clearInterval(intervalId);
-    }, [currentImageIndex]);
+        return () => clearInterval(intervalId)
+    }, [currentImageIndex])
 
 
     const nextImage = () => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slideContent.length);
-    };
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slideContent.length)
+    }
   
     const setActivePagination = (pagIndex) => {
-        // console.log(pagIndex)
         if(currentImageIndex === pagIndex) return "pagination-item-active"
     }
 

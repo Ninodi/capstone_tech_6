@@ -4,11 +4,9 @@ import Footer from '../components/Footer'
 import ContactUs from '../components/ContactUs'
 
 
-
 const ContactPage = () => {
   return (
     <div>
-      
         <Header/>
         <ContactUs pageType='nav'/>
         <Footer/>
