@@ -118,17 +118,14 @@ html {
   visibility: visible;
   
 }
-option:hover{
-  backgroun: #000;
-}
-@media only screen and (max-width:1400px){
+@media only screen and (max-width:1300px){
   .navbar{
     position: absolute;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     top: 110px;
     left: 0;
     min-height: 572px;
-    width: 80%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     gap: 35px;
