@@ -89,8 +89,7 @@ html {
   left: 0;
   background-color: #FFFFFF;
   width: 100%;
-  padding: 54px;
-  color: #000;
+  padding: 30px 54px;
   z-index: 11;
   opacity: 0;
   visibility: hidden;
@@ -125,15 +124,16 @@ html {
     top: 110px;
     left: 0;
     min-height: 572px;
-    width: 70%;
+    width: 80%;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 45px;
     background-color: #fff;
     border-top-right-radius: 25px;
     border-bottom-right-radius:25px ;
     transition: 1s;
-    transform: translatex(-100vh);
+    transform: translatex(-102%);
     z-index: 111;
   }
   .responsive-nav{
@@ -159,6 +159,10 @@ html {
   .container{
     padding:0 36px;
     margin:  auto;
+  }
+  .mega-box .content{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
   .first-header{
     display: none;
