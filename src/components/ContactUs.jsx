@@ -42,11 +42,9 @@
        
         setformData({fl_name:name,mail:email,mobile:phone,fb_url:url,message:message })
 
-      //  const request_url = 'http://94.137.187.198:3535/leadcreate/' // django backend
+        const request_url = 'http://94.137.187.198:3535/leadcreate/'
 
-        //const request_url = 'https://jsonplaceholder.typicode.com/posts' // test fake api
-
-      const request_url = 'http://94.137.187.198:3535/products/'
+        
        
      
             const fetchData = async () => {
@@ -130,7 +128,7 @@
 </div>
 
 
-<div className={contactStyle['contact-info']}>
+<div className={contactStyle['contact-info-container']}>
 
     <p className={contactStyle['contact-info-title']}>Contact</p>
 

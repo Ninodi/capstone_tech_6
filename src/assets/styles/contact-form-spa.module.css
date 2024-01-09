@@ -10,13 +10,14 @@
 }
 .contact-form-img-container {
     margin-left:10px;
+    margin-right:10px;
   }
 
 .contact-form-img
 {
-    width:378px;
-    height:578px;
-    margin-right:10px;
+    max-width:100%;
+    height:auto;
+   
     
 }
 
@@ -54,7 +55,7 @@
    
 }
 
-.contact-info
+.contact-info-container
 {
    
     margin-top:1px;
@@ -121,7 +122,7 @@
     {
         margin-top:35px;
         margin-bottom:25px;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     .contact-form-img-container {
       display: none;
@@ -129,34 +130,54 @@
 
     .input-fields-container
     {
-    margin-left:1px;
+    margin-left:5px;
     }
   
 
     .contactus-title
     {
-        font-size:22px;
+        font-size:28px;
         margin-bottom:10px;
+        letter-spacing: 0em;   
     }
 
-    .input-fields-container
-{
-    margin-left:10px;
-}
+   
 
     .contact-form-input
     {
+   
         font-size:10px;
         width:128.55px;
         height:25.07px;
-        margin-top:145px;
-        margin-left:10px;
+        margin-top:25px;
+       
     }
 
     .contact-form-msg
     {
         
         margin-top:40px;
+    }
+
+
+    .contact-info-container
+    {
+        
+        margin-right:7px;
+        margin-top:10px;
+    }
+
+    .contact-info-title
+    {
+        font-family: 'Quicksand-Bold';
+        margin-top:15px;
+        font-size:11px;
+    }
+    
+
+    .contact-info-text
+    {
+        font-size:10px;
     }
 
     
@@ -169,13 +190,6 @@
         letter-spacing: 0.02px;
     }
 
-    .contact-info
-    {
-        font-size:10px;
-        margin-right:10px;
-        margin-top:10px;
-    }
-
     #submit-status
   {
     width:150px;
@@ -185,11 +199,7 @@
   }
 
     
-    .contact-info-title
-{
-    font-family: 'Quicksand-Bold';
-    margin-top:15px;
-}
+   
 
     .location-div
     {
