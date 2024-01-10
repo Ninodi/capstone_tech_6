@@ -13,6 +13,12 @@
     margin-right:10px;
   }
 
+
+.fill-this-form-title
+  {
+    display:none;
+  }
+
 .contact-form-img
 {
     max-width:100%;
@@ -26,7 +32,7 @@
     font-family: 'Montserrat-SemiBold';
     font-size:100%;
     width:275px;
-    height:53px;
+    height:46px;
     border-style:none;
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -54,6 +60,11 @@
     letter-spacing: 0.2em;   
    
 }
+.contactus2-title
+{
+   display:none;
+   
+}
 
 .contact-info-container
 {
@@ -70,7 +81,7 @@
 .contact-info-text
 {
     font-family: 'Quicksand-regular';
-    margin-top:5px;
+    margin-top:20px;
     
     
 

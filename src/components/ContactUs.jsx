@@ -1,13 +1,19 @@
    
        import React, {useState,useEffect } from 'react'
        import { useNavigate } from 'react-router-dom';
+       import { Link } from 'react-router-dom'
+       import { GrFacebookOption } from "react-icons/gr";
+       import { FiTwitter } from "react-icons/fi";
+       import { FaInstagram } from "react-icons/fa";
+       import { RiLinkedinLine } from "react-icons/ri";
 
        import styleSpa from '../assets/styles/contact-form-spa.module.css'
        import styleNav from '../assets/styles/contact-form-nav.module.css'
        import contactFormImg from '../assets/img/contact-form-img.png'
-       //import useFetch from './useFetch'  // custom hook import, not used
+import { FaDisplay } from 'react-icons/fa6';
+   
 
-       import SubmitPage from '../pages/SubmitPage'
+    
       
 
     const ContactUs = ({pageType})=>
@@ -66,12 +72,12 @@ const fetchData = async () => {
     const jsonData = await response.json()
     setData(jsonData)
     console.log(data)
-    // setName('')
-    // setEmail('')
-    // setPhone('')
-    // setUrl('')
-    // setMessage('')
-  //  navigate('/SubmitPage');
+    setName('')
+    setEmail('')
+    setPhone('')
+    setUrl('')
+    setMessage('')
+    navigate('/SubmitPage');
     
     
 
@@ -122,7 +128,8 @@ const fetchData = async () => {
 
   <div className={contactStyle['input-fields-container']}>
 
-  <p className={contactStyle['contactus-title']}>Contact Us</p>
+  <p className={contactStyle['contactus-title']}>CONTACT US</p>
+  <p className={contactStyle['fill-this-form-title'] }>FILL THIS FORM</p>
     
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
@@ -139,7 +146,7 @@ const fetchData = async () => {
     <input type="text" className={contactStyle['contact-form-input']} placeholder='Phone' value={phone} onChange={(e)=>setPhone(e.target.value)}/>
     </div>
     <div>
-        <input type="url" className={contactStyle['contact-form-input']} placeholder='Link to your facebook profile' value={url} onChange={(e)=>setUrl(e.target.value)}/>
+        <input type="url" className={contactStyle['contact-form-input']} placeholder='Facebook Profile URL' value={url} onChange={(e)=>setUrl(e.target.value)}/>
     </div>
     
     
@@ -147,7 +154,7 @@ const fetchData = async () => {
       
     <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder='Message' value={message} onChange={(e)=>setMessage(e.target.value)} />
     </div>
-    <button type="submit" className={contactStyle['contactus-btn']}>Contact Us</button> 
+    <button type="submit" className={contactStyle['contactus-btn']}>Send</button> 
     </form>
     <div id={contactStyle['submit-status']}>{submitStatus}</div>
     
@@ -157,16 +164,26 @@ const fetchData = async () => {
 
 
 <div className={contactStyle['contact-info-container']}>
-
-    <p className={contactStyle['contact-info-title']}>Contact</p>
+<p className={contactStyle['contactus2-title']}>CONTACT US</p>
+   
+ 
+   <p className={contactStyle['contact-info-title']}>Contact</p>
 
    <p className={contactStyle['contact-info-text']}>+995 593 440 680</p>
    <p className={contactStyle['contact-info-text']}>Mariamtskhovrebashvili74@gmail.com</p>
-   
+
    <p className={contactStyle['contact-info-title']}>Based In</p>
    <p className={contactStyle['contact-info-text']}>Georgia, Tkibuli</p>
-
+                   
+                   <div className="icons">
+                       <Link to={"https://www.facebook.com/"} target='_blank'> <GrFacebookOption className='icon' /> </Link>
+                       <Link to={"https://twitter.com/?lang=en"} target='_blank'><FiTwitter  className='icon'/></Link>
+                       <Link to={"https://www.instagram.com/"} target='_blank'><FaInstagram className='icon'/> </Link>
+                       <Link to={"https://www.linkedin.com/"} target='_blank'><RiLinkedinLine className='icon'/> </Link>
+                   </div>
+          
    <div className={contactStyle['location-div']}>
+  
         <h3>Location</h3>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47181.50572166761!2d42.95001896306638!3d42.34584692539633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x405c9b428415ac77%3A0x54a8c7492541cee8!2sTkibuli!5e0!3m2!1sen!2sge!4v1702663574599!5m2!1sen!2sge" width="333" height="181" title='Tkibuli'  loading="lazy" ></iframe>
     </div>
