@@ -18,7 +18,7 @@ const ShopNow = ()=>
                 <p className='shopnow-title'>Mariami's Atelier</p>
                 <hr className='shopnow-separator'/>
                 <p className='shopnow-text'>Feel Confident In The Clothes You wear</p>
-                <button className="shopnow-btn">Shop Now</button>
+                <button className="shopnow-btn">Shop now</button>
             </div>
 
        

@@ -58,7 +58,12 @@
 .products-desktop-container
     display: none
     @include plus1025()
+        width: 100%
         display: block
+
+
+.empty-list
+    width: 100%
 
 .products-mobile-container 
     @include verticalCenter()
@@ -94,6 +99,9 @@
     max-height: 180px
     height: 180px
     object-fit: contain
+    border-radius: 20px
+    overflow: hidden
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 8px
     @include plus1025()
         max-height: 295px
         height: 295px

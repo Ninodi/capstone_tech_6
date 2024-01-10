@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import products from "./ProductList";
 import { NavLink } from "react-router-dom";
 import ProductPagination from "./ProductPagination";
 import SortingOptions from "./SortingOptions";
@@ -7,35 +6,41 @@ import ProductFilters from "./ProductFilters";
 import ProductFiltersMobile from "./ProductFiltersMobile";
 import ProductDisplaySettings from "./ProductDisplaySettings";
 import Banner from "./Banner";
+import useFetch from "../hooks/useFetch";
 
-function Products({filterOptions, setFilterOptions, capitalizeCategory}) {
+function Products({filterOptions, setFilterOptions, capitalizeCategory, mainCategory}) {
+  const {response} = useFetch({url: `http://94.137.187.198:9876/admin/capstone/product/`, method: 'GET'})
+  
+  
   const [prodNum, setProdNum] = useState(9)
   const [currentPage, setCurrentPage] = useState(1)
   const pageSize = 9
-  const totalPages = Math.ceil(products.length / pageSize)
-
   const startIndex = (currentPage - 1) * pageSize
   const endIndex = startIndex + pageSize
-  const displayedProducts = products.slice(startIndex, endIndex)
+
+  const finalProd = response?.filter(each => each.category == mainCategory)
+  const displayedProducts = finalProd?.slice(startIndex, endIndex)
+  
+  const totalPages = Math.ceil(finalProd?.length / pageSize)
 
   const loadBtn = useRef(null)
   
   useEffect(() => {
-    console.log(prodNum)
-    if(prodNum >= products.length){
+    if(prodNum >= response?.length){
       loadBtn.current.style.display = "none"
     }else loadBtn.current.style.display = "unset"
   }, [prodNum])
 
   const loadMore = () => {
-    const remainingProducts = products.length - prodNum
+    const remainingProducts = response?.length - prodNum
     const productsToLoad = Math.min(remainingProducts, pageSize)
 
     setProdNum(prevstate => prevstate += pageSize)
     setCurrentPage(prevstate => prevstate + 1)
 
-    if(prodNum + productsToLoad >= products.length) loadBtn.current.style.display = "none"
+    if(prodNum + productsToLoad >= response?.length) loadBtn.current.style.display = "none"
   }
+
   return (
     <div className="prod-list-container">
       <div className="products-desktop-container">
@@ -43,25 +48,31 @@ function Products({filterOptions, setFilterOptions, capitalizeCategory}) {
           <p>Home / Products / {`${capitalizeCategory()}`} / Dresses</p>
           <SortingOptions activeSorting='Most popular'/>
         </div>
-        <div style={{display: 'flex', gap: '20px'}}>
+        <div style={{width: '100%', display: 'flex', gap: '20px'}}>
           <ProductFilters filterOptions={filterOptions} setFilterOptions={setFilterOptions}/>
-          <div>
-            <div className="products-desktop">
-                {displayedProducts.map((prod, index) => (
-                  <NavLink to={`/products/women/${prod.name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={index}>
-                    <div className="prod-image">
-                      <img src={prod.img} alt="" />
-                    </div>
-                    <p style={{color: '#000000', marginTop: '17px'}}>{prod.name}</p>
-                  </NavLink>
-                ))}
-            </div>
-            <ProductPagination 
+          <div className="empty-list">
+              {displayedProducts?.length === 0
+                ? <h1 style={{textAlign: 'center'}}>No products available</h1>
+                : <div className="products-desktop">
+                  {displayedProducts?.map((prod, index) => index < prodNum && (
+                    <NavLink to={`/products/women/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={index}>
+                      <div className="prod-image">
+                        <img src={prod.image} alt="" />
+                      </div>
+                      <p style={{color: '#000000', marginTop: '17px'}}>{prod.product_name}</p>
+                    </NavLink>
+                  ))}
+                </div>
+              }
+            {displayedProducts?.length !== 0 
+              ? <ProductPagination 
               totalPages={totalPages} 
               currentPage={currentPage} 
               setCurrentPage={setCurrentPage} 
               setProdNum={setProdNum}
-            />
+              />
+              : null
+            }
           </div>
         </div>
       </div>
@@ -70,16 +81,16 @@ function Products({filterOptions, setFilterOptions, capitalizeCategory}) {
         <ProductFiltersMobile  filterOptions={filterOptions} setFilterOptions={setFilterOptions}/>
         <ProductDisplaySettings />
         <div className="products-mobile">
-            {products.map((prod, index) => index < prodNum && (
-              <NavLink to={`/products/women/${prod.name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={index}>
+            {response?.map((prod, index) => index < prodNum && (
+              <NavLink to={`/products/women/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={index}>
                 <div className="prod-image">
-                  <img src={prod.img} alt="" />
+                  <img src={prod.image} alt="" />
                 </div>
-                <p style={{color: '#000000', marginTop: '17px'}}>{prod.name}</p>
+                <p style={{color: '#000000', marginTop: '17px'}}>{prod.product_name}</p>
               </NavLink>
               ))}
           </div>
-          <p style={{textAlign: 'center', color: '#171717', fontWeight: '700', marginTop: '40px'}} className="prod-num-tracker">Showing {Math.min(prodNum, products.length)} out of {products.length} items</p>
+          <p style={{textAlign: 'center', color: '#171717', fontWeight: '700', marginTop: '40px'}} className="prod-num-tracker">Showing {Math.min(prodNum, response?.length)} out of {response?.length} items</p>
           <button id="load-more" onClick={loadMore} ref={loadBtn}>Load More</button>
       </div>
     </div>

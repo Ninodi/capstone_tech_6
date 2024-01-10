@@ -9,38 +9,36 @@ import { IoIosArrowDown } from "react-icons/io";
 const Header = () => {
   const navRef = useRef();
   const showNavbar = () => {
-    navRef.current.classList.toggle('responsive_nav');
+    navRef.current.classList.toggle('responsive-nav');
   };
 
   return (
-    <div>
     <div className='full-header'>
-        <div className='fHeader'>
-            <div className="conatiner">
+        <div className='first-header'>
+            <div className="container">
                 <span>"Dress for the life you deserve."</span>
             </div>
         </div>
-      </div>
       <header>
         <div className="container">
           <div className="header">
-            <FaBars className="nav_btn" onClick={showNavbar} />
+            <FaBars className="nav-btn" onClick={showNavbar} />
             <Link to={'/'} className="logo">
               Mariamis Atelier
             </Link>
             <nav >
               <ul className="navbar" ref={navRef}>
                 <li><NavLink className="list-item" to={'/'}>Home</NavLink></li>
-                <li className='megaDropdown'>
-                  <NavLink to={"/products"} className="list-item product-megadropdown" >Products <IoIosArrowDown /></NavLink>
+                <li className='mega-dropdown'>
+                  <NavLink to={"/products"} className="list-item" >Products <IoIosArrowDown /></NavLink>
                   <div className="mega-box">
                   <div className="content">
                     <div className="row">
                       <span>Women's</span>
                       <ul className="mega-links">
-                        <li><Link to={"/products/dresses"} className='mega-links-item'>Dresses</Link></li>
-                        <li><Link to={"/products/accessories"} className='mega-links-item'>Accessories</Link></li>
-                        <li><Link to={"/products/weddingdresses"} className='mega-links-item'>Wedding Dresses</Link></li>
+                        <li><Link to={"/products/dresses"} state={{ mainCategory: '2' }} className='mega-links-item'>Dresses</Link></li>
+                        <li><Link to={"/products/accessories"} state={{ mainCategory: '3' }} className='mega-links-item'>Accessories</Link></li>
+                        <li><Link to={"/products/weddingdresses"} state={{ mainCategory: '4' }} className='mega-links-item'>Wedding Dresses</Link></li>
                       </ul>
                     </div>
                     <div className="row">
@@ -63,7 +61,7 @@ const Header = () => {
                 <li><NavLink className="list-item" to={'/about'}>About</NavLink></li>
                 <li><NavLink className="list-item" to={'/contact'}>Contact</NavLink></li>
                 <IoMdClose
-                className="nav_btn nav_close_btn"
+                className="nav-btn nav-close-btn"
                 onClick={showNavbar}
               />
               </ul>

@@ -17,6 +17,7 @@ const MainPage = () => {
           <CategoriesSection />
           <ShopNow />
           <ContactUs />
+          <ContactUs pageType='spa'/>
           <BackToTop/>
         </main>
         <Footer/>

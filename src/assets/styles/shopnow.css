@@ -1,4 +1,9 @@
-  
+  *
+
+  {
+    margin:0;
+    padding:0;
+  }
   .shopnow-container
   {
     position: relative;
@@ -10,6 +15,7 @@
     position:relative;
     width:100%;
     z-index:1;
+    
   }
   .shopnow-img {
     
@@ -36,19 +42,26 @@
   .shopnow-separator
   {
     margin-left:20px;
-    margin-right:90px;
+    width:420px;
+    border-style:none;
+    height:1px;
+    background-color: black;
   }
 
   .shopnow-title
   {
+    font-family: 'montserrat-Regular';
     padding-left:20px;
-    padding-top: 5px;
+    margin-top: 25px;
+    margin-bottom:20px;
     font-size: 24px;
 
   }
 
   .shopnow-text
   {
+    margin-top:20px;
+    font-family: 'montserrat-Regular';
     font-size:16px;
     padding-left:20px;
     padding-top:8px;
@@ -64,7 +77,10 @@
     width:133px;
     height: 48px;
     margin-left:20px;
-    margin-top:8px;
+    margin-top:38px;
+    font-family: 'montserrat-Regular';
+    letter-spacing: 0.05em;
+    
 
     cursor: pointer;
     transition: background-color 0.1s, transform 0.1s;
@@ -77,4 +93,79 @@
       background-color: #26707d;
       transform: scale(0.97);
     
+  }
+
+  @media (max-width: 767px) {
+
+    .shopnow-img
+    {
+      width:360px;
+      height:auto;
+    }
+
+    .shopnow-overlay-div
+    {
+      all:initial;
+
+      position: absolute;
+      z-index:2;
+      
+      left:0px;
+      top:27px;
+
+    }
+    
+    
+
+    .shopnow-title
+  {
+   
+    padding-left:10px;
+    padding-top: 5px;
+    margin-top:-20px;
+    font-size: 11px;
+    font-style: oblique;
+    font-weight: bold;
+    margin-bottom:10px;
+
+  }
+  .shopnow-separator
+  {
+    margin-left: 10px;
+    background-color:#3391a1;
+
+   
+   
+    width:65%;
+   
+  }
+
+  
+
+
+  .shopnow-text
+    {
+      padding-left:0px;
+      display: none;
+     
+    }
+
+
+  .shopnow-btn
+  {
+    
+   
+    margin-top:98px;
+    font-size: 11px;
+    width:127px;
+    height:48px;
+    margin-left:0px;
+   
+  }
+  
+
+
+
+    
+
   }

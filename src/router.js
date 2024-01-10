@@ -2,6 +2,7 @@ import AboutPage  from "./pages/AboutPage"
 import ContactPage from "./pages/ContactPage"
 import MainPage from "./pages/MainPage"
 import ProductPage from "./pages/ProductPage"
+import NotFoundPage from "./pages/NotFoundPage"
 import ProductCategoryPage from "./pages/ProductCategoryPage"
 import ProductItemPage from "./pages/ProductItemPage"
 
@@ -30,6 +31,10 @@ const router = [
     {
         element: <ProductItemPage/>,
         path: '/products/:category/:itemId'
+    },
+    {
+        element: <NotFoundPage/>,
+        path: ':pagenotfound'
     },
 ]
 export default router
