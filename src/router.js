@@ -5,6 +5,7 @@ import ProductPage from "./pages/ProductPage"
 import NotFoundPage from "./pages/NotFoundPage"
 import ProductCategoryPage from "./pages/ProductCategoryPage"
 import ProductItemPage from "./pages/ProductItemPage"
+import SubmitPage from "./pages/SubmitPage"
 
 
 const router = [
@@ -31,6 +32,10 @@ const router = [
     {
         element: <ProductItemPage/>,
         path: '/products/:category/:itemId'
+    },
+     {
+        element: <SubmitPage/>,
+        path: ':SubmitPage'
     },
     {
         element: <NotFoundPage/>,

@@ -1,18 +1,24 @@
    
        import React, {useState,useEffect } from 'react'
+       import { useNavigate } from 'react-router-dom';
+
        import styleSpa from '../assets/styles/contact-form-spa.module.css'
        import styleNav from '../assets/styles/contact-form-nav.module.css'
        import contactFormImg from '../assets/img/contact-form-img.png'
        //import useFetch from './useFetch'  // custom hook import, not used
+
+       import SubmitPage from '../pages/SubmitPage'
       
 
     const ContactUs = ({pageType})=>
 {
 
+
     const contactStyle = pageType === 'spa' ? styleSpa : styleNav
 
 
-   
+    const navigate = useNavigate();
+
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -23,62 +29,84 @@
 
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
+   
    
 
         //const {jsonData,error,loading} = useFetch(request_url, 'POST', formData)
        
-    
+        const request_url = 'http://94.137.187.198:9876/leadcreate/'
+
        
 
+useEffect(()=>
+{
+  setformData({fl_name:name,mail:email,mobile:phone,fb_url:url,message:message })
+},[name,email,phone,url,message])
 
 
+
+const fetchData = async () => {
+  try {
+   
+
+      const response = await fetch(request_url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      //console.log("response status code: " +response.status)
+     throw new Error('Network response was not ok')
+
+    }
+
+    const jsonData = await response.json()
+    setData(jsonData)
+    console.log(data)
+    // setName('')
+    // setEmail('')
+    // setPhone('')
+    // setUrl('')
+    // setMessage('')
+  //  navigate('/SubmitPage');
+    
+    
+
+  } catch (error) {
+    
+    setError(error.message)
+    setSubmitStatus('Error submitting form, Please check input fields')
+   
+    console.log(error)
+   
+   
+  } finally {
+    
+  }
+};
 
 
     
    const handleSubmit =(e)=>
     {
         e.preventDefault()
-       
-        setformData({fl_name:name,mail:email,mobile:phone,fb_url:url,message:message })
-
-        const request_url = 'http://94.137.187.198:3535/leadcreate/'
-
-        
-       
-     
-            const fetchData = async () => {
-              try {
-                setLoading(true);
-        
-                  const response = await fetch(request_url, {
-                  method: 'GET',
-                  headers: {
-                    'Content-Type': 'application/json; charset=UTF-8',
-                  },
-                  body: JSON.stringify(formData),
-                });
-        
-                if (!response.ok) {
-                  //throw new Error('Network response was not ok')
-                 console.log("status kodi aris: " +response.status)
-                }
-        
-                const jsonData = await response.json()
-                setData(jsonData)
-              } catch (error) {
-                setError(error.message)
-               
-              } finally {
-                setLoading(false)
-              }
-            };
         
             fetchData()
+
+
+            setTimeout(() => {
+
+              setSubmitStatus('')
+              
+            }, 2500);
           
 
 
     }
+ 
 
 
 
@@ -88,36 +116,36 @@
 
 
 
-<div className={contactStyle['contact-form-container']}>
+  <div className={contactStyle['contact-form-container']}>
 
-<div className={contactStyle['contact-form-img-container']}><img src={contactFormImg} className={contactStyle['contact-form-img']} alt="contact-form-img"></img></div>
+  <div className={contactStyle['contact-form-img-container']}><img src={contactFormImg} className={contactStyle['contact-form-img']} alt="contact-form-img"></img></div>
 
-    <div className={contactStyle['input-fields-container']}>
+  <div className={contactStyle['input-fields-container']}>
 
-    <p className={contactStyle['contactus-title']}>Contact Us</p>
+  <p className={contactStyle['contactus-title']}>Contact Us</p>
     
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder='Full Name' onChange={(e)=>setName(e.target.value)} />
+    <input type="text" className={contactStyle['contact-form-input']} placeholder='Full Name' value={name} onChange={(e)=>setName(e.target.value)} />
     </div>
     
    
     <div>
-    <input type="email" className={contactStyle['contact-form-input']} placeholder='Email' onChange={(e)=>setEmail(e.target.value)} />
+    <input type="email" className={contactStyle['contact-form-input']} placeholder='Email'value={email}  onChange={(e)=>setEmail(e.target.value)} />
     </div>
 
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder='Phone' onChange={(e)=>setPhone(e.target.value)}/>
+    <input type="text" className={contactStyle['contact-form-input']} placeholder='Phone' value={phone} onChange={(e)=>setPhone(e.target.value)}/>
     </div>
     <div>
-        <input type="url" className={contactStyle['contact-form-input']} placeholder='URL' onChange={(e)=>setUrl(e.target.value)}/>
+        <input type="url" className={contactStyle['contact-form-input']} placeholder='Link to your facebook profile' value={url} onChange={(e)=>setUrl(e.target.value)}/>
     </div>
     
     
     <div>
       
-    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder='Message' onChange={(e)=>setMessage(e.target.value)} />
+    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder='Message' value={message} onChange={(e)=>setMessage(e.target.value)} />
     </div>
     <button type="submit" className={contactStyle['contactus-btn']}>Contact Us</button> 
     </form>
