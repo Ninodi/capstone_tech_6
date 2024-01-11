@@ -8,9 +8,15 @@
   list-style: none;
   border-style: none;
 }
+
+.container{
+  padding: 108px;
+  margin:  auto;
+}
 .spiner{
   position: absolute;
   top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
