@@ -5,10 +5,11 @@
        import styleNav from '../assets/styles/contact-form-nav.module.css'
 
     import contactFormImg from '../assets/img/contact-form-img.png'
+import { useTranslation } from 'react-i18next'
 
 const ContactUs = ({pageType})=>
 {
-   
+  const { t } = useTranslation();
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -113,32 +114,32 @@ const ContactUs = ({pageType})=>
 
     <div className={contactStyle['input-fields-container']}>
 
-    <p className={contactStyle['contactus-title']}>Contact Us</p>
+    <p className={contactStyle['contactus-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
     
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder='Full Name' onChange={(e)=>setName(e.target.value)} />
+    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME')} onChange={(e)=>setName(e.target.value)} />
     </div>
     
    
     <div>
-    <input type="email" className={contactStyle['contact-form-input']} placeholder='Email' onChange={(e)=>setEmail(e.target.value)} />
+    <input type="email" className={contactStyle['contact-form-input']} placeholder={t('contactForm.EMAIL')} onChange={(e)=>setEmail(e.target.value)} />
     </div>
 
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder='Phone' onChange={(e)=>setPhone(e.target.value)}/>
+    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE')} onChange={(e)=>setPhone(e.target.value)}/>
     </div>
     <div>
-        <input type="text" className={contactStyle['contact-form-input']} placeholder='URL' onChange={(e)=>setUrl(e.target.value)}/>
+        <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FACEBOOKPROFILEURL')} onChange={(e)=>setUrl(e.target.value)}/>
     </div>
     
     
     <div>
       
-    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder='Message' onChange={(e)=>setMessage(e.target.value)} />
+    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('contactForm.MESSAGE')} onChange={(e)=>setMessage(e.target.value)} />
     </div>
-    <button type="submit" className={contactStyle['contactus-btn']}>Contact Us</button> <span>{submitStatus}</span>
+    <button type="submit" className={contactStyle['contactus-btn']}>{t('contactForm.CONTACTUSTEXT')}</button> <span>{submitStatus}</span>
     </form>
     
             
@@ -148,16 +149,16 @@ const ContactUs = ({pageType})=>
 
 <div className={contactStyle['contact-info']}>
 
-    <p className={contactStyle['contact-info-title']}>Contact</p>
+    <p className={contactStyle['contact-info-title']}>{t('contactForm.CONTACT')}</p>
 
    <p className={contactStyle['contact-info-text']}>+995 593 440 680</p>
    <p className={contactStyle['contact-info-text']}>Mariamtskhovrebashvili74@gmail.com</p>
    
-   <p className={contactStyle['contact-info-title']}>Based In</p>
-   <p className={contactStyle['contact-info-text']}>Georgia, Tkibuli</p>
+   <p className={contactStyle['contact-info-title']}>{t('contactForm.BASEDINTEXT')}</p>
+   <p className={contactStyle['contact-info-text']}>{t('contactForm.BASEDIN')}</p>
 
    <div className={contactStyle['location-div']}>
-        <h3>Location</h3>
+        <h3>{t('contactForm.LOCATIONTEXT')}</h3>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47181.50572166761!2d42.95001896306638!3d42.34584692539633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x405c9b428415ac77%3A0x54a8c7492541cee8!2sTkibuli!5e0!3m2!1sen!2sge!4v1702663574599!5m2!1sen!2sge" width="333" height="181" title='Tkibuli'  loading="lazy" ></iframe>
     </div>
 
