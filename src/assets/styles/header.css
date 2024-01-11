@@ -74,8 +74,7 @@
   left: 0;
   background-color: #FFFFFF;
   width: 100%;
-  padding: 54px;
-  color: #000;
+  padding: 30px 54px;
   z-index: 11;
   opacity: 0;
   visibility: hidden;
@@ -104,7 +103,7 @@
   
 }
 option:hover{
-  background: #000;
+  backgroun: #000;
 }
 @media only screen and (max-width:1400px){
   .navbar{
@@ -114,14 +113,15 @@ option:hover{
     left: 0;
     min-height: 572px;
     width: 80%;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 45px;
     background-color: #fff;
     border-top-right-radius: 25px;
     border-bottom-right-radius:25px ;
     transition: 1s;
-    transform: translatex(-100vh);
+    transform: translatex(-102%);
     z-index: 111;
   }
   .responsive-nav{
@@ -147,6 +147,10 @@ option:hover{
   .container{
     padding:0 36px;
     margin:  auto;
+  }
+  .mega-box .content{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
   .first-header{
     display: none;

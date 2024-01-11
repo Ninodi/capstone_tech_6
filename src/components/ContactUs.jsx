@@ -130,7 +130,7 @@ const ContactUs = ({pageType})=>
     <input type="text" className={contactStyle['contact-form-input']} placeholder='Phone' onChange={(e)=>setPhone(e.target.value)}/>
     </div>
     <div>
-        <input type="url" className={contactStyle['contact-form-input']} placeholder='URL' onChange={(e)=>setUrl(e.target.value)}/>
+        <input type="text" className={contactStyle['contact-form-input']} placeholder='URL' onChange={(e)=>setUrl(e.target.value)}/>
     </div>
     
     
