@@ -9,7 +9,7 @@ import Banner from "./Banner";
 import useFetch from "../hooks/useFetch";
 
 function Products({filterOptions, setFilterOptions, capitalizeCategory, mainCategory}) {
-  const {response} = useFetch({url: `http://94.137.187.198:9876/admin/capstone/product/`, method: 'GET'})
+  const {response} = useFetch({url: `http://94.137.187.198:3535/products/`, method: 'GET'})
   
   
   const [prodNum, setProdNum] = useState(9)
@@ -31,6 +31,11 @@ function Products({filterOptions, setFilterOptions, capitalizeCategory, mainCate
     }else loadBtn.current.style.display = "unset"
   }, [prodNum])
 
+  useEffect(() => {
+    setProdNum(prev => 9)
+    setCurrentPage(prev => 1)
+  }, [capitalizeCategory])
+
   const loadMore = () => {
     const remainingProducts = response?.length - prodNum
     const productsToLoad = Math.min(remainingProducts, pageSize)
@@ -45,7 +50,7 @@ function Products({filterOptions, setFilterOptions, capitalizeCategory, mainCate
     <div className="prod-list-container">
       <div className="products-desktop-container">
         <div className="breadcrumbs">
-          <p>Home / Products / {`${capitalizeCategory()}`} / Dresses</p>
+          <p>Home / Products / {`${capitalizeCategory()}`}</p>
           <SortingOptions activeSorting='Most popular'/>
         </div>
         <div style={{width: '100%', display: 'flex', gap: '20px'}}>
