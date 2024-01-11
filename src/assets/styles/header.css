@@ -35,14 +35,18 @@
   font-size: 16px;
   transition: 0.2s;
 }
-.navbar .list-item:hover, .mega-links-item:hover{
+.navbar .list-item:hover{
   font-weight: 800;
-}
- 
+} 
 .active{
   font-weight: 800;
 }
 
+#select option {
+  background-color: none;
+  color: #000;
+  border: none;
+}
 .logo{
   color: #171717;
   font-size: 24px;
@@ -98,7 +102,7 @@
   font-size: 25px;
 }
 .mega-dropdown:hover  .mega-box{
-  top:125px;
+  top:115px;
   opacity: 0.9;
   visibility: visible;
   
