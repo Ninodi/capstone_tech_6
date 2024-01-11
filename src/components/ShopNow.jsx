@@ -1,10 +1,11 @@
 import shopnowImg from '../assets/img/shopnow-img.png'
 import '../assets/styles/shopnow.css'
 import '../assets/styles/fonts.css'
+import { useTranslation } from 'react-i18next';
 
 const ShopNow = ()=>
 {
-
+    const { t } = useTranslation();
     return (
         
         <div>
@@ -17,11 +18,8 @@ const ShopNow = ()=>
                 <div>
                 <p className='shopnow-title'>Mariami's Atelier</p>
                 <hr className='shopnow-separator'/>
-                <p className='shopnow-text'>Feel Confident In The Clothes You wear</p>
-                </div>
-                <div className='shopnow-btn-container'>
-                <button className="shopnow-btn">Shop now</button>
-                </div>
+                <p className='shopnow-text'>{t('shopNowSection.shopNowText')}</p>
+                <button className="shopnow-btn">{t('shopNowSection.shopNow')}</button>
             </div>
 
        
@@ -29,7 +27,7 @@ const ShopNow = ()=>
 
 
 
-
+</div>
         </div>
     )
 

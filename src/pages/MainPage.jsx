@@ -8,7 +8,6 @@ import ShopNow from '../components/ShopNow'
 import ContactUs from '../components/ContactUs'
 import BackToTop from '../components/BackToTop'
 
-
 const MainPage = () => {
   return (
     <div>

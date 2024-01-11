@@ -129,32 +129,32 @@ const fetchData = async () => {
   <div className={contactStyle['input-fields-container']}>
 
   <p className={contactStyle['contactus-title']}>CONTACT US</p>
-  <p className={contactStyle['fill-this-form-title'] }>{t('FILLTHISFORM')}</p>
+  <p className={contactStyle['fill-this-form-title'] }>{t('contactForm.FILLTHISFORM')}</p>
     
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('FULLNAME')} value={name} onChange={(e)=>setName(e.target.value)} />
+    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME')} value={name} onChange={(e)=>setName(e.target.value)} />
     </div>
     
    
     <div>
-    <input type="email" className={contactStyle['contact-form-input']} placeholder={t('EMAIL')} value={email}  onChange={(e)=>setEmail(e.target.value)} />
+    <input type="email" className={contactStyle['contact-form-input']} placeholder={t('contactForm.EMAIL')} value={email}  onChange={(e)=>setEmail(e.target.value)} />
     </div>
 
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('PHONE')} value={phone} onChange={(e)=>setPhone(e.target.value)}/>
+    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE')} value={phone} onChange={(e)=>setPhone(e.target.value)}/>
     </div>
     <div>
-        <input type="url" className={contactStyle['contact-form-input']} placeholder={t('FACEBOOKPROFILEURL')} value={url} onChange={(e)=>setUrl(e.target.value)}/>
+        <input type="url" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FACEBOOKPROFILEURL')} value={url} onChange={(e)=>setUrl(e.target.value)}/>
     </div>
     
     
     <div>
       
-    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('MESSAGE')} value={message} onChange={(e)=>setMessage(e.target.value)} />
+    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('contactForm.MESSAGE')} value={message} onChange={(e)=>setMessage(e.target.value)} />
     </div>
-    <button type="submit" className={contactStyle['contactus-btn']}>{t('SEND')}</button> 
+    <button type="submit" className={contactStyle['contactus-btn']}>{t('contactForm.SEND')}</button> 
     </form>
     <div id={contactStyle['submit-status']}>{submitStatus}</div>
     
@@ -164,16 +164,16 @@ const fetchData = async () => {
 
 
 <div className={contactStyle['contact-info-container']}>
-<p className={contactStyle['contactus2-title']}>{t('CONTACTUSTEXT')}</p>
+<p className={contactStyle['contactus2-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
    
  
-   <p className={contactStyle['contact-info-title']}>{t('CONTACT')}</p>
+   <p className={contactStyle['contact-info-title']}>{t('contactForm.CONTACT')}</p>
 
    <p className={contactStyle['contact-info-text']}>+995 593 440 680</p>
    <p className={contactStyle['contact-info-text']}>Mariamtskhovrebashvili74@gmail.com</p>
 
-   <p className={contactStyle['contact-info-title']}>{t('BASEDINTEXT')}</p>
-   <p className={contactStyle['contact-info-text']}>{t('BASEDIN')}</p>
+   <p className={contactStyle['contact-info-title']}>{t('contactForm.BASEDINTEXT')}</p>
+   <p className={contactStyle['contact-info-text']}>{t('contactForm.BASEDIN')}</p>
                    
                    <div className="icons">
                        <Link to={"https://www.facebook.com/"} target='_blank'> <GrFacebookOption className='icon' /> </Link>
@@ -184,7 +184,7 @@ const fetchData = async () => {
           
       <div className={contactStyle['location-div']}>
       <div className={contactStyle['location-text']}>
-      <h3>{t('LOCATIONTEXT')}</h3>
+      <h3>{t('contactForm.LOCATIONTEXT')}</h3>
       </div>
        
       <div>

@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './i18n';
+import BounceLoader from "react-spinners/BounceLoader";
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Suspense fallback={<div>
+      <BounceLoader
+        className='spiner'
+        color= {'#FF6767'} 
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    </div>} >
       <App />
+    </Suspense>
   </React.StrictMode>
 );
 

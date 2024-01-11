@@ -4,23 +4,25 @@ import slide2 from '../assets/img/slide2.png';
 import slide3 from '../assets/img/slide3.png';
 import slide4 from '../assets/img/slide4.png';
 import { NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 const Slider = () => {
+    const { t } = useTranslation();
     const slideContent = [
         {
-            slideTitle: 'Welcome To Fashion Heaven',
+            slideTitle:t('slider.firstSliderText'),
             slideImg: slide1,
         },
         {
-            slideTitle: 'Get more information about our Designers',
+            slideTitle:t('slider.secondSliderText'),
             slideImg: slide2,
         },
         {
-            slideTitle: 'Keep in touch for the latest updates ',
+            slideTitle:t('slider.thirdSliderText'),
             slideImg: slide3,
         },
         {
-            slideTitle: 'Get to know with elite collection',
+            slideTitle:t('slider.fourthSliderText'),
             slideImg: slide4,
         },
     ]; 
@@ -48,7 +50,7 @@ const Slider = () => {
       <div className="image-slider-container">
         <div className="slider-content">
             <div className="slide-title">{slideContent[currentImageIndex].slideTitle}</div>
-            <NavLink className="explore-btn" to={"/products"} >Explore</NavLink>
+            <NavLink className="explore-btn" to={"/products"} >{t('slider.explore')}</NavLink>
         </div>
         <img src={slideContent[currentImageIndex].slideImg} alt={`Slide ${currentImageIndex + 1}`} className="slider-image" />
         <div className="pagination">
