@@ -44,7 +44,7 @@ const Header = () => {
             <nav >
               <ul className="navbar" ref={navRef}>
               <li><NavLink className="list-item" to={'/'}>{t('Header.home')}</NavLink></li>
-                <li className='mega-dropdown'>
+                <li  className='mega-dropdown test'>
                   <NavLink to={"/products"} className="list-item" >{t('Header.products')} <IoIosArrowDown /></NavLink>
                   <div className="mega-box">
                   <div className="content">

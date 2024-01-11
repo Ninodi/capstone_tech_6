@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "../assets/styles/productsSlider.css"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -7,11 +8,30 @@ import 'swiper/css/navigation';
 import '../assets/styles/swiper.css';
 import { FreeMode, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
-import useFetch from '../hooks/useFetch';
 
 const ProductsSlider = ({ header }) => {
-  const {response} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
+  const [products, setProducts] = useState([]);
   const [slidesPerView, setSlidesPerView] = useState(3);
+
+  useEffect(() => {
+    fetch(`http://94.137.187.198:9876/products/`, {
+      method: 'GET',
+      headers: {
+        "content-type": "application/json",
+      }
+    })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to get response");
+      }
+      return res.json();
+    })
+    .then((data) =>{
+      setProducts(data);
+    })
+    
+  },[])
+
 
   useEffect(() => {
     const updateSlidesPerView = () => {
@@ -41,9 +61,9 @@ const ProductsSlider = ({ header }) => {
         modules={[FreeMode, Pagination, Navigation]}
         className="mySwiper"
       >
-        {response?.map((product) => (
+        {products.map((product) => (
           <SwiperSlide key={product.id}>
-            <img className='slider-image' src={product.image} alt={product.product_name} />
+            <img className='product-slider-image' src={product.image} alt={product.product_name} />
             <h4>{product.product_name}</h4>
           </SwiperSlide>
         ))}
