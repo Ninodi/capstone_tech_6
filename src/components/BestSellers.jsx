@@ -6,20 +6,22 @@ import BestSeller3 from '../assets/img/bestSellers3.png'
 import Messenger from '../assets/img/messenger.png'
 import MessengerLarge from '../assets/img/messengerLarge.png'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const BestSellers = () => {
+    const { t} = useTranslation();
     const bestSellers = [
         {
             bestSellerImg: BestSeller1,
-            bestSellerCategory: "Wedding dress"
+            bestSellerCategory: t('bestSellersSection.bestSellerCategory1')
         },
         {
             bestSellerImg: BestSeller2,
-            bestSellerCategory: "Child's dress"
+            bestSellerCategory: t('bestSellersSection.bestSellerCategory2')
         },
         {
             bestSellerImg: BestSeller3,
-            bestSellerCategory: "Accessories"
+            bestSellerCategory: t('bestSellersSection.bestSellerCategory3')
         },
     ]
 
@@ -27,10 +29,10 @@ const BestSellers = () => {
         <div className='page-container' style={{paddingRight: 0}}>
             <div>
                 <div className="best-sellers-title" style={{display: 'flex'}}>
-                    <h1>Best Sellers</h1>
+                    <h1>{t('productPage.bestSeller')}</h1>
                     <div className="messenger-icon">
                         <Link to={'/'}>
-                            <img src={Messenger} alt="" />
+                            <img src={Messenger} alt="messenger icon" />
                         </Link>
                     </div>
                     <div className="messenger-icon-large">
