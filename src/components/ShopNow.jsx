@@ -15,7 +15,7 @@ const ShopNow = ()=>
             <div className='shopnow-img-container'><img src={shopnowImg} className='shopnow-img' alt='shopnow-img'></img></div>
 
             <div className='shopnow-overlay-div'>
-
+                <div>
                 <p className='shopnow-title'>Mariami's Atelier</p>
                 <hr className='shopnow-separator'/>
                 <p className='shopnow-text'>{t('shopNowSection.shopNowText')}</p>
@@ -27,7 +27,7 @@ const ShopNow = ()=>
 
 
 
-
+</div>
         </div>
     )
 

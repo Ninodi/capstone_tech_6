@@ -79,6 +79,12 @@
         "shopNowText":"Feel Confident In The Clothes You wear",
         "shopNow":"Shop Now"
     },
+    "submitForm":{
+        "mainText":"We have received your Message :)",
+        "secondText":"We will be in touch with you, as soon as possible",
+        "thirdText":"Please, contact us for any query",
+        "fourthText":"OR"
+    },
     "specialClothingSection":{
         "specialClothing":"Special Clothing",
         "viewAll":"View All",
