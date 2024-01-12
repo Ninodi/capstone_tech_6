@@ -146,7 +146,7 @@ const fetchData = async () => {
     <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE')} value={phone} onChange={(e)=>setPhone(e.target.value)}/>
     </div>
     <div>
-        <input type="url" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FACEBOOKPROFILEURL')} value={url} onChange={(e)=>setUrl(e.target.value)}/>
+        <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FACEBOOKPROFILEURL')} value={url} onChange={(e)=>setUrl(e.target.value)}/>
     </div>
     
     
