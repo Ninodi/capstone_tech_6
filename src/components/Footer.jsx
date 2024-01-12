@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer>
         <div className="container">
-            <div><Link to={"/"} className='logo'>Mariami's Atelier</Link></div>
+            <div><Link to={"/"} className='logo'>{t('Header.logo')}</Link></div>
             <div className="footer-section">
                 <div className="footer-col">
                     <h2>{t('footer.aboutUs')}</h2>
