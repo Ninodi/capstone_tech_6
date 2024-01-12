@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { GrFacebookOption } from "react-icons/gr";
 import { FiTwitter } from "react-icons/fi";
@@ -19,7 +19,7 @@ const Footer = () => {
                     <h2>{t('footer.aboutUs')}</h2>
                     <p>{t('footer.aboutUsContet')}</p>
                 </div>
-                <div className="footer-col customer-service">
+                {/* <div className="footer-col customer-service">
                     <h2>{t('footer.customerService')}</h2>
                     <ul className='service-items'>
                         <li>{t('footer.delivery')}</li>
@@ -28,7 +28,7 @@ const Footer = () => {
                         <li>{t('footer.help')}</li>
                         <li>{t('footer.gifting')}</li>
                     </ul>
-                </div>
+                </div> */}
                 <div className="footer-col">
                     <h2>{t('footer.pages')}</h2>
                     <ul className='service-items'>
