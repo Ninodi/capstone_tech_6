@@ -19,7 +19,7 @@ const ShopNow = ()=>
                 <p className='shopnow-title'>Mariami's Atelier</p>
                 <hr className='shopnow-separator'/>
                 <p className='shopnow-text'>{t('shopNowSection.shopNowText')}</p>
-                <button className="shopnow-btn">{t('shopNowSection.shopNow')}</button>
+                {/* <button className="shopnow-btn">{t('shopNowSection.shopNow')}</button> */}
             </div>
 
        
