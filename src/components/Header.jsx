@@ -39,7 +39,7 @@ const Header = () => {
           <div className="header">
             <FaBars className="nav-btn" onClick={showNavbar} />
             <Link to={'/'} className="logo">
-              Mariamis Atelier
+              Mariami's Atelier
             </Link>
             <nav >
               <ul className="navbar" ref={navRef}>
