@@ -34,6 +34,8 @@
   margin:0 57px;
   font-size: 16px;
   transition: 0.2s;
+  display: flex;
+  align-items: center;
 }
 .navbar .list-item:hover{
   font-weight: 800;
@@ -110,9 +112,9 @@
 option:hover{
   background: #000;
 }
-@media only screen and (max-width:1250px){
+@media only screen and (max-width:1300px){
   .navbar .list-item {
-    margin: 0 30px;
+    margin: 0 20px;
   }
 }
 @media only screen and (max-width:1000px){
