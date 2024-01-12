@@ -1,5 +1,6 @@
 {
     "Header":{
+        "logo":"მარიამის ატელიე",
         "headline":"'ჩაიცვი ცხოვრებისთვის როგორსაც იმსახურებ'",
         "home": "მთავარი",
         "products":"პროდუქტები",
@@ -71,7 +72,7 @@
     },
     "bestSellersSection":{
         "bestSellerCategory1":"საქორწილო კაბები",
-        "bestSellerCategory2":"საბავაშვო კაბები",
+        "bestSellerCategory2":"საბავშვო კაბები",
         "bestSellerCategory3":"აქსესუარები",
         "womenAndKids":"ქალების / ბავშვების ტანსაცმელი"
     },
