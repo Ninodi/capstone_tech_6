@@ -84,7 +84,7 @@ const fetchData = async () => {
   } catch (error) {
     
     setError(error.message)
-    setSubmitStatus('Error submitting form, Please check input fields')
+    setSubmitStatus('Error submitting form')
    
     console.log(error)
    
@@ -99,9 +99,34 @@ const fetchData = async () => {
    const handleSubmit =(e)=>
     {
         e.preventDefault()
-        
-            fetchData()
 
+        if(name==='')
+        {
+          setSubmitStatus('სახელი და გვარი აუცილებელია')
+          
+        }else if(email==='')
+
+        {
+          setSubmitStatus('ელ. ფოსტა აუცილებელია')
+
+        
+          
+        }else if(phone==='')
+
+        {
+          setSubmitStatus('ტელეფონი აუცილებელია')
+
+        
+          
+        }else if(message==='')
+
+        {
+          setSubmitStatus('შეტყობინების ტექსტი აუცილებელია')
+
+        }
+        else{
+          fetchData()
+        }
 
             setTimeout(() => {
 
@@ -128,13 +153,13 @@ const fetchData = async () => {
 
   <div className={contactStyle['input-fields-container']}>
 
-  <p className={contactStyle['contactus-title']}>CONTACT US</p>
+  <p className={contactStyle['contactus-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
   <p className={contactStyle['fill-this-form-title'] }>{t('contactForm.FILLTHISFORM')}</p>
     
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME')} value={name} onChange={(e)=>setName(e.target.value)} />
+    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME')} value={name} onChange={(e)=>setName(e.target.value)} />
     </div>
     
    
