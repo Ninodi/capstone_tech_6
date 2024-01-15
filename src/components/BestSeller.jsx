@@ -8,7 +8,7 @@ import img4 from '../assets/img/bestseller4.png'
 import { useTranslation } from 'react-i18next';
 
 const BestSeller = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
   return (
     <div>
         <div className="container best-seller-container">
