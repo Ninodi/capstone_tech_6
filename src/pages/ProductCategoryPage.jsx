@@ -9,7 +9,6 @@ import Products from '../components/Products'
 function ProductCategoryPage() {
     const location = useLocation()
     const { mainCategory } = location.state
-    console.log(mainCategory)
   
     const [filterOptions, setFilterOptions] = useState({
       casual: false,
