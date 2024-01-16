@@ -128,11 +128,7 @@ const fetchData = async () => {
           fetchData()
         }
 
-            setTimeout(() => {
-
-              setSubmitStatus('')
-              
-            }, 2500);
+           
           
 
 
@@ -159,7 +155,7 @@ const fetchData = async () => {
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
     <div>
-    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME')} value={name} onChange={(e)=>setName(e.target.value)} />
+    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME')} value={name} onChange={ (e)=>{setSubmitStatus('');setName(e.target.value)}} />
     </div>
     
    
@@ -179,9 +175,10 @@ const fetchData = async () => {
       
     <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('contactForm.MESSAGE')} value={message} onChange={(e)=>setMessage(e.target.value)} />
     </div>
+    <div id={contactStyle['submit-status']}>{submitStatus}</div>
     <button type="submit" className={contactStyle['contactus-btn']}>{t('contactForm.SEND')}</button> 
     </form>
-    <div id={contactStyle['submit-status']}>{submitStatus}</div>
+   
     
             
  

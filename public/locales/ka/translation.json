@@ -36,17 +36,17 @@
         "copyright":"© საავტორო უფლება 2023 / Mariamis Atelier ყველა უფლება დაცულია."
     },
     "contactForm": {
-        "FILLTHISFORM": "შეავსე ფორმა",
-        "FULLNAME": "სახელი, გვარი",
-        "EMAIL": "ელ. ფოსტა",
-        "PHONE": "მობილური",
+        "FILLTHISFORM": "შეავსეთ ფორმა",
+        "FULLNAME": "სახელი გვარი *",
+        "EMAIL": "ელ. ფოსტა *",
+        "PHONE": "მობილური *",
         "FACEBOOKPROFILEURL": "ფეისბუქ პროფილის ბმული",
-        "MESSAGE": "შეტყობინება",
+        "MESSAGE": "შეტყობინება *",
         "SEND": "გაგზავნა",
-        "CONTACTUSTEXT": "დაგვიკავშირდით",
+        "CONTACTUSTEXT": "მოგვწერეთ",
         "CONTACT": "კონტაქტი",
         "BASEDINTEXT": "ჩვენი მისამართია",
-        "BASEDIN": "ტყიბული,საქართველო",
+        "BASEDIN": "ტყიბული, საქართველო",
         "LOCATIONTEXT": "ლოკაცია"
     },
     "aboutUsPage":{

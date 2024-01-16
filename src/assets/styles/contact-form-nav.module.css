@@ -114,7 +114,7 @@
     border-style: none;
     cursor:pointer;
     transition: background-color 0.1s, transform 0.1s;
-    margin-top:30px;
+    margin-top:20px;
 }
 
 
@@ -128,10 +128,13 @@
   {
     font-family: 'Montserrat-SemiBold';
     font-size:16px;
-    width:289px;
+    width:100%;
     text-align: center;
     height: 50px;
     margin-top:30px;
+    white-space: nowrap;
+    color:red;
+    font-weight: bold;
   }
 
   .icons
@@ -195,7 +198,7 @@
 
     .contact-form-input::placeholder
     {
-        font-size:14px;
+        font-size:3.5vw;
     }
     .contact-form-msg
     {
@@ -210,7 +213,7 @@
         font-size:18px;
         width:276px;
         height:50px;
-        margin-top:15px;
+        margin-top:10px;
         margin-left:15px;
         letter-spacing: 0.02px;
     }
@@ -218,10 +221,13 @@
     #submit-status
   {
     
-    font-size:10px;
-    width:120px;
-
-    margin-top:20px;
+    font-size:3.5vw;
+    width:100%;
+    margin-top:15px;
+    white-space: nowrap;
+    color:red;
+    font-weight: bold;
+    text-align: center;
   }
 
     .contact-info-container
@@ -234,6 +240,7 @@
 {
     
    font-family: 'Quicksand-Bold';
+   font-weight: bold;
    font-size:18.95px;
    margin-top:10px;
    margin-bottom:10px;
@@ -253,6 +260,7 @@
     display:block;
     font-size:18.95px;
     font-family: 'Quicksand-Bold';
+    font-weight: bold;
     margin-top:5px;
     margin-left:1px;
     margin-bottom:30px;
