@@ -118,10 +118,15 @@
   .logo{
     font-size: 18px;
   }
+  .mega-box{
+    opacity: 1;
+    visibility: visible;
+    position: static;
+  }
   .navbar{
     position: absolute;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    top: 149px;
+    top: 140px;
     left: 0;
     min-height: 572px;
     width: 80%;
@@ -157,7 +162,7 @@
 }
 @media only screen and (max-width:600px){
   .navbar{
-    top: 107px;
+    top: 104px;
   }
   .container{
     padding:0 36px;
