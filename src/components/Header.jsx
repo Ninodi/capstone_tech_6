@@ -7,8 +7,15 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useTranslation } from 'react-i18next';
 
 const Header = () => {
-  const navRef = useRef();
+
+  const [megaBoxOpen, setMegaBoxOpen] = useState(false);
   const [categories, setCategories] = useState([]);
+
+  const toggleMegaBox = () => {
+    setMegaBoxOpen(!megaBoxOpen);
+  };
+
+  const navRef = useRef();
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem('selectedLanguage') || 'en'
   );
@@ -53,9 +60,9 @@ const Header = () => {
             <nav>
               <ul className="navbar" ref={navRef}>
                 <li><NavLink className="list-item" to={'/'}>{t('Header.home')}</NavLink></li>
-                <li className='mega-dropdown test'>
-                  <NavLink to={"/products"} className="list-item" >{t('Header.products')} <IoIosArrowDown /></NavLink>
-                  <div className="mega-box">
+                <li className='mega-dropdown'>
+                  <NavLink to={"/products"} className="list-item"  onClick={toggleMegaBox}>{t('Header.products')} <IoIosArrowDown/></NavLink>
+                  <div  className={`mega-box ${megaBoxOpen ? 'open' : ''}`}>
                     <div className="content">
                       <div className="row">
                         <span>{t('Header.productsDrp.womens')}</span>

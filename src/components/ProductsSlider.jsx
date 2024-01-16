@@ -8,31 +8,10 @@ import 'swiper/css/navigation';
 import '../assets/styles/swiper.css';
 import { FreeMode, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
+import { NavLink } from 'react-router-dom';
 
-const ProductsSlider = ({ header }) => {
-  const [products, setProducts] = useState([]);
+const ProductsSlider = ({ header,products }) => {
   const [slidesPerView, setSlidesPerView] = useState(3);
-
-  useEffect(() => {
-    fetch(`http://94.137.187.198:9876/products/`, {
-      method: 'GET',
-      headers: {
-        "content-type": "application/json",
-      }
-    })
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Failed to get response");
-      }
-      return res.json();
-    })
-    .then((data) =>{
-      setProducts(data);
-    })
-    
-  },[])
-
-
   useEffect(() => {
     const updateSlidesPerView = () => {
       const newSlidesPerView = window.innerWidth <= 450 ? 1 : 3;
@@ -45,6 +24,12 @@ const ProductsSlider = ({ header }) => {
       window.removeEventListener('resize', updateSlidesPerView);
     };
   }, []);
+  const getRandomItems = (array, numItems) => {
+    const shuffled = array.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, numItems);
+  };
+
+  const randomItems = getRandomItems(products, 4);
   return (
     
     <div className="container">
@@ -58,15 +43,19 @@ const ProductsSlider = ({ header }) => {
           clickable: true,
         }}
         navigation={true}
+        loop={true}
         modules={[FreeMode, Pagination, Navigation]}
         className="mySwiper"
       >
-        {products.map((product) => (
+        {randomItems.map((product) => (
           <SwiperSlide key={product.id}>
-            <img className='product-slider-image' src={product.image} alt={product.product_name} />
-            <h4>{product.product_name}</h4>
+            <NavLink to={`/products/women/${product.product_name}`}>
+              <img className='product-slider-image' src={product.image} alt={product.product_name} />
+              <h4 className='product-title'>{product.product_name}</h4>
+            </NavLink>
           </SwiperSlide>
         ))}
+
       </Swiper>
     </div>
   );
