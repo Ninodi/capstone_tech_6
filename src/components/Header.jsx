@@ -68,11 +68,11 @@ const Header = () => {
                         <span>{t('Header.productsDrp.womens')}</span>
                         <ul className="mega-links">
                           {categories
-                            .filter(category => category.main_cat === 'ქალის')
+                            .filter(category => category.main_cat === 'Woman')
                             .map(category => (
                               <li key={category.id}>
-                                <Link to={`/products/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
-                                  {category.secondary_cat}
+                                <Link to={`/products/${category.secondary_cat_geo}`} state={{ mainCategory: category.id }} className='mega-links-item'>
+                                {selectedLanguage === 'ka' ? category.secondary_cat_geo : category.secondary_cat}
                                 </Link>
                               </li>
                             ))}
@@ -82,11 +82,11 @@ const Header = () => {
                         <span>{t('Header.productsDrp.kids')}</span>
                         <ul className="mega-links">
                           {categories
-                            .filter(category => category.main_cat === 'ბავშვის')
+                            .filter(category => category.main_cat === 'Children')
                             .map(category => (
                               <li key={category.id}>
                                 <Link to={`/products/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
-                                  {category.secondary_cat}
+                                {selectedLanguage === 'ka' ? category.secondary_cat_geo : category.secondary_cat}
                                 </Link>
                               </li>
                             ))}
@@ -96,11 +96,11 @@ const Header = () => {
                         <span>{t('Header.productsDrp.SpecialClothing')}</span>
                         <ul className="mega-links">
                           {categories
-                            .filter(category => category.main_cat === 'სხვა')
+                            .filter(category => category.main_cat === 'Other')
                             .map(category => (
                               <li key={category.id}>
                                 <Link to={`/products/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
-                                  {category.secondary_cat}
+                                {selectedLanguage === 'ka' ? category.secondary_cat_geo : category.secondary_cat}
                                 </Link>
                               </li>
                             ))}
