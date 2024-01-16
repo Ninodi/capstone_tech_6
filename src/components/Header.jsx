@@ -7,6 +7,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+
   const navRef = useRef();
   const [categories, setCategories] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState(
@@ -53,8 +54,8 @@ const Header = () => {
             <nav>
               <ul className="navbar" ref={navRef}>
                 <li><NavLink className="list-item" to={'/'}>{t('Header.home')}</NavLink></li>
-                <li className='mega-dropdown test'>
-                  <NavLink to={"/products"} className="list-item" >{t('Header.products')} <IoIosArrowDown /></NavLink>
+                <li className='mega-dropdown'>
+                  <NavLink to={"/products"} className="list-item" >{t('Header.products')} <IoIosArrowDown/></NavLink>
                   <div className="mega-box">
                     <div className="content">
                       <div className="row">
