@@ -10,10 +10,16 @@ import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
     const { t } = useTranslation();
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Optional: adds a smooth scroll animation
+        });
+      };
   return (
     <footer>
         <div className="container">
-            <div><Link to={"/"} className='logo'>{t('Header.logo')}</Link></div>
+            <div><Link to={"/"} className='logo' onClick={scrollToTop}>{t('Header.logo')}</Link></div>
             <div className="footer-section">
                 <div className="footer-col">
                     <h2>{t('footer.aboutUs')}</h2>
@@ -32,10 +38,10 @@ const Footer = () => {
                 <div className="footer-col">
                     <h2>{t('footer.pages')}</h2>
                     <ul className='service-items'>
-                        <Link className="list-item" to={"/"}>{t('Header.home')}</Link>
-                        <Link className="list-item" to={"/products"} >{t('Header.products')}</Link>
-                        <Link className="list-item" to={"/about"}>{t('Header.about')}</Link>
-                        <Link className="list-item" to={"/contact"}>{t('Header.contact')}</Link>
+                        <Link className="list-item" to={"/"} onClick={scrollToTop}>{t('Header.home')}</Link>
+                        <Link className="list-item" to={"/products"} onClick={scrollToTop}>{t('Header.products')}</Link>
+                        <Link className="list-item" to={"/about"} onClick={scrollToTop}>{t('Header.about')}</Link>
+                        <Link className="list-item" to={"/contact"} onClick={scrollToTop}>{t('Header.contact')}</Link>
                     </ul>
                 </div>
                 <div className="footer-col location">
