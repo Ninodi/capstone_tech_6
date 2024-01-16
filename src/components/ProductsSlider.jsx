@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import '../assets/styles/swiper.css';
 import { FreeMode, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
+import { NavLink } from 'react-router-dom';
 
 const ProductsSlider = ({ header,products }) => {
   const [slidesPerView, setSlidesPerView] = useState(3);
@@ -48,8 +49,10 @@ const ProductsSlider = ({ header,products }) => {
       >
         {randomItems.map((product) => (
           <SwiperSlide key={product.id}>
-            <img className='product-slider-image' src={product.image} alt={product.product_name} />
-            <h4>{product.product_name}</h4>
+            <NavLink to={`/products/women/${product.product_name}`}>
+              <img className='product-slider-image' src={product.image} alt={product.product_name} />
+              <h4 className='product-title'>{product.product_name}</h4>
+            </NavLink>
           </SwiperSlide>
         ))}
 
