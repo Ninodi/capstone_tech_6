@@ -122,6 +122,11 @@
     opacity: 1;
     visibility: visible;
     position: static;
+    display: none;
+  }
+  .mega-box.open {
+    display: block; /* Display mega-box when open state is true */
+    position: static; /* Adjust position based on your design */
   }
   .navbar{
     position: absolute;
