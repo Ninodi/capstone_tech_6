@@ -155,25 +155,25 @@ const fetchData = async () => {
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
     <div>
-    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME')} value={name} onChange={ (e)=>{setSubmitStatus('');setName(e.target.value)}} />
+    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME')} value={name} onChange={(e)=>{setSubmitStatus('');setName(e.target.value)}} />
     </div>
     
    
     <div>
-    <input type="email" className={contactStyle['contact-form-input']} placeholder={t('contactForm.EMAIL')} value={email}  onChange={(e)=>setEmail(e.target.value)} />
+    <input type="email" className={contactStyle['contact-form-input']} placeholder={t('contactForm.EMAIL')} value={email}  onChange={(e)=>{setSubmitStatus('');setEmail(e.target.value)}} />
     </div>
 
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE')} value={phone} onChange={(e)=>setPhone(e.target.value)}/>
+    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE')} value={phone} onChange={(e)=>{setSubmitStatus('');setPhone(e.target.value)}}/>
     </div>
     <div>
-        <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FACEBOOKPROFILEURL')} value={url} onChange={(e)=>setUrl(e.target.value)}/>
+        <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FACEBOOKPROFILEURL')} value={url} onChange={(e)=>{setSubmitStatus('');setUrl(e.target.value)}}/>
     </div>
     
     
     <div>
       
-    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('contactForm.MESSAGE')} value={message} onChange={(e)=>setMessage(e.target.value)} />
+    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('contactForm.MESSAGE')} value={message} onChange={(e)=>{setSubmitStatus('');setMessage(e.target.value)}} />
     </div>
     <div id={contactStyle['submit-status']}>{submitStatus}</div>
     <button type="submit" className={contactStyle['contactus-btn']}>{t('contactForm.SEND')}</button> 
