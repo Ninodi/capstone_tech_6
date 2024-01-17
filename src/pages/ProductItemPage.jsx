@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../assets/styles/ProductItemPage.css'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
