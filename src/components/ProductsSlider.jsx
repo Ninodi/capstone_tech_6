@@ -43,7 +43,6 @@ const ProductsSlider = ({ header,products }) => {
           clickable: true,
         }}
         navigation={true}
-        loop={true}
         modules={[FreeMode, Pagination, Navigation]}
         className="mySwiper"
       >
