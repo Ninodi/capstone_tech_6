@@ -9,7 +9,7 @@ import Banner from "./Banner";
 import useFetch from "../hooks/useFetch";
 
 function Products({filterOptions, setFilterOptions, capitalizeCategory, mainCategory}) {
-  const {response} = useFetch({url: `http://94.137.187.198:3535/products/`, method: 'GET'})
+  const {response, error} = useFetch({url: `http://94.137.187.198:3000/products/`, method: 'GET'})
   
   
   const [prodNum, setProdNum] = useState(9)
@@ -56,11 +56,13 @@ function Products({filterOptions, setFilterOptions, capitalizeCategory, mainCate
         <div style={{width: '100%', display: 'flex', gap: '20px'}}>
           <ProductFilters filterOptions={filterOptions} setFilterOptions={setFilterOptions}/>
           <div className="empty-list">
-              {displayedProducts?.length === 0
+              {displayedProducts?.length === 0 || error
                 ? <h1 style={{textAlign: 'center'}}>No products available</h1>
                 : <div className="products-desktop">
                   {displayedProducts?.map((prod, index) => index < prodNum && (
-                    <NavLink to={`/products/women/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={index}>
+                    <NavLink 
+                      to={`/products/women/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`}
+                      className="product-item" key={index}>
                       <div className="prod-image">
                         <img src={prod.image} alt="" />
                       </div>
