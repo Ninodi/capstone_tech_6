@@ -5,11 +5,12 @@ import { IoMdClose } from 'react-icons/io';
 import '../assets/styles/header.css';
 import { IoIosArrowDown } from "react-icons/io";
 import { useTranslation } from 'react-i18next';
+import useFetch from '../hooks/useFetch';
 
 const Header = () => {
 
   const [megaBoxOpen, setMegaBoxOpen] = useState(false);
-  const [categories, setCategories] = useState([]);
+
 
   const toggleMegaBox = () => {
     setMegaBoxOpen(!megaBoxOpen);
@@ -19,13 +20,15 @@ const Header = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem('selectedLanguage') || 'en'
   );
+  const { response: categories, onFetch } = useFetch({
+    url: 'http://94.137.187.198:9876/category/',
+    method: 'GET',
+  });
+
 
   useEffect(() => {
-    fetch('http://94.137.187.198:9876/category/')
-      .then(response => response.json())
-      .then(data => setCategories(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+    onFetch(); 
+  }, [onFetch]);
 
   const showNavbar = () => {
     navRef.current.classList.toggle('responsive-nav');
@@ -67,7 +70,7 @@ const Header = () => {
                       <div className="row">
                         <span>{t('Header.productsDrp.womens')}</span>
                         <ul className="mega-links">
-                          {categories
+                          {categories && categories
                             .filter(category => category.main_cat === 'Woman')
                             .map(category => (
                               <li key={category.id}>
@@ -81,7 +84,7 @@ const Header = () => {
                       <div className="row">
                         <span>{t('Header.productsDrp.kids')}</span>
                         <ul className="mega-links">
-                          {categories
+                          {categories && categories
                             .filter(category => category.main_cat === 'Children')
                             .map(category => (
                               <li key={category.id}>
@@ -95,7 +98,7 @@ const Header = () => {
                       <div className="row">
                         <span>{t('Header.productsDrp.SpecialClothing')}</span>
                         <ul className="mega-links">
-                          {categories
+                          {categories && categories
                             .filter(category => category.main_cat === 'Other')
                             .map(category => (
                               <li key={category.id}>

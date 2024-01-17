@@ -11,7 +11,6 @@ import useCapitalise from '../hooks/useCapitalise'
 
 
 function ProductItemPage() {
-  const [products, setProducts] = useState([])
   const { itemName } = useParams()
   const capitaliseCategory = useCapitalise(itemName)
   const formattedCategory = capitaliseCategory().replaceAll('-', ' ')
