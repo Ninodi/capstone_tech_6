@@ -39,7 +39,7 @@
         "FILLTHISFORM": "FILL THIS FORM",
         "FULLNAME": "Full Name *",
         "EMAIL": "Email *",
-        "PHONE": "Phone *",
+        "PHONE": "Phone (5xx xx xx xx)*",
         "FACEBOOKPROFILEURL": "Facebook URL",
         "MESSAGE": "Message *",
         "SEND": "Send",
@@ -47,7 +47,16 @@
         "CONTACT": "Contact",
         "BASEDINTEXT": "Based In",
         "BASEDIN": "Tkibuli, Georgia",
-        "LOCATIONTEXT": "Location"
+        "LOCATIONTEXT": "Location",
+        "EMPTYNAME":"Name is required",
+        "ERRORNAME":"Only letters are permited in the name field",
+        "EMPTYEMAIL":"Email is required",
+        "ERROREMAIL":"Email format is incorrect",
+        "EMPTYPHONE":"Phone number is required",
+        "SHORTPHONE":"Minimum 9 digits required for the phone number",
+        "ERRORPHONE":"Phone number is incorrect",
+        "EMPTYMESSAGE":"Message text is required"
+
       },
     "aboutUsPage":{
         "aboutUs":"About Us",
