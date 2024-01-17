@@ -56,13 +56,14 @@ const ProductsSlider = ({ header,products }) => {
       >
         {randomItems.map((product) => (
           <SwiperSlide key={product.id}>
-            <NavLink to={`/products/women/${product.product_name}`}>
-              <img className='product-slider-image' src={product.image} alt={product.product_name} />
-              <h4 className='product-title'>{product.product_name}</h4>
-            </NavLink>
+            <div onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}>
+              <NavLink to={`/products/women/${product.product_name}`}>
+                <img className='product-slider-image' src={product.image} alt={product.product_name} />
+                <h4 className='product-title'>{product.product_name}</h4>
+              </NavLink>
+            </div>
           </SwiperSlide>
         ))}
-
       </Swiper>
     </div>
   );
