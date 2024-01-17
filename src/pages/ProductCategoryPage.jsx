@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import { useLocation, useParams } from 'react-router-dom'
 import "../assets/styles/ProductCategoryPage.css"
 import Products from '../components/Products'
+import useCapitalise from '../hooks/useCapitalise'
  
 
 function ProductCategoryPage() {
@@ -19,10 +20,8 @@ function ProductCategoryPage() {
 
     const {category} = useParams()
 
-    const capitalizeCategory = () => {
-      let firstLetter = category[0].toLocaleUpperCase()
-      return firstLetter + category.slice(1)
-    }
+    const capitaliseCategory = useCapitalise(category);
+
   return (
     <div>
         <Header/>
@@ -30,7 +29,7 @@ function ProductCategoryPage() {
           <Products 
             filterOptions={filterOptions} 
             setFilterOptions={setFilterOptions} 
-            capitalizeCategory={capitalizeCategory}
+            capitaliseCategory={capitaliseCategory}
             mainCategory={mainCategory}
             />
         </div>

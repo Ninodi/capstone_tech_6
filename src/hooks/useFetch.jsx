@@ -35,7 +35,7 @@ function useFetch({url, method}) {
     onFetch()
   }, [onFetch])
 
-  return {response, error}
+  return {response, error, onFetch}
 
 }
 

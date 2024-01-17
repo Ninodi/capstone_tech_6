@@ -8,8 +8,8 @@ import ProductDisplaySettings from "./ProductDisplaySettings";
 import Banner from "./Banner";
 import useFetch from "../hooks/useFetch";
 
-function Products({filterOptions, setFilterOptions, capitalizeCategory, mainCategory}) {
-  const {response, error} = useFetch({url: `http://94.137.187.198:3000/products/`, method: 'GET'})
+function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCategory}) {
+  const {response, error} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
   
   
   const [prodNum, setProdNum] = useState(9)
@@ -34,7 +34,7 @@ function Products({filterOptions, setFilterOptions, capitalizeCategory, mainCate
   useEffect(() => {
     setProdNum(prev => 9)
     setCurrentPage(prev => 1)
-  }, [capitalizeCategory])
+  }, [capitaliseCategory])
 
   const loadMore = () => {
     const remainingProducts = response?.length - prodNum
@@ -46,11 +46,12 @@ function Products({filterOptions, setFilterOptions, capitalizeCategory, mainCate
     if(prodNum + productsToLoad >= response?.length) loadBtn.current.style.display = "none"
   }
 
+
   return (
     <div className="prod-list-container">
       <div className="products-desktop-container">
         <div className="breadcrumbs">
-          <p>Home / Products / {`${capitalizeCategory()}`}</p>
+          <p>Home / Products / {`${capitaliseCategory()}`}</p>
           <SortingOptions activeSorting='Most popular'/>
         </div>
         <div style={{width: '100%', display: 'flex', gap: '20px'}}>
@@ -60,14 +61,16 @@ function Products({filterOptions, setFilterOptions, capitalizeCategory, mainCate
                 ? <h1 style={{textAlign: 'center'}}>No products available</h1>
                 : <div className="products-desktop">
                   {displayedProducts?.map((prod, index) => index < prodNum && (
-                    <NavLink 
-                      to={`/products/women/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`}
-                      className="product-item" key={index}>
-                      <div className="prod-image">
-                        <img src={prod.image} alt="" />
-                      </div>
-                      <p style={{color: '#000000', marginTop: '17px'}}>{prod.product_name}</p>
-                    </NavLink>
+                    <div onClick={() => localStorage.setItem('productId', JSON.stringify(prod.id))} key={index}>
+                      <NavLink 
+                        to={`/products/women/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`}
+                        className="product-item">
+                        <div className="prod-image">
+                          <img src={prod.image} alt="" />
+                        </div>
+                        <p style={{color: '#000000', marginTop: '17px'}}>{prod.product_name}</p>
+                      </NavLink>
+                    </div>
                   ))}
                 </div>
               }

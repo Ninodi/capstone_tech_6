@@ -24,12 +24,19 @@ const ProductsSlider = ({ header,products }) => {
       window.removeEventListener('resize', updateSlidesPerView);
     };
   }, []);
-  const getRandomItems = (array, numItems) => {
-    const shuffled = array.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, numItems);
-  };
 
-  const randomItems = getRandomItems(products, 4);
+  // const getRandomItems = (array, numItems) => {
+  //   const shuffled = array.sort(() => 0.5 - Math.random());
+  //   return shuffled.slice(0, numItems);
+  // };
+
+  // const randomItems = getRandomItems(products, 4);
+  
+  const sortedProducts = Array.isArray(products) ? [...products].sort(() => 0.5 - Math.random()) : [];
+
+  // Use the sortedProducts in your component
+  const randomItems = sortedProducts.slice(0, 4);
+
   return (
     
     <div className="container">
