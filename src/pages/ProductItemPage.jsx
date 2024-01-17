@@ -4,9 +4,6 @@ import Banner from '../components/Banner'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ProductsSlider from '../components/ProductsSlider'
-import prodItem1 from '../assets/img/prodItem1.png'
-import prodItem1small2 from '../assets/img/prodItem1.2.png'
-import prodItem1small3 from '../assets/img/prodItem1.3.png'
 import prodInfoToggle from '../assets/icons/prodInfoToggle.png'
 import useFetch from '../hooks/useFetch'
 import { useParams } from 'react-router-dom'
@@ -14,15 +11,14 @@ import useCapitalise from '../hooks/useCapitalise'
 
 
 function ProductItemPage() {
+  const [products, setProducts] = useState([])
   const { itemName } = useParams()
   const capitaliseCategory = useCapitalise(itemName)
   const formattedCategory = capitaliseCategory().replaceAll('-', ' ')
-  
-
   const productId = localStorage.getItem('productId')
-
   const [toggleInfo, setToggleInfo] = useState(true)
   const { response, onFetch } = useFetch({url: `http://94.137.187.198:9876/images/`, method: 'GET'})
+  const { response: productsResponse} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
 
   useEffect(() => {
     if (productId) {
@@ -33,7 +29,6 @@ function ProductItemPage() {
   const prodImages =
     response?.filter((prod) => prod.product.toString() === productId)?.map((pordImg) => pordImg.photo) || []
 
-  console.log('Product Images:', prodImages)
 
   const toggleProdInfo = () => {
     setToggleInfo(prev => !prev)
@@ -95,7 +90,7 @@ function ProductItemPage() {
           </div>
           <div className="call-now">Call now</div>
           <div className="product-items-slider-container">
-            {/* <ProductsSlider /> */}
+            <ProductsSlider products={productsResponse} header={"Similar Items You May Like!"}/>
           </div>
         </div>
       </main>
