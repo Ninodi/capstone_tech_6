@@ -50,7 +50,7 @@
         "BASEDINTEXT": "Based In",
         "BASEDIN": "Tkibuli, Georgia",
         "LOCATIONTEXT": "Location",
-        "EMPTYNAME":"Name is required",
+        "EMPTYNAME":"At least 2 letters in Name field are required",
         "ERRORNAME":"Only letters are permited in the name field",
         "EMPTYEMAIL":"Email is required",
         "ERROREMAIL":"Email format is incorrect",
