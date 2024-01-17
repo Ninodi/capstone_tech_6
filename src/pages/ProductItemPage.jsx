@@ -8,31 +8,32 @@ import prodItem1 from '../assets/img/prodItem1.png'
 import prodItem1small2 from '../assets/img/prodItem1.2.png'
 import prodItem1small3 from '../assets/img/prodItem1.3.png'
 import prodInfoToggle from '../assets/icons/prodInfoToggle.png'
+import useFetch from '../hooks/useFetch'
+import { useParams } from 'react-router-dom'
+import useCapitalise from '../hooks/useCapitalise'
 
-function ProductItemPage({capitalizeCategory, productName}) {
-  const [products, setProducts] = useState([]);
 
+function ProductItemPage() {
+  const { itemName } = useParams()
+  const capitaliseCategory = useCapitalise(itemName)
+  const formattedCategory = capitaliseCategory().replaceAll('-', ' ')
+  
 
-  useEffect(() => {
-    fetch(`http://94.137.187.198:9876/products/`, {
-      method: 'GET',
-      headers: {
-        "content-type": "application/json",
-      }
-    })
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Failed to get response");
-      }
-      return res.json();
-    })
-    .then((data) =>{
-      setProducts(data);
-    })
-    
-  },[])
+  const productId = localStorage.getItem('productId')
 
   const [toggleInfo, setToggleInfo] = useState(true)
+  const { response, onFetch } = useFetch({url: `http://94.137.187.198:9876/images/`, method: 'GET'})
+
+  useEffect(() => {
+    if (productId) {
+      onFetch();
+    }
+  }, [productId, onFetch])
+
+  const prodImages =
+    response?.filter((prod) => prod.product.toString() === productId)?.map((pordImg) => pordImg.photo) || []
+
+  console.log('Product Images:', prodImages)
 
   const toggleProdInfo = () => {
     setToggleInfo(prev => !prev)
@@ -50,19 +51,19 @@ function ProductItemPage({capitalizeCategory, productName}) {
           <div className="product-item-images">
             <div className='prod-item-large-image-container'>
               <div className="product-item-image-large">
-                <img src={prodItem1} alt="" />
+                <img src={prodImages?.length === 0 ? null : prodImages[0]}alt="" />
               </div>
               <div className="product-name">
                 <p>Mariami’s Atelier</p>
-                <p>Here goes the product name</p>
+                <p>{formattedCategory}</p>
               </div>
             </div>
             <div className="prod-item-images-small-container">
               <div className="prod-image-small">
-                <img src={prodItem1small3} alt="" />
+                <img src={prodImages?.length === 0 ? null : prodImages[1]} alt="" />
               </div>
               <div className="prod-image-small">
-                <img src={prodItem1small2} alt="" />
+                <img src={prodImages?.length === 0 ? null : prodImages[2]} alt="" />
               </div>
             </div>
           </div>
@@ -94,7 +95,7 @@ function ProductItemPage({capitalizeCategory, productName}) {
           </div>
           <div className="call-now">Call now</div>
           <div className="product-items-slider-container">
-            <ProductsSlider products={products} header={"Similar Items You May Like!"}/>
+            {/* <ProductsSlider /> */}
           </div>
         </div>
       </main>

@@ -19,6 +19,7 @@ function useFetch({url, method}) {
       return res.json()
     })
     .then(data => {
+      console.log(data)
       setResponse(data)
     })
     .catch(err => console.log(err))
@@ -35,7 +36,7 @@ function useFetch({url, method}) {
     onFetch()
   }, [onFetch])
 
-  return {response, error}
+  return {response, error, onFetch}
 
 }
 
