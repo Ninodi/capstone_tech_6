@@ -96,6 +96,7 @@ function ProductItemPage() {
           <div className="call-now">Call now</div>
           <div className="product-items-slider-container">
             {/* <ProductsSlider /> */}
+            <h1>here goes slider</h1>
           </div>
         </div>
       </main>
