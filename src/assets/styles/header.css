@@ -125,8 +125,8 @@
     display: none;
   }
   .mega-box.open {
-    display: block; /* Display mega-box when open state is true */
-    position: static; /* Adjust position based on your design */
+    display: block;
+    position: static; 
   }
   .navbar{
     position: absolute;
@@ -167,7 +167,7 @@
 }
 @media only screen and (max-width:600px){
   .navbar{
-    top: 104px;
+    top: 107px;
   }
   .container{
     padding:0 36px;
