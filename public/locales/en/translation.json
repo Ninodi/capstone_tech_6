@@ -18,7 +18,9 @@
         "contact": "Contact",
         "language":{
             "english":"English",
-            "georgian":"Georgian"
+            "georgian":"Georgian",
+            "englishMobile":"Eng",
+            "georgianMobile":"Geo"
         }
     },
     "footer":{

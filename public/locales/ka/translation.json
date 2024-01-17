@@ -18,7 +18,9 @@
         "contact": "კონტაქტი",
         "language":{
             "english":"ინგლისური",
-            "georgian":"ქართული"
+            "georgian":"ქართული",
+            "englishMobile":"Eng",
+            "georgianMobile":"Geo"
         }
     },
     "footer":{

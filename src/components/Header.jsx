@@ -118,9 +118,10 @@ const Header = () => {
               </ul>
             </nav>
             <div className="languages">
+              <div></div>
               <select name="select" id="select" value={selectedLanguage} onChange={handleLanguageChange}>
-                <option value="en">{t('Header.language.english')}</option>
-                <option value="ka">{t('Header.language.georgian')}</option>
+                <option value="en">{t('Header.language.englishMobile')}</option>
+                <option value="ka">{t('Header.language.georgianMobile')}</option>
               </select>
             </div>
           </div>
