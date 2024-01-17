@@ -12,7 +12,6 @@
        import contactFormImg from '../assets/img/contact-form-img.png'
    
        import { useTranslation } from 'react-i18next';
-    
       
 
     const ContactUs = ({pageType})=>
@@ -25,11 +24,11 @@
 
     const navigate = useNavigate();
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
-    const [url, setUrl] = useState('')
-    const [message, setMessage ] = useState('')
+    let [name, setName] = useState('')
+    let [email, setEmail] = useState('')
+    let [phone, setPhone] = useState('')
+    let [url, setUrl] = useState('')
+    let [message, setMessage ] = useState('')
     const [submitStatus, setSubmitStatus] = useState(null)
     const [formData, setformData] = useState(null)
 
@@ -46,7 +45,15 @@
 
 useEffect(()=>
 {
+  name=name.trim() // removes external spaces
+  email=email.replace(/\s+/g, '') // removes all spaces
+  phone=phone.replace(/\s+/g, '') 
+  url=url.replace(/\s+/g, '')
+  message=message.trim()
+  
   setformData({fl_name:name,mail:email,mobile:phone,fb_url:url,message:message })
+
+  console.log(phone)
 },[name,email,phone,url,message])
 
 
@@ -102,31 +109,84 @@ const fetchData = async () => {
 
         if(name==='')
         {
-          setSubmitStatus('სახელი და გვარი აუცილებელია')
+          setSubmitStatus(t('contactForm.EMPTYNAME'))
+          return
           
-        }else if(email==='')
+        }
+
+        const isValidName = /^[A-Za-zა-ჰ]+$/.test(name);
+       
+
+      if(!isValidName)
+        {
+
+
+          setSubmitStatus(t('contactForm.ERRORNAME'))
+          return
+          
+        }
+
+        if(email==='')
 
         {
-          setSubmitStatus('ელ. ფოსტა აუცილებელია')
+          setSubmitStatus(t('contactForm.EMPTYEMAIL'))
+          return
 
         
           
-        }else if(phone==='')
+        }
 
-        {
-          setSubmitStatus('ტელეფონი აუცილებელია')
+        //const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) // checks email format only
 
-        
+        const isValidEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email) //checks email format+english
+
+        if (!isValidEmail) {
           
-        }else if(message==='')
+         
+          setSubmitStatus(t('contactForm.ERROREMAIL'))
+          return
+          }
 
+
+
+
+        if(phone==='')
         {
-          setSubmitStatus('შეტყობინების ტექსტი აუცილებელია')
+          setSubmitStatus(t('contactForm.EMPTYPHONE'))
+          return
+   
+        }
+
+
+        if (phone.length <9)
+        {
+        // value = value.slice(0, maxLength);
+         setSubmitStatus(t('contactForm.SHORTPHONE'))
+
+         return
+        }
+
+          const isValidPhoneNumber = /^(\+?[0-9] ?){6,14}[0-9]$/.test(phone);
+  
+          if (!isValidPhoneNumber) {
+          
+         
+          setSubmitStatus(t('contactForm.ERRORPHONE'))
+          return
+          }
+
+         
+        
+        if(message==='')
+        {
+          setSubmitStatus(t('contactForm.EMPTYMESSAGE'))
+          return
 
         }
-        else{
+       
+        
           fetchData()
-        }
+        
 
            
           
@@ -160,11 +220,11 @@ const fetchData = async () => {
     
    
     <div>
-    <input type="email" className={contactStyle['contact-form-input']} placeholder={t('contactForm.EMAIL')} value={email}  onChange={(e)=>{setSubmitStatus('');setEmail(e.target.value)}} />
+    <input type="text"  mask="*{1,}@*{1,}.*{1,}" className={contactStyle['contact-form-input']} placeholder={t('contactForm.EMAIL')} value={email}  onChange={(e)=>{setSubmitStatus('');setEmail(e.target.value)}} />
     </div>
 
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE')} value={phone} onChange={(e)=>{setSubmitStatus('');setPhone(e.target.value)}}/>
+    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE')} value={phone} onChange={(e)=>{setSubmitStatus('');setPhone(e.target.value);}}/>
     </div>
     <div>
         <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FACEBOOKPROFILEURL')} value={url} onChange={(e)=>{setSubmitStatus('');setUrl(e.target.value)}}/>
