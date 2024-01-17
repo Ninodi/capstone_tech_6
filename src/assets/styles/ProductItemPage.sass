@@ -1,0 +1,136 @@
+@import helpers
+    
+.product-name
+    display: none
+    @include plus600()
+        display: block
+    p
+        
+        font-size: 25px
+        @include plus1025()
+            font-size: 50px
+        &:first-child
+            border-bottom: 1px solid black
+            padding-bottom: 20px
+            margin-bottom: 20px
+            @include plus600()
+        
+
+.product-item-images
+    width: 100%
+    margin-bottom: 30px
+    @include verticalCenter()
+    gap: 25px
+    @include plus600()
+        margin-bottom: 77px
+        flex-direction: row
+        align-items: flex-start
+        
+.prod-item-large-image-container
+    width: 100%
+    @include verticalCenter()
+    gap: 77px
+    @include plus600()
+        max-width: 600px
+
+
+.product-item-image-large, .prod-image-small
+    width: 100%
+    object-fit: cover
+    @include plus600()
+        width: 100%
+    img
+        width: 100%
+        height: 100%
+
+.prod-image-small
+    width: 100%
+    object-fit: cover
+    @include plus600()
+        width: 100%
+        max-height: 600px
+    img
+        width: 100%
+        height: 100%
+
+.prod-item-images-small-container
+    width: 100%
+    @include center()
+    gap: 20px
+    @include plus600()
+        max-width: 500px
+        flex-direction: column
+
+.product-items-slider-container
+    width: 100%
+    display: none
+    @include plus1025()
+        display: block
+
+.call-now
+    width: 100%
+    height: 46px
+    background-color: #3391A1
+    @include center()
+    border-radius: 12px
+    color: #fff
+    @include plus600()
+        display: none
+
+
+.product-information
+    max-width: 1030px
+    margin: 0 auto
+    margin-bottom: 30px
+    border-radius: 12px
+    pointer-events: none
+    transition: all 0.3s ease-in
+    @include plus769()
+        background-color: #A09B95
+        color: #fff
+        padding: 50px
+        pointer-events: unset
+    p
+        font-size: 18px
+        margin-bottom: 25px
+        font-weight: 600
+        @include plus769()
+            margin-bottom: 0
+            font-size: 40px
+    ul
+        padding-left: 20px
+        @include plus769()
+            @include center()
+            justify-content: space-between
+            gap: 100px
+        div
+            @include plus769()
+                width: 50%
+            &:first-child
+                margin-bottom: 20px
+                @include plus769()
+                    margin-bottom: 0
+            &:nth-child(2)
+                @include plus769()
+                    max-width: 300px
+    li
+        list-style: disc
+
+.prod-info-toggle
+    @include center()
+    justify-content: space-between
+
+.prod-info-toggle-arrow
+  transition: all 0.3s ease-in-out
+  transform: rotate(-180deg)
+  &.info-toggled
+    transform: rotate(0deg)
+
+.product-details
+    opacity: 0
+    height: 0
+    overflow: hidden
+    transition: all 0.6s ease, height 0.3s ease-in-out
+    &.visible
+        opacity: 1
+        height: auto

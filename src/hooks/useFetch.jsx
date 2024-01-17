@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 function useFetch({url, method}) {
   const [response, setResponse] = useState(null)
+  const [error, setError] = useState(false)
 
   const onFetch = useCallback (() => {
     fetch('http://94.137.187.198:9876/products/', {
@@ -11,7 +12,10 @@ function useFetch({url, method}) {
       }
     })
     .then(res => {
-      if(!res.ok) throw new Error("Reponse failed")
+      if(!res.ok) {
+        setError(true)
+        throw new Error("Reponse failed")
+      }
       return res.json()
     })
     .then(data => {
@@ -23,6 +27,7 @@ function useFetch({url, method}) {
 
     return () => {
       setResponse(null)
+      setError(false)
     }
   }, [url, method])
 
@@ -30,7 +35,7 @@ function useFetch({url, method}) {
     onFetch()
   }, [onFetch])
 
-  return {response}
+  return {response, error}
 
 }
 
