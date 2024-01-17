@@ -107,14 +107,14 @@ const fetchData = async () => {
     {
         e.preventDefault()
 
-        if(name==='')
+        if(name==='' || name.length<2)
         {
           setSubmitStatus(t('contactForm.EMPTYNAME'))
           return
           
         }
 
-        const isValidName = /^[A-Za-zა-ჰ]+$/.test(name);
+        const isValidName = /^[A-Za-zა-ჰ ]+$/.test(name);
        
 
       if(!isValidName)
