@@ -31,7 +31,7 @@ const router = [
     },
     {
         element: <ProductItemPage/>,
-        path: '/products/:category/:itemId'
+        path: '/products/:category/:itemName'
     },
      {
         element: <SubmitPage/>,

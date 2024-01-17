@@ -5,7 +5,7 @@ function useFetch({url, method}) {
   const [error, setError] = useState(false)
 
   const onFetch = useCallback (() => {
-    fetch('http://94.137.187.198:9876/products/', {
+    fetch(url, {
       method,
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function useFetch({url, method}) {
     onFetch()
   }, [onFetch])
 
-  return {response, error}
+  return {response, error, onFetch}
 
 }
 

@@ -24,12 +24,19 @@ const ProductsSlider = ({ header,products }) => {
       window.removeEventListener('resize', updateSlidesPerView);
     };
   }, []);
-  const getRandomItems = (array, numItems) => {
-    const shuffled = array.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, numItems);
-  };
 
-  const randomItems = getRandomItems(products, 4);
+  // const getRandomItems = (array, numItems) => {
+  //   const shuffled = array.sort(() => 0.5 - Math.random());
+  //   return shuffled.slice(0, numItems);
+  // };
+
+  // const randomItems = getRandomItems(products, 4);
+  
+  const sortedProducts = Array.isArray(products) ? [...products].sort(() => 0.5 - Math.random()) : [];
+
+  // Use the sortedProducts in your component
+  const randomItems = sortedProducts.slice(0, 4);
+
   return (
     
     <div className="container">
@@ -43,19 +50,19 @@ const ProductsSlider = ({ header,products }) => {
           clickable: true,
         }}
         navigation={true}
-        loop={true}
         modules={[FreeMode, Pagination, Navigation]}
         className="mySwiper"
       >
         {randomItems.map((product) => (
           <SwiperSlide key={product.id}>
-            <NavLink to={`/products/women/${product.product_name}`}>
-              <img className='product-slider-image' src={product.image} alt={product.product_name} />
-              <h4 className='product-title'>{product.product_name}</h4>
-            </NavLink>
+            <div onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}>
+              <NavLink to={`/products/women/${product.product_name}`}>
+                <img className='product-slider-image' src={product.image} alt={product.product_name} />
+                <h4 className='product-title'>{product.product_name}</h4>
+              </NavLink>
+            </div>
           </SwiperSlide>
         ))}
-
       </Swiper>
     </div>
   );

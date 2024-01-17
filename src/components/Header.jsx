@@ -21,7 +21,7 @@ const Header = () => {
   );
 
   useEffect(() => {
-    fetch('http://94.137.187.198:9876/filter/')
+    fetch('http://94.137.187.198:9876/category/')
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error fetching data:', error));
