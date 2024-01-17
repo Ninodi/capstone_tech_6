@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../assets/styles/ProductItemPage.css'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
@@ -10,6 +10,28 @@ import prodItem1small3 from '../assets/img/prodItem1.3.png'
 import prodInfoToggle from '../assets/icons/prodInfoToggle.png'
 
 function ProductItemPage({capitalizeCategory, productName}) {
+  const [products, setProducts] = useState([]);
+
+
+  useEffect(() => {
+    fetch(`http://94.137.187.198:9876/products/`, {
+      method: 'GET',
+      headers: {
+        "content-type": "application/json",
+      }
+    })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to get response");
+      }
+      return res.json();
+    })
+    .then((data) =>{
+      setProducts(data);
+    })
+    
+  },[])
+
   const [toggleInfo, setToggleInfo] = useState(true)
 
   const toggleProdInfo = () => {
@@ -72,7 +94,7 @@ function ProductItemPage({capitalizeCategory, productName}) {
           </div>
           <div className="call-now">Call now</div>
           <div className="product-items-slider-container">
-            <ProductsSlider />
+            <ProductsSlider products={products} header={"Similar Items You May Like!"}/>
           </div>
         </div>
       </main>
