@@ -101,6 +101,9 @@
         "viewAll":"ყველას ნახვა",
         "christening":"ნათლობა",
         "christmas":"შობა"
+    },
+    "productItemPage":{
+        "breadcrumbs": "მთავარი / პროდუქტები /"
     }
 
 }

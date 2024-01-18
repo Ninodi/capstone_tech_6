@@ -4,12 +4,13 @@ import Footer from '../components/Footer'
 import ProductsSlider from '../components/ProductsSlider'
 import BestSeller from '../components/BestSeller'
 import { useTranslation } from 'react-i18next'
+import { BounceLoader } from 'react-spinners'
 import useFetch from '../hooks/useFetch'
 const ProductPage = () => {
   const { t } = useTranslation();
 
 
-  const { response: products, onFetch } = useFetch({
+  const { response: products,loading, onFetch } = useFetch({
     url: 'http://94.137.187.198:9876/products/',
     method: 'GET',
   });
@@ -20,6 +21,16 @@ const ProductPage = () => {
 
   const categoryFourProducts = products && products.filter((product) => product.category === 1 );
   const categoryTwoProducts = products && products.filter((product) => product.category === 4);
+  if(loading && !products) 
+  return <div className='loader'>
+    <BounceLoader
+        className='spiner'
+        color= {'#FF6767'} 
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+  </div>
   return (
     <div>
         <Header/>

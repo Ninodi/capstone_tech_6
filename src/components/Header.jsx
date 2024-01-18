@@ -5,6 +5,7 @@ import { IoMdClose } from 'react-icons/io';
 import '../assets/styles/header.css';
 import { IoIosArrowDown } from "react-icons/io";
 import { useTranslation } from 'react-i18next';
+import { BounceLoader } from 'react-spinners'
 import useFetch from '../hooks/useFetch';
 
 const Header = () => {
@@ -20,7 +21,7 @@ const Header = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem('selectedLanguage') || 'en'
   );
-  const { response: categories, onFetch } = useFetch({
+  const { response: categories,loading, onFetch } = useFetch({
     url: 'http://94.137.187.198:9876/category/',
     method: 'GET',
   });
@@ -45,6 +46,16 @@ const Header = () => {
     setSelectedLanguage(newLanguage);
     localStorage.setItem('selectedLanguage', newLanguage);
   };
+  if(loading && !categories) 
+  return <div className='loader'>
+    <BounceLoader
+        className='spiner'
+        color= {'#FF6767'} 
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+  </div>
 
   return (
     <div className='full-header'>
