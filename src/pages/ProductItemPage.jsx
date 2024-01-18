@@ -33,7 +33,7 @@ function ProductItemPage() {
   const toggleProdInfo = () => {
     setToggleInfo(prev => !prev)
   }
-  if(loading && !productsResponse) 
+  if(loading && !productsResponse && response) 
   return <div className='loader'>
     <BounceLoader
         className='spiner'
