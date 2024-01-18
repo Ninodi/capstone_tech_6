@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 function useFetch({url, method}) {
   const [response, setResponse] = useState(null)
   const [error, setError] = useState(false)
+  const [loading,setLoading] = useState(null)
 
   const onFetch = useCallback (() => {
     fetch(url, {
@@ -22,12 +23,13 @@ function useFetch({url, method}) {
       setResponse(data)
     })
     .catch(err => console.log(err))
-    .finally(() =>  console.log('done'))
+    .finally(() => setLoading(false))
 
 
     return () => {
       setResponse(null)
       setError(false)
+      setLoading(false)
     }
   }, [url, method])
 
@@ -35,7 +37,7 @@ function useFetch({url, method}) {
     onFetch()
   }, [onFetch])
 
-  return {response, error, onFetch}
+  return {response, error,loading, onFetch}
 
 }
 

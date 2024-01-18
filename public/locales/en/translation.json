@@ -102,5 +102,8 @@
         "viewAll":"View All",
         "christening":"Christening",
         "christmas":"Christmas"
+    },
+    "productItemPage":{
+        "breadcrumbs": "Home / Products /"
     }
 }

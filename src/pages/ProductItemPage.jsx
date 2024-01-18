@@ -8,6 +8,7 @@ import prodInfoToggle from '../assets/icons/prodInfoToggle.png'
 import useFetch from '../hooks/useFetch'
 import { useParams } from 'react-router-dom'
 import useCapitalise from '../hooks/useCapitalise'
+import { BounceLoader } from 'react-spinners'
 
 
 function ProductItemPage() {
@@ -17,7 +18,7 @@ function ProductItemPage() {
   const productId = localStorage.getItem('productId')
   const [toggleInfo, setToggleInfo] = useState(true)
   const { response, onFetch } = useFetch({url: `http://94.137.187.198:9876/images/`, method: 'GET'})
-  const { response: productsResponse} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
+  const { response: productsResponse,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
 
   useEffect(() => {
     if (productId) {
@@ -32,6 +33,16 @@ function ProductItemPage() {
   const toggleProdInfo = () => {
     setToggleInfo(prev => !prev)
   }
+  if(loading && !productsResponse) 
+  return <div className='loader'>
+    <BounceLoader
+        className='spiner'
+        color= {'#FF6767'} 
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+  </div>
 
   return (
     <div>

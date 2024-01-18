@@ -7,9 +7,12 @@ import ProductFiltersMobile from "./ProductFiltersMobile";
 import ProductDisplaySettings from "./ProductDisplaySettings";
 import Banner from "./Banner";
 import useFetch from "../hooks/useFetch";
+import { useTranslation } from "react-i18next";
+import { BounceLoader } from 'react-spinners'
 
 function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCategory}) {
-  const {response, error} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
+  const {response, error,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
+  const { t } = useTranslation();
   
   
   const [prodNum, setProdNum] = useState(9)
@@ -45,13 +48,23 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
 
     if(prodNum + productsToLoad >= response?.length) loadBtn.current.style.display = "none"
   }
+  if(loading && !response) 
+  return <div className='loader'>
+    <BounceLoader
+        className='spiner'
+        color= {'#FF6767'} 
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+  </div>
 
 
   return (
     <div className="prod-list-container">
       <div className="products-desktop-container">
         <div className="breadcrumbs">
-          <p>Home / Products / {`${capitaliseCategory()}`}</p>
+          <p>{t('productItemPage.breadcrumbs')} {`${capitaliseCategory()}`}</p>
           <SortingOptions activeSorting='Most popular'/>
         </div>
         <div style={{width: '100%', display: 'flex', gap: '20px'}}>
