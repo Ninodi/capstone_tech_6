@@ -1,0 +1,246 @@
+
+.contact-form-container
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.contact-form-img-container {
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+
+.fill-this-form-title
+  {
+    display:none;
+  }
+  
+.contact-form-img
+{
+    max-width:100%;
+    height:auto;
+   
+    
+}
+
+.contact-form-input
+{
+    font-family: 'Montserrat-SemiBold';
+    font-size:100%;
+    width:30vw;
+    height:46px;
+    border-style:none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    outline: none;
+    margin-top: 45px;
+    
+}
+
+.contact-form-input::placeholder
+{
+    font-size:calc(0.5vw + 10px);
+}
+
+.input-fields-container
+{
+    margin-left:10px;
+}
+
+
+.contact-form-msg
+{
+  
+   margin-top: 80px;
+   
+}
+.contactus-title
+{
+    font-family: 'Quicksand-Regular';
+    font-size: 50px;
+    letter-spacing: 0.2em;   
+   
+}
+.contactus2-title
+{
+   display:none;
+   
+}
+
+.contact-info-container
+{
+   
+    margin-top:1px;
+    margin-right:10px;
+}
+
+.contact-info-title
+{
+    font-family: 'Quicksand-Bold';
+    margin-top:15px;
+    font-weight: bold;
+}
+
+.contact-info-text
+{
+    font-family: 'Quicksand-regular';
+    margin-top:20px;
+    font-size:calc(0.5vw + 10px);
+    
+
+}
+
+
+.contactus-btn
+{
+    font-size:20px;
+    letter-spacing: 0.05em;
+    font-family: 'Quicksand-SemiBold';
+    color:#ffffff;
+    background-color: #3391a1;
+    width:289px;
+    height:56px;
+    border-radius: 5px;
+    border-style: none;
+    cursor:pointer;
+    transition: background-color 0.1s, transform 0.1s;
+    margin-top:10px;
+    
+}
+
+
+  .contactus-btn:active
+  {
+    background-color: #26707d;
+    transform: scale(0.97);
+  }
+
+  #submit-status
+  {
+    font-family: 'Montserrat-SemiBold';
+    font-size:16px;
+    width:289px;
+    text-align: center;
+    height: 50px;
+    margin-top:30px;
+    white-space: nowrap;
+    color:red;
+    font-weight: bold;
+  }
+  
+  .location-div
+  {
+      display: none;
+  }
+
+
+  @media (max-width: 767px) {
+    
+  
+    .contact-form-container
+    {
+        margin-top:35px;
+        margin-bottom:25px;
+        justify-content: space-around;
+    }
+    .contact-form-img-container {
+      display: none;
+    }
+
+    .input-fields-container
+    {
+    margin-left:5px;
+    }
+  
+
+    .contactus-title
+    {
+        font-size:5.1vw;
+        margin-bottom:10px;
+        letter-spacing: 0em;   
+    }
+
+   
+
+    .contact-form-input
+    {
+   
+        font-size:3.2vw;
+        width:45vw;
+        height:25.07px;
+        margin-top:25px;
+       
+    }
+
+    .contact-form-input::placeholder
+{
+    font-size:calc(1vw + 8px);
+}
+
+
+    .contact-form-msg
+    {
+        
+        margin-top:40px;
+    }
+
+
+    .contact-info-container
+    {
+        
+        margin-right:7px;
+        margin-top:10px;
+    }
+
+    .contact-info-title
+    {
+        font-family: 'Quicksand-Bold';
+        margin-top:15px;
+        font-size:3.5vw;
+        font-weight: bold;
+    }
+    
+
+    .contact-info-text
+    {
+      
+        font-size:calc(0.6vw + 8px);
+    }
+
+    
+    .contactus-btn
+    {
+        font-size:10px;
+        width:109px;
+        height:21px;
+        margin-top:10px;
+        letter-spacing: 0.02px;
+    }
+
+   
+  #submit-status
+  {
+    
+    font-size:3.5vw;
+    width:160px;
+    margin-top:25px;
+    
+    color:red;
+    font-weight: bold;
+  }
+
+    
+   
+
+    .location-div
+    {
+        display: none;
+    }
+
+    
+    
+}

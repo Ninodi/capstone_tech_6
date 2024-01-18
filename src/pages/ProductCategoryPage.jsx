@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import "../assets/styles/ProductCategoryPage.css"
 import Products from '../components/Products'
+import useCapitalise from '../hooks/useCapitalise'
  
 
 function ProductCategoryPage() {
+    const location = useLocation()
+    const { mainCategory } = location.state
+  
     const [filterOptions, setFilterOptions] = useState({
       casual: false,
       formal: false,
@@ -16,15 +20,18 @@ function ProductCategoryPage() {
 
     const {category} = useParams()
 
-    const capitalizeCategory = () => {
-      let firstLetter = category[0].toLocaleUpperCase()
-      return firstLetter + category.slice(1)
-    }
+    const capitaliseCategory = useCapitalise(category);
+
   return (
     <div>
         <Header/>
         <div className="page-container">
-          <Products filterOptions={filterOptions} setFilterOptions={setFilterOptions} capitalizeCategory={capitalizeCategory}/>
+          <Products 
+            filterOptions={filterOptions} 
+            setFilterOptions={setFilterOptions} 
+            capitaliseCategory={capitaliseCategory}
+            mainCategory={mainCategory}
+            />
         </div>
         <Footer />
     </div>

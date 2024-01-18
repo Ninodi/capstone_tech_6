@@ -1,0 +1,299 @@
+
+.contact-form-container
+{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.contact-form-img-container
+{
+    display: none;
+}
+.contact-form-img
+{
+    width:378px;
+    height:578px;
+    margin-right:10px;
+    
+}
+
+.contact-form-input
+{
+    font-family: 'Montserrat-SemiBold';
+    font-size:100%;
+    width:25vw;
+    height:35px;
+    border-style:none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    outline: none;
+    margin-top: 45px;
+    
+}
+
+.contact-form-input::placeholder
+{
+    font-size:calc(0.5vw + 10px);
+}
+
+.input-fields-container
+{
+    margin-left:10px;
+}
+
+.fill-this-form-title
+{
+    
+  display:none;
+}
+
+.contact-form-msg
+{
+  
+   margin-top: 80px;
+   
+}
+.contactus-title
+{
+   display:none;
+   
+}
+
+.contact-info
+{
+   
+    margin-top:1px;
+}
+
+.contactus2-title
+{
+    font-family: 'Quicksand-Bold';
+    font-size:35px;
+    margin-top:1px;
+    margin-bottom:70px;
+    letter-spacing: 0.1em;
+  
+}
+
+.contact-info-title
+{
+    
+   font-family: 'Quicksand-regular';
+   font-size:33px;
+   margin-top:30px;
+   margin-bottom:10px;
+    
+
+}
+
+.contact-info-text
+{
+    font-family: 'Quicksand-regular';
+    margin-top:10px;
+    margin-bottom:20px;
+    font-size:calc(0.5vw + 8px);
+    
+    
+
+}
+
+
+.contactus-btn
+{
+    font-size:20px;
+    letter-spacing: 0.05em;
+    font-family: 'Quicksand-SemiBold';
+    color:#ffffff;
+    background-color: #3391a1;
+    width:289px;
+    height:56px;
+    border-radius: 5px;
+    border-style: none;
+    cursor:pointer;
+    transition: background-color 0.1s, transform 0.1s;
+    margin-top:20px;
+}
+
+
+  .contactus-btn:active
+  {
+    background-color: #26707d;
+    transform: scale(0.97);
+  }
+  
+  #submit-status
+  {
+    font-family: 'Montserrat-SemiBold';
+    font-size:16px;
+    width:100%;
+    text-align: center;
+    height: 50px;
+    margin-top:30px;
+    white-space: nowrap;
+    color:red;
+    font-weight: bold;
+  }
+
+  .icons
+  {
+    margin-top:30px;
+  }
+
+  .location-div
+  {
+      display: block;
+      margin-top:30px;
+     
+  }
+
+  .location-text
+  {
+    padding-bottom:10px;
+  }
+
+
+  @media (max-width: 767px) {
+    
+  
+    .fill-this-form-title
+{
+    display:block;
+    font-family: 'Quicksand-Bold';
+    font-size: 20px;
+    width:100%;
+    text-align: center;
+}
+
+    .contact-form-container
+    {
+        all:initial;
+        display:flex;
+        flex-direction: column;
+        width:100%;
+        margin-top:35px;
+        margin-bottom:25px;
+        align-items:center;
+        text-align:  center;
+       
+       
+    }
+    
+    .contact-form-img-container {
+      display: none;
+    }
+
+
+   
+
+    .input-fields-container
+{
+    margin-left:0px;
+}
+
+    .contact-form-input
+    {
+        font-size:3.2vw;
+        width:75vw;
+        height:28px;
+        margin-top:35px;
+        margin-left:0px;
+    }
+
+    .contact-form-input::placeholder
+    {
+        font-size:calc(1vw + 10px);
+    }
+    .contact-form-msg
+    {
+        
+        margin-top:40px;
+        margin-bottom:30px;
+    }
+
+    
+    .contactus-btn
+    {
+        font-size:18px;
+        width:276px;
+        height:50px;
+        margin-top:10px;
+        align-self: center;
+        letter-spacing: 0.02px;
+        margin-bottom:20px;
+        
+    }
+
+    .contactus-btn-container
+    {
+       
+      
+       text-align:center;
+        
+    }
+
+    #submit-status
+  {
+    
+    font-size:3.2vw;
+    width:100%;
+    margin-top:15px;
+    color:red;
+    font-weight: bold;
+    text-align: center;
+  }
+
+    .contact-info-container
+    {
+       width:100%;
+       text-align: center;
+       margin-top:10px;
+    }
+
+    .contact-info-title
+{
+    
+   font-family: 'Quicksand-Bold';
+   font-weight: bold;
+   font-size:18.95px;
+   margin-top:10px;
+   margin-bottom:10px;
+    
+
+}
+
+
+    .contact-info-text
+    {
+        font-size:calc(1vw + 10px);
+    }
+    
+    
+    .contactus2-title
+{
+    display:block;
+    font-size:18.95px;
+    font-family: 'Quicksand-Bold';
+    font-weight: bold;
+    margin-top:5px;
+    margin-left:0px;
+    margin-bottom:30px;
+}
+
+
+    .icons
+  {
+    margin-top:20px;
+  }
+
+    .location-div
+    {
+        display: none;
+    }
+
+    
+    
+}
