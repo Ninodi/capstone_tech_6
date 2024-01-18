@@ -167,6 +167,7 @@
   font-size: 16px;
   margin-top: 13px;
   border-radius: 12px;
+  cursor: pointer;
 }
 @media screen and (min-width: 1025px) {
   #load-more {

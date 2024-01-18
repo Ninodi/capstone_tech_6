@@ -12,10 +12,22 @@ function ProductCategoryPage() {
     const { mainCategory } = location.state
   
     const [filterOptions, setFilterOptions] = useState({
-      casual: false,
-      formal: false,
-      party: false,
-      all: false,
+      casual: {
+        filterState: true,
+        id: 1
+      },
+      formal: {
+        filterState: true,
+        id: 2
+      },
+      party: {
+        filterState: true,
+        id: 3
+      },
+      all: {
+        filterState: true,
+        id: 4
+      },
     })
 
     const {category} = useParams()
