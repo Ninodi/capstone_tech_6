@@ -53,7 +53,7 @@ useEffect(()=>
   
   setformData({fl_name:name,mail:email,mobile:phone,fb_url:url,message:message })
 
-  console.log(phone)
+  
 },[name,email,phone,url,message])
 
 
@@ -91,7 +91,7 @@ const fetchData = async () => {
   } catch (error) {
     
     setError(error.message)
-    setSubmitStatus('Error submitting form')
+    setSubmitStatus(t('contactForm.GENERALERROR'))
    
     console.log(error)
    
@@ -107,14 +107,14 @@ const fetchData = async () => {
     {
         e.preventDefault()
 
-        if(name==='')
+        if(name==='' || name.length<2)
         {
           setSubmitStatus(t('contactForm.EMPTYNAME'))
           return
           
         }
 
-        const isValidName = /^[A-Za-zა-ჰ]+$/.test(name);
+        const isValidName = /^[A-Za-zა-ჰ ]+$/.test(name);
        
 
       if(!isValidName)
@@ -236,7 +236,8 @@ const fetchData = async () => {
     <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('contactForm.MESSAGE')} value={message} onChange={(e)=>{setSubmitStatus('');setMessage(e.target.value)}} />
     </div>
     <div id={contactStyle['submit-status']}>{submitStatus}</div>
-    <button type="submit" className={contactStyle['contactus-btn']}>{t('contactForm.SEND')}</button> 
+    <div className={contactStyle['contactus-btn-container']}>
+    <button type="submit" className={contactStyle['contactus-btn']}>{t('contactForm.SEND')}</button>  </div>
     </form>
    
     
