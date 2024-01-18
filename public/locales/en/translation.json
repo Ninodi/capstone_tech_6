@@ -15,95 +15,95 @@
             "christmas":"Christmas"
         },
         "about": "About",
-        "contact": "Contact",
-        "language":{
-            "english":"English",
-            "georgian":"Georgian",
-            "englishMobile":"Eng",
-            "georgianMobile":"Geo"
-        }
-    },
-    "footer":{
-        "aboutUs":"About Us",
-        "aboutUsContet":"At Mariamis Atelier, we believe that fashion should be accessible, affordable, and most importantly,fun! We offer a curated selection of clothing for everyone, from trendy styles to timeless classics, all at prices you'll love.",
-        "customerService":"Customer Service",
-        "delivery":"Delivery & Returns",
-        "size":"Size Guides",
-        "CustomerFeedback":"Customer Feedback",
-        "help":"Help",
-        "gifting":"Gifting",
-        "pages":"Pages",
-        "location":"Location",
-        "follow":"Follow Us",
-        "copyright":"© Copyright 2023 / Mariamis Atelier Inc. All Rights Reserved."
-    },
-    "contactForm": {
-        "FILLTHISFORM": "FILL THIS FORM",
-        "FULLNAME": "Full Name *",
-        "EMAIL": "Email *",
-        "PHONE": "Phone (5xx xx xx xx)*",
-        "FACEBOOKPROFILEURL": "Facebook URL",
-        "MESSAGE": "Message *",
-        "SEND": "Send",
-        "CONTACTUSTEXT": "CONTACT US",
-        "CONTACT": "Contact",
-        "BASEDINTEXT": "Based In",
-        "BASEDIN": "Tkibuli, Georgia",
-        "LOCATIONTEXT": "Location",
-        "EMPTYNAME":"Name is required",
-        "ERRORNAME":"Only letters are permited in the name field",
-        "EMPTYEMAIL":"Email is required",
-        "ERROREMAIL":"Email format is incorrect",
-        "EMPTYPHONE":"Phone number is required",
-        "SHORTPHONE":"Minimum 9 digits required for the phone number",
-        "ERRORPHONE":"Phone number is incorrect",
-        "EMPTYMESSAGE":"Message text is required"
+        "contact": "Contact"
+        },
+        "footer":{
+            "aboutUs":"About Us",
+            "aboutUsContet":"At Mariamis Atelier, we believe that fashion should be accessible, affordable, and most importantly,fun! We offer a curated selection of clothing for everyone, from trendy styles to timeless classics, all at prices you'll love.",
+            "customerService":"Customer Service",
+            "delivery":"Delivery & Returns",
+            "size":"Size Guides",
+            "CustomerFeedback":"Customer Feedback",
+            "help":"Help",
+            "gifting":"Gifting",
+            "pages":"Pages",
+            "location":"Location",
+            "follow":"Follow Us",
+            "copyright":"© Copyright 2023 / Mariamis Atelier Inc. All Rights Reserved."
+        },
+        "contactForm": {
+            "FILLTHISFORM": "FILL THIS FORM",
+            "FULLNAME": "Full Name *",
+            "EMAIL": "Email *",
+            "PHONE": "Phone (5xx xx xx xx)*",
+            "FACEBOOKPROFILEURL": "Facebook URL",
+            "MESSAGE": "Message *",
+            "SEND": "Send",
+            "CONTACTUSTEXT": "CONTACT US",
+            "CONTACT": "Contact",
+            "BASEDINTEXT": "Based In",
+            "BASEDIN": "Tkibuli, Georgia",
+            "LOCATIONTEXT": "Location",
+            "EMPTYNAME":"Name is required",
+            "ERRORNAME":"Only letters are permited in the name field",
+            "EMPTYEMAIL":"Email is required",
+            "ERROREMAIL":"Email format is incorrect",
+            "EMPTYPHONE":"Phone number is required",
+            "SHORTPHONE":"Minimum 9 digits required for the phone number",
+            "ERRORPHONE":"Phone number is incorrect",
+            "EMPTYMESSAGE":"Message text is required"
 
-      },
-    "aboutUsPage":{
-        "aboutUs":"About Us",
-        "firstImgDescription":"We're passionate about creating beautiful clothing that's good for you and the planet. We use organic cotton, recycled materials, and sustainable dyes to make clothing that looks as good as it feels. We believe that fashion can be a force for good, and we're committed to making a positive impact on the world.",
-        "environmentalSustainability":"Environmental Sustainability",
-        "secondImgDescription":"Nestled in the heart of Tbilisi, Georgia, Mariami's atelier isn't just a fashion haven – it's a whispered promise of a kinder tomorrow. Here, amidst the gentle whir of sewing machines and the rhythmic snip of scissors, sustainable threads are woven into exquisite garments, each whisper-light creation a testament to Mariami's unwavering commitment to environmental responsibility.",
-        "womenPower":"Women Power",
-        "thirdImgDescription":"Design pieces that flatter a variety of body types and reflect the diverse experiences of women. This could include functional clothing for active lifestyles, comfortable and stylish workwear, or occasion wear that makes women feel confident and beautiful."
-    },
-    "productPage":{
-        "firstHeadline":"Women's Clothing",
-        "secondHeadline":"Children's  Clothing ",
-        "bestSeller":"Best Sellers",
-        "showAll":"Show all Woomen's Styles"
-    },
-    "slider":{
-        "firstSliderText":"Welcome To Fashion Heaven",
-        "secondSliderText":"Get more information about our Designers",
-        "thirdSliderText":"Keep in touch for the latest updates",
-        "fourthSliderText":"Get to know with elite collection",
-        "explore":"Explore"
-    },
-    "bestSellersSection":{
-        "bestSellerCategory1":"Wedding dress",
-        "bestSellerCategory2":"Child's dress",
-        "bestSellerCategory3":"Accessories",
-        "womenAndKids":"Women / Kids Clothes"
-    },
-    "shopNowSection":{
-        "shopNowText":"Feel Confident In The Clothes You wear",
-        "shopNow":"Shop Now"
-    },
-    "submitForm":{
-        "mainText":"We have received your Message :)",
-        "secondText":"We will be in touch with you, as soon as possible",
-        "thirdText":"Please, contact us for any query",
-        "fourthText":"OR"
-    },
-    "specialClothingSection":{
-        "specialClothing":"Special Clothing",
-        "viewAll":"View All",
-        "christening":"Christening",
-        "christmas":"Christmas"
-    },
-    "productItemPage":{
-        "breadcrumbs": "Home / Products /"
+        },
+        "aboutUsPage":{
+            "aboutUs":"About Us",
+            "firstImgDescription":"We're passionate about creating beautiful clothing that's good for you and the planet. We use organic cotton, recycled materials, and sustainable dyes to make clothing that looks as good as it feels. We believe that fashion can be a force for good, and we're committed to making a positive impact on the world.",
+            "environmentalSustainability":"Environmental Sustainability",
+            "secondImgDescription":"Nestled in the heart of Tbilisi, Georgia, Mariami's atelier isn't just a fashion haven – it's a whispered promise of a kinder tomorrow. Here, amidst the gentle whir of sewing machines and the rhythmic snip of scissors, sustainable threads are woven into exquisite garments, each whisper-light creation a testament to Mariami's unwavering commitment to environmental responsibility.",
+            "womenPower":"Women Power",
+            "thirdImgDescription":"Design pieces that flatter a variety of body types and reflect the diverse experiences of women. This could include functional clothing for active lifestyles, comfortable and stylish workwear, or occasion wear that makes women feel confident and beautiful."
+        },
+        "productPage":{
+            "firstHeadline":"Women's Clothing",
+            "secondHeadline":"Children's  Clothing ",
+            "bestSeller":"Best Sellers",
+            "showAll":"Show all Woomen's Styles"
+        },
+        "slider":{
+            "firstSliderText":"Welcome To Fashion Heaven",
+            "secondSliderText":"Get more information about our Designers",
+            "thirdSliderText":"Keep in touch for the latest updates",
+            "fourthSliderText":"Get to know with elite collection",
+            "explore":"Explore"
+        },
+        "bestSellersSection":{
+            "bestSellerCategory1":"Wedding dress",
+            "bestSellerCategory2":"Child's dress",
+            "bestSellerCategory3":"Accessories",
+            "womenAndKids":"Women / Kids Clothes"
+        },
+        "shopNowSection":{
+            "shopNowText":"Feel Confident In The Clothes You wear",
+            "shopNow":"Shop Now"
+        },
+        "submitForm":{
+            "mainText":"We have received your Message :)",
+            "secondText":"We will be in touch with you, as soon as possible",
+            "thirdText":"Please, contact us for any query",
+            "fourthText":"OR"
+        },
+        "specialClothingSection":{
+            "specialClothing":"Special Clothing",
+            "viewAll":"View All",
+            "christening":"Christening",
+            "christmas":"Christmas"
+        },
+        "productItemPage":{
+            "breadcrumbs": "Home / Products /"
+        },
+        "pageNotFound":{
+            "ooops":"Ooops...",
+            "pageNotFound":"Page not found",
+            "spanText":"Looks like you've stumbled into a black hole. Time to head back to safety!",
+            "goBack":"Go Back"
+        }
     }
-}

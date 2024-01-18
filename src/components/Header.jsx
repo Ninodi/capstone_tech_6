@@ -11,6 +11,17 @@ import useFetch from '../hooks/useFetch';
 const Header = () => {
 
   const [megaBoxOpen, setMegaBoxOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 600);
+
+  const handleResize = () => {
+    setIsSmallScreen(window.innerWidth <= 600);
+  };
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
 
   const toggleMegaBox = () => {
@@ -134,8 +145,17 @@ const Header = () => {
             <div className="languages">
               <div></div>
               <select name="select" id="select" value={selectedLanguage} onChange={handleLanguageChange}>
-                <option value="en">{t('Header.language.englishMobile')}</option>
-                <option value="ka">{t('Header.language.georgianMobile')}</option>
+              {isSmallScreen ? (
+                  <>
+                    <option value="en">Eng</option>
+                    <option value="ka">ქართ</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="en">English</option>
+                    <option value="ka">ქართული</option>
+                  </>
+              )}
               </select>
             </div>
           </div>
