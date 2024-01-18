@@ -35,7 +35,7 @@ const router = [
     },
      {
         element: <SubmitPage/>,
-        path: ':SubmitPage'
+        path: '/SubmitPage'
     },
     {
         element: <NotFoundPage/>,
