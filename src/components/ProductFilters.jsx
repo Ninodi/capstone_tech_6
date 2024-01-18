@@ -58,7 +58,7 @@ function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, set
             <span className="checkmark"></span>
           </label>
         </div>
-        <button id="apply-filter">Apply Filter</button>
+        {/* <button id="apply-filter">Apply Filter</button> */}
       </div>
     </div>
   );
