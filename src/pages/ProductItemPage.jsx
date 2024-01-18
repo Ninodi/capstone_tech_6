@@ -9,9 +9,11 @@ import useFetch from '../hooks/useFetch'
 import { useParams } from 'react-router-dom'
 import useCapitalise from '../hooks/useCapitalise'
 import { BounceLoader } from 'react-spinners'
+import { useTranslation } from 'react-i18next'
 
 
 function ProductItemPage() {
+  const { t } = useTranslation();
   const { itemName } = useParams()
   const capitaliseCategory = useCapitalise(itemName)
   const formattedCategory = capitaliseCategory().replaceAll('-', ' ')
@@ -51,7 +53,7 @@ function ProductItemPage() {
         <div className="page-container">
           <Banner />
           <div className="breadcrumbs">
-            <p>Home / Products /</p>
+            <p>{t('productItemPage.breadcrumbs')}</p>
           </div>
           <div className="product-item-images">
             <div className='prod-item-large-image-container'>
