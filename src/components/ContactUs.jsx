@@ -91,7 +91,7 @@ const fetchData = async () => {
   } catch (error) {
     
     setError(error.message)
-    setSubmitStatus('Error submitting form')
+    setSubmitStatus(t('contactForm.GENERALERROR'))
    
     console.log(error)
    
