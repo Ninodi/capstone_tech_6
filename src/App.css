@@ -8,11 +8,6 @@
   list-style: none;
   border-style: none;
 }
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 .container{
   padding: 108px;
   margin:  auto;

@@ -157,6 +157,9 @@
   padding: 8px;
   cursor: pointer;
 }
+.language-icon{
+  font-size: 25px;
+}
 
 .dropdown-menu label:hover {
   background-color: #f5f5f5;
@@ -224,6 +227,9 @@
   .container{
     padding:0 36px;
     margin:  auto;
+  }
+  .dropdown-icon{
+    margin-left: 4px;
   }
   .mega-box .content{
     display: grid;
