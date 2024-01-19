@@ -101,8 +101,8 @@ const fetchData = async () => {
   }
 };
 
-
-    
+  
+  
    const handleSubmit =(e)=>
     {
         e.preventDefault()
@@ -191,7 +191,7 @@ const fetchData = async () => {
 
            
           
-
+         
 
     }
  
@@ -216,7 +216,7 @@ const fetchData = async () => {
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
     <div>
-    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME') + ' *'} value={name} onChange={(e)=>{setSubmitStatus('');setName(e.target.value)}} />
+    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME') + ' *'}  value={name} onChange={(e)=>{setSubmitStatus('');setName(e.target.value)}} />
     </div>
     
    

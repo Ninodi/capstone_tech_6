@@ -41,8 +41,6 @@
 }
 
 
-
-
 .input-fields-container
 {
     margin-left:10px;
@@ -210,6 +208,8 @@
     {
         font-size:calc(1vw + 10px);
     }
+
+    
     .contact-form-msg
     {
         
