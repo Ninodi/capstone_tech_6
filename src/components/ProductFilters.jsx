@@ -1,27 +1,13 @@
 import React from "react";
 import FilterIcon from "../assets/icons/filterIcon.png";
-function ProductFilters({ setFilterOptions, filterOptions }) {
+import SetFilter from "./SetFilter";
 
-  const handleCheckboxChange = (filter) => {
-    const updatedFilterOptions = { ...filterOptions }
-    updatedFilterOptions[filter] = !updatedFilterOptions[filter]
+function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, setFilteredProd }) {
 
-    if (filter === "all") {
-      if (updatedFilterOptions.all) {
-        Object.keys(updatedFilterOptions).forEach((key) => {
-          updatedFilterOptions[key] = true
-        })
-      } else {
-        Object.keys(updatedFilterOptions).forEach((key) => {
-          if (key !== "all") {
-            updatedFilterOptions[key] = false
-          }
-        })
-      }
-    } else {
-      updatedFilterOptions.all = false
-    }
-    setFilterOptions(updatedFilterOptions)
+  const handleFilterChange = (filter) => {
+    const updatedFilterOptions = SetFilter(filter, filterOptions, categoryProducts, setFilteredProd)
+    setFilterOptions(prev => updatedFilterOptions)
+
   };
 
   return (
@@ -39,8 +25,8 @@ function ProductFilters({ setFilterOptions, filterOptions }) {
             Casual
             <input
               type="checkbox"
-              checked={filterOptions.casual}
-              onChange={() => handleCheckboxChange("casual")}
+              checked={filterOptions.casual.filterState}
+              onChange={() => handleFilterChange("casual")}
             />
             <span className="checkmark"></span>
           </label>
@@ -48,8 +34,8 @@ function ProductFilters({ setFilterOptions, filterOptions }) {
             Formal
             <input
               type="checkbox"
-              checked={filterOptions.formal}
-              onChange={() => handleCheckboxChange("formal")}
+              checked={filterOptions.formal.filterState}
+              onChange={() => handleFilterChange("formal")}
             />
             <span className="checkmark"></span>
           </label>
@@ -57,8 +43,8 @@ function ProductFilters({ setFilterOptions, filterOptions }) {
             Party
             <input
               type="checkbox"
-              checked={filterOptions.party}
-              onChange={() => handleCheckboxChange("party")}
+              checked={filterOptions.party.filterState}
+              onChange={() => handleFilterChange("party")}
             />
             <span className="checkmark"></span>
           </label>
@@ -66,13 +52,13 @@ function ProductFilters({ setFilterOptions, filterOptions }) {
             All
             <input
               type="checkbox"
-              checked={filterOptions.all}
-              onChange={() => handleCheckboxChange("all")}
+              checked={filterOptions.all.filterState}
+              onChange={() => handleFilterChange("all")}
             />
             <span className="checkmark"></span>
           </label>
         </div>
-        <button id="apply-filter">Apply Filter</button>
+        {/* <button id="apply-filter">Apply Filter</button> */}
       </div>
     </div>
   );

@@ -26,6 +26,7 @@ function ProductItemPage() {
     if (productId) {
       onFetch();
     }
+    window.scrollTo(0, 0);
   }, [productId, onFetch])
 
   const prodImages =

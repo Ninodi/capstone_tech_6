@@ -1,14 +1,13 @@
 import React from 'react'
 import SingleCol from '../assets/img/singleColumnDisplay.png'
 import TwoCol from '../assets/img/twoColumnDisplay.png'
-import products from './ProductList'
 
-function ProductDisplaySettings() {
+function ProductDisplaySettings({displayedProducts}) {
   return (
     <div className='prod-display-sett'>
         <p>Products</p>
         <div className="display-settings">
-            <p>{products.length} items</p>
+            <p>{displayedProducts?.length} items</p>
             <div className="display-options">
                 <div className="single-column" style={{width: '20px', height: '20px'}}>
                     <img src={SingleCol} alt="" style={{width: '100%', height: '100%'}}/>

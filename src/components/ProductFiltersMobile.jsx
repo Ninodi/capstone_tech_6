@@ -1,27 +1,51 @@
-import React from 'react'
-import SortingOptions from './SortingOptions'
+import React from "react";
+import SortingOptions from "./SortingOptions";
+import SetFilter from "./SetFilter";
 
-function ProductFiltersMobile() {
-    let activeSorting = 'Most popular'
+function ProductFiltersMobile({ setFilterOptions, filterOptions, categoryProducts, setFilteredProd}) {
+  const handleFilterChange = (filter) => {
+    const updatedFilterOptions = SetFilter(filter, filterOptions, categoryProducts, setFilteredProd)
+    setFilterOptions(updatedFilterOptions)
+  };
 
-    const toggleActive = (e) => {
-      e.target.classList.toggle('active')
+  let activeSorting = "Most popular"
 
-    }
   return (
-    <div className='filters-mobile'>
-        <h1 style={{fontSize: '20px', marginBottom: '25px'}}>Women's Dresses</h1>
-        <div className="filter-bar">
-            <div className="filters">
-                <button className='casual' onClick={toggleActive}>Casual</button>
-                <button className='formal' onClick={toggleActive}>Formal</button>
-                <button className='party' onClick={toggleActive}>Party</button>
-                <button className='all' onClick={toggleActive}>All</button>
-            </div>
-            <SortingOptions activeSorting={activeSorting}/>
+    <div className="filters-mobile">
+      <h1 style={{ fontSize: "20px", marginBottom: "25px" }}>
+        Women's Dresses
+      </h1>
+      <div className="filter-bar">
+        <div className="filters">
+          <button
+            className={filterOptions.casual.filterState ? "active" : ""}
+            onClick={() => handleFilterChange("casual")}
+          >
+            Casual
+          </button>
+          <button
+            className={filterOptions.formal.filterState ? "active" : ""}
+            onClick={() => handleFilterChange("formal")}
+          >
+            Formal
+          </button>
+          <button
+            className={filterOptions.party.filterState ? "active" : ""}
+            onClick={() => handleFilterChange("party")}
+          >
+            Party
+          </button>
+          <button
+            className={filterOptions.all.filterState ? "active" : ""}
+            onClick={() => handleFilterChange("all")}
+          >
+            All
+          </button>
         </div>
+        <SortingOptions activeSorting={activeSorting} />
+      </div>
     </div>
-  )
+  );
 }
 
-export default ProductFiltersMobile
+export default ProductFiltersMobile;
