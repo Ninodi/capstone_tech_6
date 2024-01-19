@@ -1,14 +1,16 @@
 import React from "react";
 import FilterIcon from "../assets/icons/filterIcon.png";
 import SetFilter from "./SetFilter";
+import { v4 as uuidv4 } from 'uuid';
 
-function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, setFilteredProd }) {
+function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, setFilteredProd, subCategoryPage}) {
 
-  const handleFilterChange = (filter) => {
-    const updatedFilterOptions = SetFilter(filter, filterOptions, categoryProducts, setFilteredProd)
+  const handleFilterChange = (filterName) => {
+    const updatedFilterOptions = SetFilter(filterName, filterOptions, categoryProducts, setFilteredProd)
     setFilterOptions(prev => updatedFilterOptions)
 
   };
+
 
   return (
     <div className="filters-desktop">
@@ -19,44 +21,19 @@ function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, set
         </div>
       </div>
       <div className="filter-options-bar">
-        <p>Dress Style</p>
+        <p>{subCategoryPage} Style</p>
         <div className="filter-options">
-          <label>
-            Casual
-            <input
-              type="checkbox"
-              checked={filterOptions.casual.filterState}
-              onChange={() => handleFilterChange("casual")}
-            />
-            <span className="checkmark"></span>
-          </label>
-          <label>
-            Formal
-            <input
-              type="checkbox"
-              checked={filterOptions.formal.filterState}
-              onChange={() => handleFilterChange("formal")}
-            />
-            <span className="checkmark"></span>
-          </label>
-          <label>
-            Party
-            <input
-              type="checkbox"
-              checked={filterOptions.party.filterState}
-              onChange={() => handleFilterChange("party")}
-            />
-            <span className="checkmark"></span>
-          </label>
-          <label>
-            All
-            <input
-              type="checkbox"
-              checked={filterOptions.all.filterState}
-              onChange={() => handleFilterChange("all")}
-            />
-            <span className="checkmark"></span>
-          </label>
+          {filterOptions?.map(filter => (
+            <label key={uuidv4()}>
+              {filter.filterName}
+              <input
+                type="checkbox"
+                checked={filter.filterState}
+                onChange={() => handleFilterChange(filter.filterName)}
+              />
+              <span className="checkmark"></span>
+            </label>
+          ))}
         </div>
         {/* <button id="apply-filter">Apply Filter</button> */}
       </div>

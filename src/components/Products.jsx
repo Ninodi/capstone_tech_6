@@ -12,8 +12,13 @@ import { BounceLoader } from 'react-spinners'
 
 function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCategory}) {
   const {response, error,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
+  const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
   const { t } = useTranslation();
-  
+
+
+  const mainCategoryPage = category && category[mainCategory-1]?.main_cat
+  const subCategoryPage = category && category[mainCategory-1]?.secondary_cat
+
   const [prodNum, setProdNum] = useState(9)
   const [currentPage, setCurrentPage] = useState(1)
   const [filteredProd, setFilteredProd] = useState([])
@@ -30,31 +35,27 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
 
   useEffect(() => {
     setFilteredProd(prev => categoryProducts)
-    console.log(filteredProd)
     setProdNum(prev => 9)
     setCurrentPage(prev => 1)
-  }, [response])
+  }, [mainCategory, response])
   
   useEffect(() => {
-    if(prodNum >= displayedProducts?.length){
+    if(prodNum >= categoryProducts?.length){
       loadBtn.current.style.display = "none"
     }else loadBtn.current.style.display = "unset"
   }, [prodNum])
 
-  // useEffect(() => {
-  //   setProdNum(prev => 9)
-  //   setCurrentPage(prev => 1)
-  // }, [capitaliseCategory])
 
   const loadMore = () => {
-    const remainingProducts = displayedProducts?.length - prodNum
+    const remainingProducts = filteredProd?.length - prodNum
     const productsToLoad = Math.min(remainingProducts, pageSize)
 
     setProdNum(prevstate => prevstate += pageSize)
     setCurrentPage(prevstate => prevstate + 1)
 
-    if(prodNum + productsToLoad >= displayedProducts?.length) loadBtn.current.style.display = "none"
+    if(prodNum + productsToLoad >= filteredProd?.length) loadBtn.current.style.display = "none"
   }
+  
   if(loading && !response) 
   return <div className='loader'>
     <BounceLoader
@@ -71,7 +72,7 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
     <div className="prod-list-container">
       <div className="products-desktop-container">
         <div className="breadcrumbs">
-          <p>{t('productItemPage.breadcrumbs')} {`${capitaliseCategory()}`}</p>
+          <p>{t('productItemPage.breadcrumbs')} {mainCategoryPage} / {subCategoryPage}</p>
           <SortingOptions activeSorting='Most popular'/>
         </div>
         <div style={{width: '100%', display: 'flex', gap: '20px'}}>
@@ -80,6 +81,7 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
             setFilterOptions={setFilterOptions}
             categoryProducts={categoryProducts}
             setFilteredProd={setFilteredProd}
+            subCategoryPage={subCategoryPage}
             />
           <div className="empty-list">
               {displayedProducts?.length === 0 || error
@@ -118,10 +120,12 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
           setFilterOptions={setFilterOptions}
           categoryProducts={categoryProducts}
           setFilteredProd={setFilteredProd}
+          mainCategoryPage={mainCategoryPage}
+          subCategoryPage={subCategoryPage}
           />
-        <ProductDisplaySettings displayedProducts={displayedProducts} />
+        <ProductDisplaySettings filteredProd={filteredProd} />
         <div className="products-mobile">
-            {displayedProducts?.map((prod, index) => index < prodNum && (
+            {filteredProd?.map((prod, index) => index < prodNum && (
               <NavLink to={`/products/women/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={prod.id}>
                 <div className="prod-image">
                   <img src={prod.image} alt="" />
@@ -130,7 +134,7 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
               </NavLink>
               ))}
           </div>
-          <p style={{textAlign: 'center', color: '#171717', fontWeight: '700', marginTop: '40px'}} className="prod-num-tracker">Showing {Math.min(prodNum, displayedProducts?.length)} out of {displayedProducts?.length} items</p>
+          <p style={{textAlign: 'center', color: '#171717', fontWeight: '700', marginTop: '40px'}} className="prod-num-tracker">Showing {Math.min(prodNum, filteredProd?.length)} out of {filteredProd?.length} items</p>
           <button id="load-more" onClick={loadMore} ref={loadBtn}>Load More</button>
       </div>
     </div>
