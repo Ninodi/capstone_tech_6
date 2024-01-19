@@ -9,6 +9,7 @@ import '../assets/styles/swiper.css';
 import { FreeMode, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ProductsSlider = ({ header, products }) => {
   const [slidesPerView, setSlidesPerView] = useState(3);
@@ -32,6 +33,8 @@ const ProductsSlider = ({ header, products }) => {
   const sortedProducts = Array.isArray(products) ? [...products].sort(() => 0.5 - Math.random()) : [];
   const randomItems = sortedProducts.slice(0, 6);
 
+  const { i18n } = useTranslation();
+
   return (
     <div className="container">
       <h2 className='heading'>{header}</h2>
@@ -52,9 +55,13 @@ const ProductsSlider = ({ header, products }) => {
           {randomItems.map((product) => (
             <SwiperSlide key={product.id}>
               <div onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}>
-                <NavLink to={`/products/women/${product.product_name}`}>
+                <NavLink to={`/products/${product.product_name}`}>
                   <img className='product-slider-image' src={product.image} alt={product.product_name} />
-                  <h4 className='product-title'>{product.product_name}</h4>
+                  <h4 className='product-title'>
+                  {i18n.language === 'ka' && product.product_name_geo
+                      ? product.product_name_geo
+                      : product.product_name}
+                  </h4>
                 </NavLink>
               </div>
             </SwiperSlide>

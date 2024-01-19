@@ -98,7 +98,8 @@
             "christmas":"Christmas"
         },
         "productItemPage":{
-            "breadcrumbs": "Home / Products /"
+            "breadcrumbs": "Home / Products /",
+            "productInformation": "Product Information"
         },
         "pageNotFound":{
             "ooops":"Ooops...",
