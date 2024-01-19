@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next'
 
 
 function ProductItemPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { itemName } = useParams()
   const capitaliseCategory = useCapitalise(itemName)
   const formattedCategory = capitaliseCategory().replaceAll('-', ' ')
@@ -32,6 +32,7 @@ function ProductItemPage() {
   const prodImages =
     response?.filter((prod) => prod.product.toString() === productId)?.map((pordImg) => pordImg.photo) || []
 
+    console.log()
 
   const toggleProdInfo = () => {
     setToggleInfo(prev => !prev)
@@ -46,6 +47,7 @@ function ProductItemPage() {
         data-testid="loader"
       />
   </div>
+  const selectedProduct = productsResponse ? productsResponse.find((prod) => prod.id.toString() === productId) : null;
 
   return (
     <div>
@@ -62,8 +64,12 @@ function ProductItemPage() {
                 <img src={prodImages?.length === 0 ? null : prodImages[0]}alt="" />
               </div>
               <div className="product-name">
-                <p>Mariami’s Atelier</p>
-                <p>{formattedCategory}</p>
+                <p>{t('Header.logo')}</p>
+                <p>
+                  {i18n.language === 'ka' && selectedProduct?.product_name_geo
+                    ? selectedProduct.product_name_geo
+                    : formattedCategory}
+                </p>
               </div>
             </div>
             <div className="prod-item-images-small-container">
@@ -77,7 +83,7 @@ function ProductItemPage() {
           </div>
           <div className="product-information" onClick={toggleProdInfo}>
               <div className='prod-info-toggle'> 
-                <p>Product Information</p>
+                <p>{t('productItemPage.productInformation')}</p>
                 <div className={`prod-info-toggle-arrow ${toggleInfo ? 'info-toggled' : ''}`}>
                   <img src={prodInfoToggle} alt="" />
                 </div>
@@ -85,18 +91,9 @@ function ProductItemPage() {
               <div className={`product-details ${toggleInfo ? 'visible' : ''}`}>
                 <ul>
                   <div>
-                    <li>Shine like a beautiful princess straight out of a painting in the classical velvety DKNY® Velvet Side Ruched Dress with Chiffon Sleeve dress with surplice neckline and long sheer sleeves accentuating the pleated side that gives rise to the ruched front.</li>
-                  </div>
-                  <div>
-                    <li>SKU: #9921794</li>
-                    <li>Mini-length dress.</li>
-                    <li>Sheath silhouette..</li>
-                    <li>Rendered in soft velvet jersey with chiffon sleeves.</li>
-                    <li>Zippered closure on the center back.</li>
-                    <li>Straight hem.</li>
-                    <li>92% polyester, 8% spandex.</li>
-                    <li>Dry-clean.</li>
-                    <li>Imported.</li>
+                    {selectedProduct && (
+                      <li>{i18n.language === 'ka' ? selectedProduct.long_desc_geo : selectedProduct.long_desc}</li>
+                    )}
                   </div>
                 </ul>
               </div>
