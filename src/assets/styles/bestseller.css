@@ -1,14 +1,20 @@
+.best-seller-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 72px;
+}
 .best-seller-section{
-    width: 50%;
-    padding: 120px 100px;
+    padding: 160px 50px;
     background-color: #F4F4F4;
     text-align: center;
     border-radius: 25px;
-    margin-top: 72px;
+    margin-right: 112px;
+    width: 50%;
 }
 .best-seller-section h2{
     font-size: 60px;
-    font-weight: 400;
+    font-weight:lighter;
 }
 .best-seller-section hr{
     margin: 140px 0;
@@ -16,28 +22,23 @@
     display: flex;
     align-items: center;
 }
-.btn{
-    background-color: #A09B95;
-    color: #fff;
-    padding: 16px 26px;
-    border-radius: 6px;
-}
 .product-section{
     width: 50%;
-    margin-left: 142px;
-}
-.best-seller-container{
-    display: flex;
-    align-items: center;
 }
 .best-seller-links{
     display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 30px;
-      text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 69px 40px;
+    text-align: center;
 }
 .best-seller-links-item{
     position: relative;
+}
+.best-seller-links-item img{
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .best-seller-links-item h5{
     width: 100%;
@@ -45,9 +46,12 @@
     position: absolute;
     bottom: 4px;
     padding: 16px 23px 26px ;
-    border-radius: 15px;
+    border-bottom-left-radius:10px ;
+    border-bottom-right-radius:10px ;
     background-color: #fff;
-    opacity: 0.7;
+    opacity: 0.9;
+    color: #000;
+
 }
 .heading{
     display: flex;
@@ -56,32 +60,34 @@
     font-weight: 400;
     margin: 71px 0 60px;
 }
-@media only screen and (max-width:1400px){
+@media only screen and (max-width:1100px){
     .best-seller-container{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
     }
-    .best-seller-section {
+    .best-seller-section{
         width: 100%;
-        padding: 176px 0;
-    }
-    .btn{
-        font-size: 20px;
+        margin-right: 0;
     }
     .product-section {
-        margin-left: 0;
-        margin-top: 50px;
+         width: auto; 
     }
 }
-@media only screen and (max-width:450px){
+@media only screen and (max-width:490px){
     .best-seller-links{
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       
+    }
+    .best-seller-section{
+        padding: 58px 15px;
     }
     .product-section{
         width: 100%;
     }
     .btn{
         font-size: 15px;
+        width: 100%;
     }
 } 
