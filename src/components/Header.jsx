@@ -12,6 +12,7 @@ const Header = () => {
 
   const [megaBoxOpen, setMegaBoxOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 600);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleResize = () => {
     setIsSmallScreen(window.innerWidth <= 600);
@@ -51,11 +52,23 @@ const Header = () => {
   useEffect(() => {
     i18n.changeLanguage(selectedLanguage);
   }, [i18n, selectedLanguage]);
+  const handleDocumentClick = (event) => {
+    if (!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-toggle')) {
+      setIsDropdownOpen(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener('click', handleDocumentClick);
+    return () => {
+    document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
 
   const handleLanguageChange = (event) => {
     const newLanguage = event.target.value;
     setSelectedLanguage(newLanguage);
     localStorage.setItem('selectedLanguage', newLanguage);
+    setIsDropdownOpen(false);
   };
   if(loading && !categories) 
   return <div className='loader'>
@@ -143,20 +156,36 @@ const Header = () => {
               </ul>
             </nav>
             <div className="languages">
-              <div></div>
-              <select name="select" id="select" value={selectedLanguage} onChange={handleLanguageChange}>
-              {isSmallScreen ? (
-                  <>
-                    <option value="en">Eng</option>
-                    <option value="ka">ქართ</option>
-                  </>
-                ) : (
-                  <>
-                    <option value="en">English</option>
-                    <option value="ka">ქართული</option>
-                  </>
+            <div className="dropdown">
+              <div className="dropdown-toggle" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                {isSmallScreen ? (selectedLanguage === 'en' ? 'Eng' : 'ქართ') : (selectedLanguage === 'en' ? 'English' : 'ქართული')}
+                <IoIosArrowDown className='dropdown-icon'/>
+              </div>
+              {isDropdownOpen && (
+                <div className="dropdown-menu">
+                  <label>
+                {isSmallScreen ? 'Eng' : 'English'}
+                <input
+                  type="radio"
+                  name="language"
+                  value="en"
+                  checked={selectedLanguage === 'en'}
+                  onChange={handleLanguageChange}
+                />
+              </label>
+              <label>
+                {isSmallScreen ? 'ქართ' : 'ქართული'}
+                <input
+                  type="radio"
+                  name="language"
+                  value="ka"
+                  checked={selectedLanguage === 'ka'}
+                  onChange={handleLanguageChange}
+                />
+              </label>
+                </div>
               )}
-              </select>
+            </div>
             </div>
           </div>
         </div>

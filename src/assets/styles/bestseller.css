@@ -1,14 +1,20 @@
+.best-seller-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 72px;
+}
 .best-seller-section{
-    width: 50%;
     padding: 120px 100px;
     background-color: #F4F4F4;
     text-align: center;
     border-radius: 25px;
-    margin-top: 72px;
+    margin-right: 112px;
+    width: 50%;
 }
 .best-seller-section h2{
     font-size: 60px;
-    font-weight: 400;
+    font-weight:lighter;
 }
 .best-seller-section hr{
     margin: 140px 0;
@@ -24,17 +30,12 @@
 }
 .product-section{
     width: 50%;
-    margin-left: 142px;
-}
-.best-seller-container{
-    display: flex;
-    align-items: center;
 }
 .best-seller-links{
     display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 30px;
-      text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 69px 40px;
+    text-align: center;
 }
 .best-seller-links-item{
     position: relative;
@@ -56,13 +57,20 @@
     font-weight: 400;
     margin: 71px 0 60px;
 }
-@media only screen and (max-width:1400px){
-    .best-seller-container{
-        display: block;
+@media only screen and (max-width:1274px){
+    .best-seller-links-item img{
+        width: 200px;
+        height: auto;
     }
-    .best-seller-section {
-        width: 100%;
-        padding: 176px 0;
+    .best-seller-links{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 49px 20px;
+        text-align: center;
+    }
+    .best-seller-section{
+        margin-right: 80px;
+        padding: 136px 50px;
     }
     .btn{
         font-size: 20px;
@@ -72,16 +80,34 @@
         margin-top: 50px;
     }
 }
-@media only screen and (max-width:450px){
+@media only screen and (max-width:1128px){
+    .best-seller-container{
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+    }
+    .best-seller-section{
+        width: 100%;
+        margin-right: 0;
+    }
+    .product-section {
+         width: auto; 
+    }
+}
+@media only screen and (max-width:490px){
     .best-seller-links{
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       
+    }
+    .best-seller-section{
+        padding: 58px 15px;
     }
     .product-section{
         width: 100%;
     }
     .btn{
         font-size: 15px;
+        width: 100%;
     }
 } 
