@@ -17,6 +17,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     onFetch();
+    window.scrollTo(0, 0);
   }, [onFetch]);
 
   const categoryFourProducts = products && products.filter((product) => product.category === 1 );
