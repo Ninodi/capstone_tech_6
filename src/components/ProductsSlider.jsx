@@ -12,10 +12,12 @@ import { NavLink } from 'react-router-dom';
 
 const ProductsSlider = ({ header,products }) => {
   const [slidesPerView, setSlidesPerView] = useState(3);
+  const [showArrows, setShowArrows] = useState(true);
   useEffect(() => {
     const updateSlidesPerView = () => {
       const newSlidesPerView = window.innerWidth <= 450 ? 1 : 3;
       setSlidesPerView(newSlidesPerView);
+      setShowArrows(window.innerWidth > 450);
     };
     updateSlidesPerView();
     window.addEventListener('resize', updateSlidesPerView);
@@ -26,7 +28,7 @@ const ProductsSlider = ({ header,products }) => {
   }, []);
 
   const sortedProducts = Array.isArray(products) ? [...products].sort(() => 0.5 - Math.random()) : [];
-  const randomItems = sortedProducts.slice(0, 4);
+  const randomItems = sortedProducts.slice(0, 6);
 
   return (
     
@@ -40,7 +42,8 @@ const ProductsSlider = ({ header,products }) => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+        loop={true}
+        navigation={showArrows}
         modules={[FreeMode, Pagination, Navigation]}
         className="mySwiper"
       >

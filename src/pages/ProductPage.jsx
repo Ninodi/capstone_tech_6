@@ -34,7 +34,7 @@ const ProductPage = () => {
   return (
     <div>
         <Header/>
-        <ProductsSlider products={categoryFourProducts}  header={t('productPage.firstHeadline')}/>
+        <ProductsSlider products={categoryFourProducts}  header={t('productPage.firstHeadline')} />
         <BestSeller />
         <ProductsSlider  products={categoryTwoProducts} header={t('productPage.secondHeadline')}/>
         <Footer/>
