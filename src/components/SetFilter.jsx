@@ -1,63 +1,46 @@
-const SetFilter = (filter, filterOptions, categoryProducts, setFilteredProd) => {
-  const updatedFilterOptions = { ...filterOptions };
+const SetFilter = (filterName, filterOptions, categoryProducts, setFilteredProd) => {
+  const updatedFilterOptions = [...filterOptions]
+  console.log(updatedFilterOptions)
 
-  if (filter === "all") {
-    updatedFilterOptions[filter].filterState = !updatedFilterOptions[filter].filterState
+  const allFilterIndex = updatedFilterOptions.findIndex(filter => filter.filterName === 'All')
+  let allFilterState = updatedFilterOptions[allFilterIndex].filterState
 
-    if (updatedFilterOptions.all.filterState) {
-      Object.keys(updatedFilterOptions).forEach((key) => {
-        updatedFilterOptions[key].filterState = true
-      })
-    } else {
-      Object.keys(updatedFilterOptions).forEach((key) => {
-        if (key !== "all") {
-          updatedFilterOptions[key].filterState = false
-        }
-      })
-    }
-  } else {
-    updatedFilterOptions[filter].filterState = !updatedFilterOptions[filter].filterState
-
-    // Check if any individual filter is unselected
-    const anyFilterUnselected = Object.keys(updatedFilterOptions)
-      .filter((key) => key !== "all")
-      .some((key) => !updatedFilterOptions[key].filterState)
-
-    // If any filter is unselected, unselect the "all" filter
-    if (anyFilterUnselected) {
-      updatedFilterOptions.all.filterState = false
-    } else {
-      // Check if every other filter is selected
-      const everyOtherFilterSelected = Object.keys(updatedFilterOptions)
-        .filter((key) => key !== filter && key !== "all")
-        .every((key) => updatedFilterOptions[key].filterState)
-
-      // If every other filter is selected, also select the "all" filter
-      if (everyOtherFilterSelected) {
-        updatedFilterOptions.all.filterState = true
+  if(filterName === 'All'){
+    //ყველა ფილტრი გახდეს იგივე სატუსის რაც 'all' ფილტრია
+    updatedFilterOptions[allFilterIndex].filterState = !allFilterState
+    updatedFilterOptions.forEach(filter => filter.filterState = updatedFilterOptions[allFilterIndex].filterState)
+  }else{
+    updatedFilterOptions.forEach(filter => {
+      if(filterName === filter.filterName) {
+        filter.filterState = !filter.filterState
       }
-    }
+      //თუ ყველა ფილტრს მოვნიშნავთ 'all' ფილტრი მოინიშნოს და პირიქით
+      const allOtherFiltersSelected = updatedFilterOptions
+      .filter(filter => filter.filterName !== 'All')
+      .every(filter => filter.filterState)
+
+      if (allOtherFiltersSelected) {
+        updatedFilterOptions[allFilterIndex].filterState = true
+      }else{
+        updatedFilterOptions[allFilterIndex].filterState = false
+      }
+
+    })
   }
 
-  // If "all" filter is selected, display all products
-  if (updatedFilterOptions.all.filterState) {
+  //თუ 'all' ფილტრი მონიშნულია ყველა პროდუქტი გამოვაჩინოთ, თუარა და მხოლოდ ამორჩეული ფილტრები
+  if (updatedFilterOptions[allFilterIndex].filterState) {
     setFilteredProd(categoryProducts)
   } else {
-    // Find selected filters
-    const selectedFilterIds = Object.keys(updatedFilterOptions)
-      .filter((key) => key !== "all" && updatedFilterOptions[key].filterState)
-      .map((key) => updatedFilterOptions[key].id)
+    const selectedFilterIds = updatedFilterOptions
+      .filter(filter => filter.filterState)
+      .map(filter => filter.id)
 
-    // Filter categoryProducts based on selected filter IDs
-    const filteredProducts = categoryProducts.filter((product) =>
-      selectedFilterIds.includes(product.filter)
-    )
-
-    // Update the state with the filtered products
-    setFilteredProd(filteredProducts)
+    setFilteredProd(categoryProducts.filter(product => selectedFilterIds.includes(product.filter)))
   }
 
-  return updatedFilterOptions
+  return updatedFilterOptions;
+
 };
 
 export default SetFilter;

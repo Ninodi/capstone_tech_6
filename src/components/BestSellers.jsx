@@ -13,15 +13,18 @@ const BestSellers = () => {
     const bestSellers = [
         {
             bestSellerImg: BestSeller1,
-            bestSellerCategory: t('bestSellersSection.bestSellerCategory1')
+            bestSellerCategory: t('bestSellersSection.bestSellerCategory1'),
+            categoryId: 2
         },
         {
             bestSellerImg: BestSeller2,
-            bestSellerCategory: t('bestSellersSection.bestSellerCategory2')
+            bestSellerCategory: t('bestSellersSection.bestSellerCategory2'),
+            categoryId: 4
         },
         {
             bestSellerImg: BestSeller3,
-            bestSellerCategory: t('bestSellersSection.bestSellerCategory3')
+            bestSellerCategory: t('bestSellersSection.bestSellerCategory3'),
+            categoryId: 10
         },
     ]
 
@@ -43,7 +46,7 @@ const BestSellers = () => {
                 </div>
                 <div className='best-sellers'>
                     {bestSellers.map(bestSeller => (
-                        <BestSellersItem bestSellerCategory={bestSeller.bestSellerCategory} bestSellerImg={bestSeller.bestSellerImg} key={Math.random()}/>
+                        <BestSellersItem bestSellerCategory={bestSeller.bestSellerCategory} categoryId={bestSeller.categoryId} bestSellerImg={bestSeller.bestSellerImg} key={Math.random()}/>
                     ))}
                 </div>
             </div>

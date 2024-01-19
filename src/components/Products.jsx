@@ -12,8 +12,18 @@ import { BounceLoader } from 'react-spinners'
 
 function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCategory}) {
   const {response, error,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
+  const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
   const { t } = useTranslation();
-  
+
+  // const [mainCategoryPage, setMainCategoryPage] = useState('')
+  // const [subCategoryPage, setsubCategoryPage] = useState('')
+
+  const mainCategoryPage = category && category[mainCategory-1]?.main_cat
+  const subCategoryPage = category && category[mainCategory-1]?.secondary_cat
+
+  // const mainCategoryPage = 'huhuu'
+  // const subCategoryPage = 'hii'
+
   const [prodNum, setProdNum] = useState(9)
   const [currentPage, setCurrentPage] = useState(1)
   const [filteredProd, setFilteredProd] = useState([])
@@ -30,10 +40,9 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
 
   useEffect(() => {
     setFilteredProd(prev => categoryProducts)
-    console.log(filteredProd)
     setProdNum(prev => 9)
     setCurrentPage(prev => 1)
-  }, [response])
+  }, [mainCategory, response])
   
   useEffect(() => {
     if(prodNum >= displayedProducts?.length){
@@ -41,10 +50,6 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
     }else loadBtn.current.style.display = "unset"
   }, [prodNum])
 
-  // useEffect(() => {
-  //   setProdNum(prev => 9)
-  //   setCurrentPage(prev => 1)
-  // }, [capitaliseCategory])
 
   const loadMore = () => {
     const remainingProducts = displayedProducts?.length - prodNum
@@ -71,7 +76,7 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
     <div className="prod-list-container">
       <div className="products-desktop-container">
         <div className="breadcrumbs">
-          <p>{t('productItemPage.breadcrumbs')} {`${capitaliseCategory()}`}</p>
+          <p>{t('productItemPage.breadcrumbs')} {mainCategoryPage} / {subCategoryPage}</p>
           <SortingOptions activeSorting='Most popular'/>
         </div>
         <div style={{width: '100%', display: 'flex', gap: '20px'}}>
