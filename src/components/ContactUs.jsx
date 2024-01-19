@@ -158,15 +158,16 @@ const fetchData = async () => {
         }
 
 
-        if (phone.length <9)
+        if (phone.length !=9)
         {
-        // value = value.slice(0, maxLength);
+        
          setSubmitStatus(t('contactForm.SHORTPHONE'))
 
          return
         }
 
-          const isValidPhoneNumber = /^(\+?[0-9] ?){6,14}[0-9]$/.test(phone);
+         //const isValidPhoneNumber = /^(\+?[0-9] ?){6,14}[0-9]$/.test(phone); // accepts international
+         const isValidPhoneNumber = /^5\d{8}$/.test(phone); // accepts local
   
           if (!isValidPhoneNumber) {
           
@@ -215,16 +216,16 @@ const fetchData = async () => {
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
     <div>
-    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME')} value={name} onChange={(e)=>{setSubmitStatus('');setName(e.target.value)}} />
+    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME') + ' *'} value={name} onChange={(e)=>{setSubmitStatus('');setName(e.target.value)}} />
     </div>
     
    
     <div>
-    <input type="text"  mask="*{1,}@*{1,}.*{1,}" className={contactStyle['contact-form-input']} placeholder={t('contactForm.EMAIL')} value={email}  onChange={(e)=>{setSubmitStatus('');setEmail(e.target.value)}} />
+    <input type="text"  mask="*{1,}@*{1,}.*{1,}" className={contactStyle['contact-form-input']} placeholder={t('contactForm.EMAIL') + ' *'} value={email}  onChange={(e)=>{setSubmitStatus('');setEmail(e.target.value)}} />
     </div>
 
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE')} value={phone} onChange={(e)=>{setSubmitStatus('');setPhone(e.target.value);}}/>
+    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE') + ' *'} value={phone} onChange={(e)=>{setSubmitStatus('');setPhone(e.target.value);}}/>
     </div>
     <div>
         <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FACEBOOKPROFILEURL')} value={url} onChange={(e)=>{setSubmitStatus('');setUrl(e.target.value)}}/>
@@ -233,7 +234,7 @@ const fetchData = async () => {
     
     <div>
       
-    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('contactForm.MESSAGE')} value={message} onChange={(e)=>{setSubmitStatus('');setMessage(e.target.value)}} />
+    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('contactForm.MESSAGE') + ' *'} value={message} onChange={(e)=>{setSubmitStatus('');setMessage(e.target.value)}} />
     </div>
     <div id={contactStyle['submit-status']}>{submitStatus}</div>
     <div className={contactStyle['contactus-btn-container']}>
