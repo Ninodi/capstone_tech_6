@@ -81,6 +81,7 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
             setFilterOptions={setFilterOptions}
             categoryProducts={categoryProducts}
             setFilteredProd={setFilteredProd}
+            subCategoryPage={subCategoryPage}
             />
           <div className="empty-list">
               {displayedProducts?.length === 0 || error

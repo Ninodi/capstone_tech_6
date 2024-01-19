@@ -3,7 +3,7 @@ import FilterIcon from "../assets/icons/filterIcon.png";
 import SetFilter from "./SetFilter";
 import { v4 as uuidv4 } from 'uuid';
 
-function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, setFilteredProd }) {
+function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, setFilteredProd, subCategoryPage}) {
 
   const handleFilterChange = (filterName) => {
     const updatedFilterOptions = SetFilter(filterName, filterOptions, categoryProducts, setFilteredProd)
@@ -21,7 +21,7 @@ function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, set
         </div>
       </div>
       <div className="filter-options-bar">
-        <p>Dress Style</p>
+        <p>{subCategoryPage} Style</p>
         <div className="filter-options">
           {filterOptions?.map(filter => (
             <label key={uuidv4()}>
