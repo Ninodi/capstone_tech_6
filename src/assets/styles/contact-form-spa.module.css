@@ -46,6 +46,9 @@
     font-size:calc(0.5vw + 10px);
 }
 
+
+
+  
 .input-fields-container
 {
     margin-left:10px;
@@ -222,6 +225,11 @@
     }
 
    
+
+    .red
+    {
+        color:red;
+    }
   #submit-status
   {
     

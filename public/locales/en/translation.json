@@ -33,11 +33,11 @@
         },
         "contactForm": {
             "FILLTHISFORM": "FILL THIS FORM",
-            "FULLNAME": "Full Name *",
-            "EMAIL": "Email *",
-            "PHONE": "Phone (5xx xx xx xx)*",
+            "FULLNAME": "Full Name",
+            "EMAIL": "Email",
+            "PHONE": "Phone (5xx xx xx xx)",
             "FACEBOOKPROFILEURL": "Facebook URL",
-            "MESSAGE": "Message *",
+            "MESSAGE": "Message",
             "SEND": "Send",
             "CONTACTUSTEXT": "CONTACT US",
             "CONTACT": "Contact",
@@ -49,7 +49,7 @@
             "EMPTYEMAIL":"Email is required",
             "ERROREMAIL":"Email format is incorrect",
             "EMPTYPHONE":"Phone number is required",
-            "SHORTPHONE":"Minimum 9 digits required for the phone number",
+            "SHORTPHONE":"9 digits required for the phone number",
             "ERRORPHONE":"Phone number is incorrect",
             "EMPTYMESSAGE":"Message text is required"
 
