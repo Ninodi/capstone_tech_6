@@ -104,7 +104,8 @@
         "christmas":"შობა"
     },
     "productItemPage":{
-        "breadcrumbs": "მთავარი / პროდუქტები /"
+        "breadcrumbs": "მთავარი / პროდუქტები /",
+        "productInformation": "ინფორმაცია პროდუქციის შესახებ"
     },
     "pageNotFound":{
         "ooops":"",
