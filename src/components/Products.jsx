@@ -10,14 +10,16 @@ import useFetch from "../hooks/useFetch";
 import { useTranslation } from "react-i18next";
 import { BounceLoader } from 'react-spinners'
 
-function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCategory}) {
+function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) {
   const {response, error,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
   const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
   const { t } = useTranslation();
 
-
-  const mainCategoryPage = category && category[mainCategory-1]?.main_cat
-  const subCategoryPage = category && category[mainCategory-1]?.secondary_cat
+  const categoryInfo = category?.filter(each => each.main_cat.toLowerCase() === mainCategory.toLowerCase() && each.secondary_cat.toLowerCase() === subcategory.toLowerCase())
+  let categoryId;
+  if (categoryInfo && categoryInfo.length > 0) {
+  categoryId = categoryInfo[0].id
+  }
 
   const [prodNum, setProdNum] = useState(9)
   const [currentPage, setCurrentPage] = useState(1)
@@ -27,7 +29,7 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
   const startIndex = (currentPage - 1) * pageSize
   const endIndex = startIndex + pageSize
 
-  const categoryProducts = response?.filter(each => each.category === mainCategory)
+  const categoryProducts = response?.filter(each => each.category === categoryId)
   const displayedProducts = filteredProd?.slice(startIndex, endIndex)
   const totalPages = Math.ceil(filteredProd?.length / pageSize)
 
@@ -37,7 +39,9 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
     setFilteredProd(prev => categoryProducts)
     setProdNum(prev => 9)
     setCurrentPage(prev => 1)
-  }, [mainCategory, response])
+
+    console.log(categoryInfo)
+  }, [categoryId, response])
   
   useEffect(() => {
     if(prodNum >= categoryProducts?.length){
@@ -72,7 +76,7 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
     <div className="prod-list-container">
       <div className="products-desktop-container">
         <div className="breadcrumbs">
-          <p>{t('productItemPage.breadcrumbs')} {mainCategoryPage} / {subCategoryPage}</p>
+          <p>{t('productItemPage.breadcrumbs')} {mainCategory} / {subcategory}</p>
           <SortingOptions activeSorting='Most popular'/>
         </div>
         <div style={{width: '100%', display: 'flex', gap: '20px'}}>
@@ -81,7 +85,8 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
             setFilterOptions={setFilterOptions}
             categoryProducts={categoryProducts}
             setFilteredProd={setFilteredProd}
-            subCategoryPage={subCategoryPage}
+            subcategory={subcategory}
+            mainCategory={mainCategory}
             />
           <div className="empty-list">
               {displayedProducts?.length === 0 || error
@@ -90,7 +95,7 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
                   {displayedProducts?.map((prod, index) => index < prodNum && (
                     <div onClick={() => localStorage.setItem('productId', JSON.stringify(prod.id))} key={prod.id}>
                       <NavLink 
-                        to={`/products/women/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`}
+                        to={`/products/${mainCategory}/${subcategory}/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`}
                         className="product-item">
                         <div className="prod-image">
                           <img src={prod.image} alt="" />
@@ -120,8 +125,8 @@ function Products({filterOptions, setFilterOptions, capitaliseCategory, mainCate
           setFilterOptions={setFilterOptions}
           categoryProducts={categoryProducts}
           setFilteredProd={setFilteredProd}
-          mainCategoryPage={mainCategoryPage}
-          subCategoryPage={subCategoryPage}
+          mainCategory={mainCategory}
+          subcategory={subcategory}
           />
         <ProductDisplaySettings filteredProd={filteredProd} />
         <div className="products-mobile">

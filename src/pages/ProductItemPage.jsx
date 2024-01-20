@@ -17,10 +17,21 @@ function ProductItemPage() {
   const { itemName } = useParams()
   const capitaliseCategory = useCapitalise(itemName)
   const formattedCategory = capitaliseCategory().replaceAll('-', ' ')
-  const productId = localStorage.getItem('productId')
+  
   const [toggleInfo, setToggleInfo] = useState(true)
   const { response, onFetch } = useFetch({url: `http://94.137.187.198:9876/images/`, method: 'GET'})
   const { response: productsResponse,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
+
+  console.log(productsResponse)
+
+  const productInfo = productsResponse?.filter(each => each.product_name.toLowerCase().replaceAll(" ", '-') === itemName)
+
+  let productId
+  if (productInfo && productInfo.length > 0) {
+    productId = productInfo[0].id
+  }
+
+  console.log(productId)
 
   useEffect(() => {
     if (productId) {
@@ -29,13 +40,15 @@ function ProductItemPage() {
     window.scrollTo(0, 0);
   }, [productId, onFetch])
 
+
   const prodImages =
-    response?.filter((prod) => prod.product.toString() === productId)?.map((pordImg) => pordImg.photo) || []
+    response?.filter((prod) => prod.product === productId)?.map((pordImg) => pordImg.photo) || []
 
 
   const toggleProdInfo = () => {
     setToggleInfo(prev => !prev)
   }
+
   if(loading && !productsResponse && !response) 
   return <div className='loader'>
     <BounceLoader

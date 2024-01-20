@@ -103,6 +103,9 @@
   font-weight: 600;
   font-size: 25px;
 }
+.row span a{
+  color: #000000;
+}
 .dropdown-items{
   display: flex;
   cursor: pointer;

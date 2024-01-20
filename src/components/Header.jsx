@@ -115,13 +115,13 @@ const Header = () => {
                   <div  className={`mega-box ${megaBoxOpen ? 'open' : ''}`}>
                     <div className="content">
                       <div className="row">
-                        <span>{t('Header.productsDrp.womens')}</span>
+                        <span><NavLink to={'/products/woman'}>{t('Header.productsDrp.womens')}</NavLink></span>
                         <ul className="mega-links">
                           {categories && categories
                             .filter(category => category.main_cat === 'Woman')
                             .map(category => (
                               <li key={category.id}>
-                                <Link to={`/products/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
+                                <Link to={`/products/${category.main_cat}/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
                                 {selectedLanguage === 'ka' ? category.secondary_cat_geo : category.secondary_cat}
                                 </Link>
                               </li>
@@ -129,13 +129,13 @@ const Header = () => {
                         </ul>
                       </div>
                       <div className="row">
-                        <span>{t('Header.productsDrp.kids')}</span>
+                        <span><NavLink to={'/products/kids'}>{t('Header.productsDrp.kids')}</NavLink></span>
                         <ul className="mega-links">
                           {categories && categories
                             .filter(category => category.main_cat === 'Children')
                             .map(category => (
                               <li key={category.id}>
-                                <Link to={`/products/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
+                                <Link to={`/products/${category.main_cat}/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
                                 {selectedLanguage === 'ka' ? category.secondary_cat_geo : category.secondary_cat}
                                 </Link>
                               </li>
@@ -143,13 +143,13 @@ const Header = () => {
                         </ul>
                       </div>
                       <div className="row">
-                        <span>{t('Header.productsDrp.SpecialClothing')}</span>
+                        <span><NavLink to={'/products/specialClothing'}>{t('Header.productsDrp.SpecialClothing')}</NavLink></span>
                         <ul className="mega-links">
                           {categories && categories
                             .filter(category => category.main_cat === 'Other')
                             .map(category => (
                               <li key={category.id}>
-                                <Link to={`/products/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
+                                <Link to={`/products/${category.main_cat}/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
                                 {selectedLanguage === 'ka' ? category.secondary_cat_geo : category.secondary_cat}
                                 </Link>
                               </li>
