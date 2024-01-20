@@ -5,13 +5,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { useTranslation } from "react-i18next";
 
 function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, setFilteredProd, subCategoryPage}) {
+  const { t } = useTranslation();
 
   const handleFilterChange = (filterName) => {
-    const updatedFilterOptions = SetFilter(filterName, filterOptions, categoryProducts, setFilteredProd)
+    const updatedFilterOptions = SetFilter(filterName, filterOptions, categoryProducts, setFilteredProd, t)
     setFilterOptions(prev => updatedFilterOptions)
-
   };
-  const { t } = useTranslation();
+
 
 
   return (

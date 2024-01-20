@@ -132,17 +132,18 @@
         display: none
     .filters
         display: flex
-        justify-content: space-between
+        flex-wrap: wrap
         gap: 15px
         margin-bottom: 20px
         button
-            height: 25px
-            flex: 1
+            max-width: max-content
             font-size: 16px
+            padding: 5px
             border: 1px solid #616161
             background-color: #fff
             border-radius: 4px
             cursor: pointer
+            @include center()
             &.active
                 background-color: #3391A1
                 color: #fff
