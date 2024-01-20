@@ -111,7 +111,7 @@ function ProductItemPage() {
           </div>
           <div className="call-now">Call now</div>
           <div className="product-items-slider-container">
-            <ProductsSlider products={productsResponse} header={"Similar Items You May Like!"}/>
+            <ProductsSlider products={productsResponse} header={t("AllProductPage.similarItems")}/>
           </div>
         </div>
       </main>

@@ -13,7 +13,7 @@ import { BounceLoader } from 'react-spinners'
 function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) {
   const {response, error,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
   const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
 
   const categoryInfo = category?.filter(each => each.main_cat.toLowerCase() === mainCategory.toLowerCase() && each.secondary_cat.toLowerCase() === subcategory.toLowerCase())
   let categoryId;
@@ -40,7 +40,6 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
     setProdNum(prev => 9)
     setCurrentPage(prev => 1)
 
-    console.log(categoryInfo)
   }, [categoryId, response])
   
   useEffect(() => {
@@ -59,6 +58,7 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
 
     if(prodNum + productsToLoad >= filteredProd?.length) loadBtn.current.style.display = "none"
   }
+  
   
   if(loading && !response) 
   return <div className='loader'>
@@ -100,7 +100,7 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
                         <div className="prod-image">
                           <img src={prod.image} alt="" />
                         </div>
-                        <p style={{color: '#000000', marginTop: '17px'}}>{prod.product_name}</p>
+                        <p style={{color: '#000000', marginTop: '17px'}}>{i18n.language === 'ka' ? prod.product_name_geo : prod.product_name}</p>
                       </NavLink>
                     </div>
                   ))}

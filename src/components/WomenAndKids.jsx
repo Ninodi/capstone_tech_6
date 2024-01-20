@@ -15,10 +15,13 @@ const WomenAndKids = () => {
     method: 'GET',
   });
 
-  const { response: productsData, loading: productsLoading, onFetch: fetchProducts } = useFetch({
+  const { response: productsData, onFetch: fetchProducts } = useFetch({
     url: 'http://94.137.187.198:9876/products/',
     method: 'GET',
   });
+  const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
+
+  
 
   useEffect(() => {
     fetchBestsellers();

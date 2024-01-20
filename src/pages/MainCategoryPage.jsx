@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { Link, NavLink, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
 
 function MainCategoryPage() {
@@ -10,7 +10,7 @@ function MainCategoryPage() {
 
     const subCategories = response?.filter(each => each.main_cat.toLowerCase() === category.toLowerCase()).map(each => each.secondary_cat)
 
-    console.log(subCategories)
+    
   return (
     <div>
         <Header />

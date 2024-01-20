@@ -50,7 +50,6 @@ function ProductPagination({totalPages, currentPage, setCurrentPage, setProdNum}
         onClick={nextPage}
       >
         <p>{t('AllProductPage.next')}</p>
-        <p>წინ</p>
         <div className="prev-page-arr arr-container">
           <img src={NextPageArr} alt="" />
         </div>

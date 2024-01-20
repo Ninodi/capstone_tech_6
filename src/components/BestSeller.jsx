@@ -60,7 +60,7 @@ const BestSeller = () => {
         <div className="product-section">
           <div className="best-seller-links">
             {getMatchingProducts().map((product) => (
-              <NavLink to={`/products/women/${product.product_name}`} key={product.id}>
+              <NavLink to={`/products/women/aa/${product.product_name}`} key={product.id}>
                 <div
                   className="best-seller-links-item"
                   onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}
