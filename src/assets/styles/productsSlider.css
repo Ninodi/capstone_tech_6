@@ -1,6 +1,6 @@
 .product-slider-image{
     width: 300px;
-    height: auto;
+    height: 400px;
     object-fit: cover;
     transition: transform 0.3s ease
 }
