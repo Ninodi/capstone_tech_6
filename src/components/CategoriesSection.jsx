@@ -7,9 +7,9 @@ import SpecialClothing from './SpecialClothing'
 const CategoriesSection = () => {
   return (
     <div className='categories-section-container'>
-        <BestSellers />
+        {/* <BestSellers /> */}
         <WomenAndKids />
-        <SpecialClothing />
+        {/* <SpecialClothing /> */}
     </div>
   )
 }

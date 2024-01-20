@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { GrFacebookOption } from "react-icons/gr";
-import { FiTwitter } from "react-icons/fi";
-import { FaInstagram } from "react-icons/fa";
-import { RiLinkedinLine } from "react-icons/ri";
 import '../assets/styles/footer.css'
 import { useTranslation } from 'react-i18next';
 
@@ -13,7 +10,7 @@ const Footer = () => {
     const scrollToTop = () => {
         window.scrollTo({
           top: 0,
-          behavior: 'smooth' // Optional: adds a smooth scroll animation
+          behavior: 'smooth'
         });
       };
   return (
@@ -54,9 +51,6 @@ const Footer = () => {
                     <h2>{t('footer.follow')}</h2>
                     <div className="icons">
                         <Link to={"https://www.facebook.com/"} target='_blank'> <GrFacebookOption className='icon' /> </Link>
-                        <Link to={"https://twitter.com/?lang=en"} target='_blank'><FiTwitter  className='icon'/></Link>
-                        <Link to={"https://www.instagram.com/"} target='_blank'><FaInstagram className='icon'/> </Link>
-                        <Link to={"https://www.linkedin.com/"} target='_blank'><RiLinkedinLine className='icon'/> </Link>
                     </div>
                 </div>
                 <div className="copyright">

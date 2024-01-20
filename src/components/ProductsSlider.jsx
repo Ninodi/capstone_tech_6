@@ -32,8 +32,8 @@ const ProductsSlider = ({ header, products }) => {
 
   const sortedProducts = Array.isArray(products) ? [...products].sort(() => 0.5 - Math.random()) : [];
   const randomItems = sortedProducts.slice(0, 6);
+  const {  i18n } = useTranslation();
 
-  const { i18n } = useTranslation();
 
   return (
     <div className="container">
@@ -55,10 +55,10 @@ const ProductsSlider = ({ header, products }) => {
           {randomItems.map((product) => (
             <SwiperSlide key={product.id}>
               <div onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}>
-                <NavLink to={`/products/${product.product_name}`}>
+                <NavLink to={`/products/women/${product.product_name}`}>
                   <img className='product-slider-image' src={product.image} alt={product.product_name} />
                   <h4 className='product-title'>
-                  {i18n.language === 'ka' && product.product_name_geo
+                    {i18n.language === 'geo' && product.product_name_geo
                       ? product.product_name_geo
                       : product.product_name}
                   </h4>

@@ -32,7 +32,6 @@ function ProductItemPage() {
   const prodImages =
     response?.filter((prod) => prod.product.toString() === productId)?.map((pordImg) => pordImg.photo) || []
 
-    console.log()
 
   const toggleProdInfo = () => {
     setToggleInfo(prev => !prev)
