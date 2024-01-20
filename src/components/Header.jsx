@@ -101,7 +101,9 @@ const Header = () => {
               <ul className="navbar" ref={navRef}>
                 <li><NavLink className="list-item" to={'/'}>{t('Header.home')}</NavLink></li>
                 <li className='mega-dropdown'>
-                  <NavLink to={"/products"} className="list-item"  onClick={toggleMegaBox}>{t('Header.products')} <IoIosArrowDown/></NavLink>
+                  <div>
+                    <NavLink to={"/products"} className="list-item" >{t('Header.products')}<IoIosArrowDown  onClick={toggleMegaBox} /></NavLink>
+                  </div>
                   <div  className={`mega-box ${megaBoxOpen ? 'open' : ''}`}>
                     <div className="content">
                       <div className="row">
@@ -111,7 +113,7 @@ const Header = () => {
                             .filter(category => category.main_cat === 'Woman')
                             .map(category => (
                               <li key={category.id}>
-                                <Link to={`/products/${category.secondary_cat_geo}`} state={{ mainCategory: category.id }} className='mega-links-item'>
+                                <Link to={`/products/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
                                 {selectedLanguage === 'ka' ? category.secondary_cat_geo : category.secondary_cat}
                                 </Link>
                               </li>

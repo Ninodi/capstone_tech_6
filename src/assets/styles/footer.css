@@ -27,7 +27,7 @@ footer{
   .copyrights{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     margin-top: 23px;
   }
   .icons{
@@ -35,15 +35,10 @@ footer{
   }
   .icon{
     color: #000;
+    font-size: 27px;
   }
   .icon:hover{
     color:#8e8b8b;
-  }
-  .icon:not(:first-child){
-    margin: 0 19px;
-  }
-  .icon:first-child{
-    margin-right: 19px;
   }
   .service-items li{
     margin-bottom: 8px;

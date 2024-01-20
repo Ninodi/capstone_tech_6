@@ -1,27 +1,64 @@
-import React from 'react'
-import womenAndKids1 from '../assets/img/womenAndKids1.png';
-import womenAndKids2 from '../assets/img/womenAndKids2.png';
-import womenAndKids3 from '../assets/img/womenAndKids3.png';
-import womenAndKids4 from '../assets/img/womenAndKids4.png';
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
+import useFetch from '../hooks/useFetch';
+import { IoIosArrowForward } from "react-icons/io";
 
 
 const WomenAndKids = () => {
-  const { t } = useTranslation();
+
+
+
+
+  const { response: bestsellerData, onFetch: fetchBestsellers } = useFetch({
+    url: 'http://94.137.187.198:9876/bestseller/',
+    method: 'GET',
+  });
+
+  const { response: productsData, loading: productsLoading, onFetch: fetchProducts } = useFetch({
+    url: 'http://94.137.187.198:9876/products/',
+    method: 'GET',
+  });
+
+  useEffect(() => {
+    fetchBestsellers();
+    fetchProducts();
+    window.scrollTo(0, 0);
+  }, [fetchBestsellers, fetchProducts]);
+
+  const getMatchingProducts = () => {
+    if (bestsellerData && bestsellerData.length > 0 && productsData && productsData.length > 0) {
+      const staticProductOrder = ['product_1', 'product_2', 'product_3', 'product_4'];
+
+      const sortedProducts = staticProductOrder.map((key) => {
+        const productId = bestsellerData[0][key];
+        return productsData.find((product) => product.id === productId);
+      });
+
+      return sortedProducts;
+    }
+
+    return [];
+  };
+
+  const { t,i18n } = useTranslation();
   return (
     <div className='page-container'>
         <div>
-            <h1>{t('bestSellersSection.womenAndKids')}</h1>
+            <h1>{t('productPage.bestSeller')}</h1>
             <div className='women-and-kids'>
-                <NavLink className='woman-and-kids-item' to={"/products"}><img src={womenAndKids1} alt="" /></NavLink>
-                <NavLink className='woman-and-kids-item' to={"/products"}><img src={womenAndKids2} alt="" /></NavLink>
-                <NavLink className='woman-and-kids-item' to={"/products"}><img src={womenAndKids3} alt="" /></NavLink>
-                <NavLink className='woman-and-kids-item' to={"/products"}><img src={womenAndKids4} alt="" /></NavLink>
+              {getMatchingProducts().map((product) => (
+                <NavLink className='woman-and-kids-item' to={`/products/women/${product.product_name}`} key={product.id} onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}>
+                    <img src={product.image} alt={product.product_name} />
+                    <h5 className='category-btn'>{i18n.language === 'ka' && product?.product_name_geo
+                    ? product.product_name_geo
+                    : product.product_name} <IoIosArrowForward /></h5>
+                    
+                 </NavLink>
+              ))}
             </div>
         </div>
     </div>  
   )
 }
-
 export default WomenAndKids
