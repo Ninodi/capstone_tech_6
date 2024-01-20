@@ -28,4 +28,16 @@
 .swiper-pagination-bullet-active {
     background-color: #797979;
 }
+.product-slider-image{
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease
+}
+.product-title{
+    color: #171717;
+}
+.product-slider-image:hover{
+    transform: scale(1.1);
+}
 

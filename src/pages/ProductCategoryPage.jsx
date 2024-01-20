@@ -1,60 +1,61 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import { useLocation, useParams } from 'react-router-dom'
-import "../assets/styles/ProductCategoryPage.css"
-import Products from '../components/Products'
-import useCapitalise from '../hooks/useCapitalise'
-import useFetch from '../hooks/useFetch'
-
- 
+import React, { useEffect, useState } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { useLocation, useParams } from 'react-router-dom';
+import "../assets/styles/ProductCategoryPage.css";
+import Products from '../components/Products';
+import useCapitalise from '../hooks/useCapitalise';
+import useFetch from '../hooks/useFetch';
+import { useTranslation } from 'react-i18next';
 
 function ProductCategoryPage() {
-    const location = useLocation()
-    const { mainCategory } = location.state
-    const {response} = useFetch({url: `http://94.137.187.198:9876/filter/`, method: 'GET'})
+  const location = useLocation();
+  const { mainCategory } = location.state;
+  const { response } = useFetch({ url: 'http://94.137.187.198:9876/filter/', method: 'GET' });
+  const { t,i18n } = useTranslation();
 
-    const filters = response?.map(eachFilter => (
-      {
-        filterName: eachFilter.filter,
-        id: eachFilter.id,
-        filterState: true
-      }
-      ))
+  const filters = response?.map(eachFilter => ({
+    filterName: i18n.language === 'ka' && eachFilter?.filter_geo
+      ? eachFilter.filter_geo
+      : eachFilter.filter,
+    id: eachFilter.id,
+    filterState: true
+  }));
   
-      const allCategoryId = filters?.length + 1
-      const allCategory = {
-        filterName: 'All',
-        id: allCategoryId,
-        filterState: true
-      };
 
-      filters?.push(allCategory)
+  const allCategoryId = filters?.length + 1;
+  const allCategory = {
+    filterName: t("AllProductPage.all"),
+    id: allCategoryId,
+    filterState: true
+  };
 
-      const [filterOptions, setFilterOptions] = useState([])
+  filters?.push(allCategory);
 
-      useEffect(() => {
-        setFilterOptions(filters || []);
-      }, [response, mainCategory]);
+  const [filterOptions, setFilterOptions] = useState([]);
 
-    const {category} = useParams()
+  useEffect(() => {
+    setFilterOptions(filters || []);
+  }, [response, mainCategory, i18n.language]);
 
-    const capitaliseCategory = useCapitalise(category);
+  const { category } = useParams();
+
+  const capitaliseCategory = useCapitalise(category);
 
   return (
     <div>
-        <Header/>
-        <div className="page-container">
-          <Products 
-            filterOptions={filterOptions} 
-            setFilterOptions={setFilterOptions} 
-            capitaliseCategory={capitaliseCategory}
-            mainCategory={mainCategory}
-            />
-        </div>
-        <Footer />
+      <Header />
+      <div className="page-container">
+        <Products
+          filterOptions={filterOptions}
+          setFilterOptions={setFilterOptions}
+          capitaliseCategory={capitaliseCategory}
+          mainCategory={mainCategory}
+        />
+      </div>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default ProductCategoryPage
+export default ProductCategoryPage;
