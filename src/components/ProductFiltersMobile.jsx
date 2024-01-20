@@ -2,10 +2,12 @@ import React from "react";
 import SortingOptions from "./SortingOptions";
 import SetFilter from "./SetFilter";
 import { v4 as uuidv4 } from 'uuid';
+import { useTranslation } from "react-i18next";
 
 function ProductFiltersMobile({ setFilterOptions, filterOptions, categoryProducts, setFilteredProd, mainCategoryPage, subCategoryPage}) {
+  const { t } = useTranslation();
   const handleFilterChange = (filterName) => {
-    const updatedFilterOptions = SetFilter(filterName, filterOptions, categoryProducts, setFilteredProd)
+    const updatedFilterOptions = SetFilter(filterName, filterOptions, categoryProducts, setFilteredProd, t)
     setFilterOptions(updatedFilterOptions)
   };
 
