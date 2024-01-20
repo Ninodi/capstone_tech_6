@@ -107,5 +107,13 @@
             "pageNotFound":"Page not found",
             "spanText":"Looks like you've stumbled into a black hole. Time to head back to safety!",
             "goBack":"Go Back"
+        },
+        "AllProductPage":{
+            "previous":"Previous",
+            "next":"Next",
+            "filters":"filters",
+            "style":"Style",
+            "noProducts": "No Products Avalible",
+            "all":"All"
         }
     }

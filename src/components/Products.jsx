@@ -90,7 +90,7 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
             />
           <div className="empty-list">
               {displayedProducts?.length === 0 || error
-                ? <h1 style={{textAlign: 'center'}}>No products available</h1>
+                ? <h1 style={{textAlign: 'center'}}>{t("AllProductPage.noProducts")}</h1>
                 : <div className="products-desktop">
                   {displayedProducts?.map((prod, index) => index < prodNum && (
                     <div onClick={() => localStorage.setItem('productId', JSON.stringify(prod.id))} key={prod.id}>
