@@ -2,6 +2,7 @@ import React from "react";
 import FilterIcon from "../assets/icons/filterIcon.png";
 import SetFilter from "./SetFilter";
 import { v4 as uuidv4 } from 'uuid';
+import { useTranslation } from "react-i18next";
 
 function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, setFilteredProd, subCategoryPage}) {
 
@@ -10,18 +11,19 @@ function ProductFilters({ setFilterOptions, filterOptions, categoryProducts, set
     setFilterOptions(prev => updatedFilterOptions)
 
   };
+  const { t } = useTranslation();
 
 
   return (
     <div className="filters-desktop">
       <div className="filter-bar-title">
-        <p>Filters</p>
+        <p>{t("AllProductPage.filters")}</p>
         <div>
-          <img src={FilterIcon} alt="" />
+          <img src={FilterIcon} alt="filter icon" />
         </div>
       </div>
       <div className="filter-options-bar">
-        <p>{subCategoryPage} Style</p>
+        <p>{subCategoryPage} {t("AllProductPage.style")}</p>
         <div className="filter-options">
           {filterOptions?.map(filter => (
             <label key={uuidv4()}>

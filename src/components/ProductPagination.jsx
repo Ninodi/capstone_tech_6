@@ -2,6 +2,7 @@ import React from 'react'
 import products from './ProductList'
 import PrevPageArr from '../assets/icons/prevPage.png'
 import NextPageArr from '../assets/icons/nextPage.png'
+import { useTranslation } from 'react-i18next'
 
 function ProductPagination({totalPages, currentPage, setCurrentPage, setProdNum}) {
   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1)
@@ -21,6 +22,7 @@ function ProductPagination({totalPages, currentPage, setCurrentPage, setProdNum}
     setCurrentPage(prevState => page)
     setProdNum(prevState => Math.min(page * 9, products.length))
   }
+  const { t } = useTranslation();
   return (
     <div className='prod-pagination'>
       <div className="prevPage"
@@ -29,7 +31,7 @@ function ProductPagination({totalPages, currentPage, setCurrentPage, setProdNum}
         <div className="prev-page-arr arr-container">
           <img src={PrevPageArr} alt="" />
         </div>
-        <p>Previous</p>
+        <p>{t('AllProductPage.previous')}</p>
       </div>
       <div className="pagination-container">
         {pageNumbers.map((page, index) => (
@@ -45,7 +47,7 @@ function ProductPagination({totalPages, currentPage, setCurrentPage, setProdNum}
       <div className="nextPage" 
         onClick={nextPage}
       >
-        <p>Next</p>
+        <p><p>{t('AllProductPage.next')}</p></p>
         <div className="prev-page-arr arr-container">
           <img src={NextPageArr} alt="" />
         </div>

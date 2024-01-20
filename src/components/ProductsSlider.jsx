@@ -47,7 +47,6 @@ const ProductsSlider = ({ header, products }) => {
           pagination={{
             clickable: true,
           }}
-          loop={true}
           navigation={showArrows}
           modules={[FreeMode, Pagination, Navigation]}
           className="mySwiper"
@@ -58,7 +57,7 @@ const ProductsSlider = ({ header, products }) => {
                 <NavLink to={`/products/women/${product.product_name}`}>
                   <img className='product-slider-image' src={product.image} alt={product.product_name} />
                   <h4 className='product-title'>
-                    {i18n.language === 'geo' && product.product_name_geo
+                    {i18n.language === 'ka' && product.product_name_geo
                       ? product.product_name_geo
                       : product.product_name}
                   </h4>
