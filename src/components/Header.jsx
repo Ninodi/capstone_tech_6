@@ -28,6 +28,12 @@ const Header = () => {
 
   const toggleMegaBox = () => {
     setMegaBoxOpen(!megaBoxOpen);
+    const arrowElement = document.querySelector('.products-arrow');
+  if (arrowElement) {
+    const currentRotation = arrowElement.style.transform;
+    const newRotation = currentRotation === 'rotate(0deg)' ? 'rotate(-90deg)' : 'rotate(0deg)';
+    arrowElement.style.transform = newRotation;
+  }
   };
 
   const navRef = useRef();
@@ -102,7 +108,9 @@ const Header = () => {
                 <li><NavLink className="list-item" to={'/'}>{t('Header.home')}</NavLink></li>
                 <li className='mega-dropdown'>
                   <div>
-                    <NavLink to={"/products"} className="list-item" >{t('Header.products')}<IoIosArrowDown  onClick={toggleMegaBox} /></NavLink>
+                  <div className='dropdown-items'> 
+                    <NavLink to={"/products"} className="list-item ">{t('Header.products')}</NavLink> 
+                    <IoIosArrowDown className='products-arrow' onClick={toggleMegaBox}/> </div>
                   </div>
                   <div  className={`mega-box ${megaBoxOpen ? 'open' : ''}`}>
                     <div className="content">
