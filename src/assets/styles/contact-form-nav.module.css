@@ -41,8 +41,6 @@
 }
 
 
-
-
 .input-fields-container
 {
     margin-left:10px;
@@ -76,8 +74,8 @@
 {
     font-family: 'Quicksand-Bold';
     font-size:35px;
-    margin-top:1px;
-    margin-bottom:70px;
+    margin-top:20px;
+    margin-bottom:0px;
     letter-spacing: 0.1em;
   
 }
@@ -210,6 +208,8 @@
     {
         font-size:calc(1vw + 10px);
     }
+
+    
     .contact-form-msg
     {
         
@@ -277,13 +277,8 @@
     
     .contactus2-title
 {
-    display:block;
-    font-size:18.95px;
-    font-family: 'Quicksand-Bold';
-    font-weight: bold;
-    margin-top:5px;
-    margin-left:0px;
-    margin-bottom:30px;
+    display:none;
+    
 }
 
 

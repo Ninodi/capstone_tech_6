@@ -51,8 +51,9 @@
             "EMPTYPHONE":"Phone number is required",
             "SHORTPHONE":"9 digits required for the phone number",
             "ERRORPHONE":"Phone number is incorrect",
-            "EMPTYMESSAGE":"Message text is required"
-
+            "EMPTYMESSAGE":"Message text is required",
+            "GENERALERROR": "General error"
+           
         },
         "aboutUsPage":{
             "aboutUs":"About Us",

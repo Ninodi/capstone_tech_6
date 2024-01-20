@@ -101,8 +101,8 @@ const fetchData = async () => {
   }
 };
 
-
-    
+  
+  
    const handleSubmit =(e)=>
     {
         e.preventDefault()
@@ -191,7 +191,7 @@ const fetchData = async () => {
 
            
           
-
+         
 
     }
  
@@ -211,12 +211,13 @@ const fetchData = async () => {
   <div className={contactStyle['input-fields-container']}>
 
   <p className={contactStyle['contactus-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
+  <p className={contactStyle['contactus2-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
   <p className={contactStyle['fill-this-form-title'] }>{t('contactForm.FILLTHISFORM')}</p>
     
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
     <div>
-    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME') + ' *'} value={name} onChange={(e)=>{setSubmitStatus('');setName(e.target.value)}} />
+    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME') + ' *'}  value={name} onChange={(e)=>{setSubmitStatus('');setName(e.target.value)}} />
     </div>
     
    
@@ -248,7 +249,7 @@ const fetchData = async () => {
 
 
 <div className={contactStyle['contact-info-container']}>
-<p className={contactStyle['contactus2-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
+
    
  
    <p className={contactStyle['contact-info-title']}>{t('contactForm.CONTACT')}</p>

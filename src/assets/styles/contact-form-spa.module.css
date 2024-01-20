@@ -64,7 +64,7 @@
 .contactus-title
 {
     font-family: 'Quicksand-Regular';
-    font-size: 50px;
+    font-size: 45px;
     letter-spacing: 0.2em;   
    
 }
@@ -225,12 +225,8 @@
     }
 
    
-
-    .red
-    {
-        color:red;
-    }
-  #submit-status
+  
+    #submit-status
   {
     
     font-size:3.5vw;
