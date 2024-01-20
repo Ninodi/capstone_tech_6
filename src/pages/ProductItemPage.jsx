@@ -31,7 +31,6 @@ function ProductItemPage() {
     productId = productInfo[0].id
   }
 
-  console.log(productId)
 
   useEffect(() => {
     if (productId) {
