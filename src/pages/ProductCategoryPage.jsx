@@ -18,6 +18,7 @@ function ProductCategoryPage() {
   const { t,i18n } = useTranslation();
 
   const filters = response?.map(eachFilter => ({
+    // filterName: eachFilter.filter,
     filterName: i18n.language === 'ka' && eachFilter?.filter_geo
       ? eachFilter.filter_geo
       : eachFilter.filter,
@@ -28,6 +29,7 @@ function ProductCategoryPage() {
 
   const allCategoryId = filters?.length + 1;
   const allCategory = {
+    // filterName: 'All',
     filterName: t("AllProductPage.all"),
     id: allCategoryId,
     filterState: true
@@ -39,7 +41,7 @@ function ProductCategoryPage() {
 
   useEffect(() => {
     setFilterOptions(filters || []);
-  }, [response, mainCategory, i18n.language]);
+  }, [response, category, t]);
 
   const capitaliseCategory = useCapitalise(category);
 

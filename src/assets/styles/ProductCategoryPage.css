@@ -190,18 +190,22 @@
 }
 .filters-mobile .filters {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 20px;
 }
 .filters-mobile .filters button {
-  height: 25px;
-  flex: 1;
+  max-width: -moz-max-content;
+  max-width: max-content;
   font-size: 16px;
+  padding: 5px;
   border: 1px solid #616161;
   background-color: #fff;
   border-radius: 4px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .filters-mobile .filters button.active {
   background-color: #3391A1;

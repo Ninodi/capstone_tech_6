@@ -1,11 +1,14 @@
-const SetFilter = (filterName, filterOptions, categoryProducts, setFilteredProd) => {
+import { useTranslation } from 'react-i18next';
+
+
+const SetFilter = (filterName, filterOptions, categoryProducts, setFilteredProd, t) => {
   const updatedFilterOptions = [...filterOptions]
   console.log(updatedFilterOptions)
 
-  const allFilterIndex = updatedFilterOptions.findIndex(filter => filter.filterName === 'All')
+  const allFilterIndex = updatedFilterOptions.findIndex(filter => filter.filterName === t("AllProductPage.all"))
   let allFilterState = updatedFilterOptions[allFilterIndex].filterState
 
-  if(filterName === 'All'){
+  if(filterName === t("AllProductPage.all")){
     //ყველა ფილტრი გახდეს იგივე სატუსის რაც 'all' ფილტრია
     updatedFilterOptions[allFilterIndex].filterState = !allFilterState
     updatedFilterOptions.forEach(filter => filter.filterState = updatedFilterOptions[allFilterIndex].filterState)

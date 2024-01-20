@@ -22,7 +22,9 @@ function ProductPagination({totalPages, currentPage, setCurrentPage, setProdNum}
     setCurrentPage(prevState => page)
     setProdNum(prevState => Math.min(page * 9, products.length))
   }
-  const { t } = useTranslation();
+
+  const { t } = useTranslation()
+
   return (
     <div className='prod-pagination'>
       <div className="prevPage"
@@ -47,7 +49,8 @@ function ProductPagination({totalPages, currentPage, setCurrentPage, setProdNum}
       <div className="nextPage" 
         onClick={nextPage}
       >
-        <p><p>{t('AllProductPage.next')}</p></p>
+        <p>{t('AllProductPage.next')}</p>
+        <p>წინ</p>
         <div className="prev-page-arr arr-container">
           <img src={NextPageArr} alt="" />
         </div>
