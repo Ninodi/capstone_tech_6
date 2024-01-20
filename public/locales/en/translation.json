@@ -114,6 +114,11 @@
             "filters":"filters",
             "style":"Style",
             "noProducts": "No Products Avalible",
-            "all":"All"
+            "all":"All",
+            "similarItems":"Similar Items You May Like!",
+            "order":"You  can order ",
+            "online":"Online",
+            "discover":"Discover handcrafted clothing, tailored to your vision.",
+            "DressLife":"Dress for the life you imagine. Our atelier lets you tell your story through fashion."
         }
     }

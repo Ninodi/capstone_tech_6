@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import "../assets/styles/ProductCategoryPage.css";
 import Products from '../components/Products';
 import useCapitalise from '../hooks/useCapitalise';
@@ -18,7 +18,6 @@ function ProductCategoryPage() {
   const { t,i18n } = useTranslation();
 
   const filters = response?.map(eachFilter => ({
-    // filterName: eachFilter.filter,
     filterName: i18n.language === 'ka' && eachFilter?.filter_geo
       ? eachFilter.filter_geo
       : eachFilter.filter,

@@ -1,11 +1,13 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 function Banner() {
+  const {t} = useTranslation()
   return (
     <div className='banner-category-page'>
-        <p>You  can order <span>online</span></p>
-        <p>Discover handcrafted clothing, tailored to your vision.</p>
-        <p>Dress for the life you imagine. Our atelier lets you tell your story through fashion.</p>
+        <p>{t("AllProductPage.order")}<span>{t("AllProductPage.online")}</span></p>
+        <p>{t("AllProductPage.discover")}</p>
+        <p>{t("AllProductPage.DressLife")}</p>
     </div>
   )
 }

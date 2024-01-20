@@ -1,5 +1,3 @@
-import React from 'react'
-
 function useCapitalise(word) {
     const capitaliseCategory = () => {
         let firstLetter = word[0].toLocaleUpperCase()
