@@ -211,6 +211,7 @@ const fetchData = async () => {
   <div className={contactStyle['input-fields-container']}>
 
   <p className={contactStyle['contactus-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
+  <p className={contactStyle['contactus2-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
   <p className={contactStyle['fill-this-form-title'] }>{t('contactForm.FILLTHISFORM')}</p>
     
     
@@ -248,7 +249,7 @@ const fetchData = async () => {
 
 
 <div className={contactStyle['contact-info-container']}>
-<p className={contactStyle['contactus2-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
+
    
  
    <p className={contactStyle['contact-info-title']}>{t('contactForm.CONTACT')}</p>
