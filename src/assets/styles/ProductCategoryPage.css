@@ -327,6 +327,9 @@ input[type=checkbox]:checked + .checkmark::before {
   }
 }
 
+.breadcrumbs {
+  margin-bottom: 25px;
+}
 .breadcrumbs a {
   color: #000000;
   font-weight: 700;

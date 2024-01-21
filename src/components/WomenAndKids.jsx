@@ -51,7 +51,7 @@ const WomenAndKids = () => {
             <h1>{t('productPage.bestSeller')}</h1>
             <div className='women-and-kids'>
               {getMatchingProducts().map((product) => (
-                <NavLink className='woman-and-kids-item' to={`/products/women/${product.product_name}`} key={product.id} onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}>
+                <NavLink className='woman-and-kids-item' to={`/products/women/${product.product_name}`} key={product.id}>
                     <img src={product.image} alt={product.product_name} />
                     <h5 className='category-btn'>{i18n.language === 'ka' && product?.product_name_geo
                     ? product.product_name_geo

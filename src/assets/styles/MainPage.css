@@ -257,6 +257,8 @@ main h1 {
 .women-and-kids .woman-and-kids-item {
   width: 100%;
   height: 100%;
+  border-radius: 25px;
+  overflow: hidden;
   position: relative;
 }
 .women-and-kids .woman-and-kids-item img {

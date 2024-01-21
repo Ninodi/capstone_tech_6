@@ -35,9 +35,9 @@ const ProductPage = () => {
   return (
     <div>
         <Header/>
-        <ProductsSlider products={categoryFourProducts}  header={t('productPage.firstHeadline')} />
+        <ProductsSlider products={categoryFourProducts}  header={t('productPage.firstHeadline')} category={'Woman'} subcategory={'Dress'}/>
         <BestSeller />
-        <ProductsSlider  products={categoryTwoProducts} header={t('productPage.secondHeadline')}/>
+        <ProductsSlider  products={categoryTwoProducts} header={t('productPage.secondHeadline')} category={'Children'} subcategory={'Dress'}/>
         <Footer/>
     </div>
   )

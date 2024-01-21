@@ -11,7 +11,7 @@ function Breadcrumbs({mainCategory, subcategory, itemName}) {
         <NavLink to={'/products'}>Products / </NavLink>
         <NavLink to={`/products/${mainCategory}`}>{mainCategory ? `${mainCategory} ${subcategory ? "/" : ''}` : ''} </NavLink>
         <NavLink to={`/products/${mainCategory}/${subcategory}`}>{subcategory ? `${subcategory} ${itemName ? '/' : ''}` : ''} </NavLink>
-        <NavLink to={`/products/${mainCategory}/${subcategory}/${itemName}`}>{itemName ? `${itemName}` : ''}</NavLink>
+        <NavLink to={`/products/${mainCategory}/${subcategory}/${itemName?.toLowerCase().replaceAll(' ', '-')}`}>{itemName ? `${itemName}` : ''}</NavLink>
     </div>
   )
 }

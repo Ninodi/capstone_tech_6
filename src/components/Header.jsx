@@ -129,7 +129,7 @@ const Header = () => {
                         </ul>
                       </div>
                       <div className="row">
-                        <span><NavLink to={'/products/kids'}>{t('Header.productsDrp.kids')}</NavLink></span>
+                        <span><NavLink to={'/products/Children'}>{t('Header.productsDrp.kids')}</NavLink></span>
                         <ul className="mega-links">
                           {categories && categories
                             .filter(category => category.main_cat === 'Children')
@@ -143,7 +143,7 @@ const Header = () => {
                         </ul>
                       </div>
                       <div className="row">
-                        <span><NavLink to={'/products/specialClothing'}>{t('Header.productsDrp.SpecialClothing')}</NavLink></span>
+                        <span><NavLink to={'/products/other'}>{t('Header.productsDrp.SpecialClothing')}</NavLink></span>
                         <ul className="mega-links">
                           {categories && categories
                             .filter(category => category.main_cat === 'Other')
