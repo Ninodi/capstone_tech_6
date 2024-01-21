@@ -62,7 +62,7 @@ const BestSeller = () => {
         <div className="product-section">
           <div className="best-seller-links">
             {getMatchingProducts().map((product) => (
-              <NavLink to={`/products/${category && category[product.category-1].main_cat}/${category && category[product.category-1].secondary_cat}/${product.product_name.toLowerCase().replaceAll(' ','-')}`}>
+              <NavLink to={`/products/${category && category[product.category-1].main_cat}/${category && category[product.category-1].secondary_cat.replaceAll(' ','')}/${product.product_name.toLowerCase().replaceAll(' ','-')}`} key={product.id}>
                 <div
                   className="best-seller-links-item"
                   onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}
