@@ -44,12 +44,6 @@
   flex-direction: column;
   gap: 77px;
 }
-@media screen and (min-width: 600px) {
-  .prod-item-large-image-container {
-    max-width: 600px;
-  }
-}
-
 .product-item-image-large, .prod-image-small {
   width: 100%;
   -o-object-fit: cover;

@@ -28,7 +28,6 @@ function ProductCategoryPage() {
 
   const allCategoryId = filters?.length + 1;
   const allCategory = {
-    // filterName: 'All',
     filterName: t("AllProductPage.all"),
     id: allCategoryId,
     filterState: true

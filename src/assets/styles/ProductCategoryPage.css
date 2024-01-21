@@ -314,21 +314,22 @@ input[type=checkbox]:checked + .checkmark::before {
   cursor: pointer;
 }
 
-.breadcrumbs {
+.breadcrumbs-bar-desktop {
   display: none;
 }
 @media screen and (min-width: 1025px) {
-  .breadcrumbs {
+  .breadcrumbs-bar-desktop {
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 65px;
   }
-  .breadcrumbs p {
-    color: #000000;
-    font-weight: 700;
-  }
+}
+
+.breadcrumbs a {
+  color: #000000;
+  font-weight: 700;
 }
 
 .sorting-button {

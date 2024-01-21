@@ -97,7 +97,7 @@ const Header = () => {
         </div>
       </div>
       <header>
-        <div className="container">
+        <div className="page-container">
           <div className="header">
             <FaBars className="nav-btn" onClick={showNavbar} />
             <Link to={'/'} className="logo">
@@ -121,7 +121,7 @@ const Header = () => {
                             .filter(category => category.main_cat === 'Woman')
                             .map(category => (
                               <li key={category.id}>
-                                <Link to={`/products/${category.main_cat}/${category.secondary_cat}`} state={{ mainCategory: category.id }} className='mega-links-item'>
+                                <Link to={`/products/${category.main_cat}/${category.secondary_cat.replaceAll(' ', '')}`} state={{ mainCategory: category.id }} className='mega-links-item'>
                                 {selectedLanguage === 'ka' ? category.secondary_cat_geo : category.secondary_cat}
                                 </Link>
                               </li>

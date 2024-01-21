@@ -36,7 +36,7 @@ const ProductsSlider = ({ header, products }) => {
 
 
   return (
-    <div className="container">
+    <div className="page-container">
       <h2 className='heading'>{header}</h2>
       <div className="swiper-container">
         <Swiper
@@ -44,6 +44,7 @@ const ProductsSlider = ({ header, products }) => {
           spaceBetween={143}
           centeredSlides={true}
           freeMode={true}
+          loop={true}
           pagination={{
             clickable: true,
           }}
