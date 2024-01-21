@@ -97,7 +97,7 @@ const Header = () => {
         </div>
       </div>
       <header>
-        <div className="page-container">
+        <div className="header-container">
           <div className="header">
             <FaBars className="nav-btn" onClick={showNavbar} />
             <Link to={'/'} className="logo">

@@ -50,7 +50,7 @@ const Footer = () => {
                 <div className='icon-section'>
                     <h2>{t('footer.follow')}</h2>
                     <div className="icons">
-                        <Link to={"https://www.facebook.com/"} target='_blank'> <GrFacebookOption className='icon' /> </Link>
+                        <Link to={"https://www.facebook.com/mariamisatelie"} target='_blank'> <GrFacebookOption className='icon' /> </Link>
                     </div>
                 </div>
                 <div className="copyright">

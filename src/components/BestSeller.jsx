@@ -6,7 +6,7 @@ import useFetch from '../hooks/useFetch';
 import { BounceLoader } from 'react-spinners';
 
 const BestSeller = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { response: bestsellerData, onFetch: fetchBestsellers } = useFetch({
     url: 'http://94.137.187.198:9876/bestseller/',
@@ -68,7 +68,9 @@ const BestSeller = () => {
                   onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}
                 >
                   <img src={product.image} alt="" />
-                  <h5>{product.product_name}</h5>
+                  <h5>{i18n.language === 'ka' && product?.product_name_geo
+                    ? product.product_name_geo
+                    : product.product_name}</h5>
                 </div>
               </NavLink>
             ))}

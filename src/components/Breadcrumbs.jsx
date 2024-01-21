@@ -7,8 +7,8 @@ function Breadcrumbs({mainCategory, subcategory, itemName}) {
     const { t } = useTranslation()
   return (
     <div className='breadcrumbs'>
-        <NavLink to={'/'}>Home / </NavLink>
-        <NavLink to={'/products'}>Products / </NavLink>
+        <NavLink to={'/'}>{t("breadCrumbs.home")} </NavLink>
+        <NavLink to={'/products'}>{t("breadCrumbs.products")} </NavLink>
         <NavLink to={`/products/${mainCategory}`}>{mainCategory ? `${mainCategory} ${subcategory ? "/" : ''}` : ''} </NavLink>
         <NavLink to={`/products/${mainCategory}/${subcategory}`}>{subcategory ? `${subcategory} ${itemName ? '/' : ''}` : ''} </NavLink>
         <NavLink to={`/products/${mainCategory}/${subcategory}/${itemName?.toLowerCase().replaceAll(' ', '-')}`}>{itemName ? `${itemName}` : ''}</NavLink>
