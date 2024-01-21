@@ -182,12 +182,17 @@
 }
 
 .product-details {
-  opacity: 0;
-  height: 0;
   overflow: hidden;
   transition: all 0.6s ease, height 0.3s ease-in-out;
+}
+@media screen and (min-width: 769px) {
+  .product-details {
+    opacity: 0;
+    height: 0;
+  }
 }
 .product-details.visible {
   opacity: 1;
   height: auto;
+  margin-top: 25px;
 }/*# sourceMappingURL=ProductItemPage.css.map */
