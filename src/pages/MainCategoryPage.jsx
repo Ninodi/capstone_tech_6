@@ -13,7 +13,6 @@ function MainCategoryPage() {
     const {response} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
     const capitaliseCategory = useCapitalise(category)
 
-    console.log(capitaliseCategory())
 
     const subCategories = response?.filter(each => each.main_cat.toLowerCase() === category.toLowerCase()).map(each => each.secondary_cat)
 
