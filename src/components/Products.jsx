@@ -95,7 +95,7 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
                 ? <h1 style={{textAlign: 'center'}}>{t("AllProductPage.noProducts")}</h1>
                 : <div className="products-desktop">
                   {displayedProducts?.map((prod, index) => index < prodNum && (
-                    <div onClick={() => localStorage.setItem('productId', JSON.stringify(prod.id))} key={prod.id}>
+                    <div key={prod.id}>
                       <NavLink 
                         to={`/products/${mainCategory}/${subcategory}/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`}
                         className="product-item">

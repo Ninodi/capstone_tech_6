@@ -18,6 +18,8 @@ const BestSeller = () => {
     method: 'GET',
   });
 
+  const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
+
   useEffect(() => {
     fetchBestsellers();
     fetchProducts();
@@ -60,7 +62,7 @@ const BestSeller = () => {
         <div className="product-section">
           <div className="best-seller-links">
             {getMatchingProducts().map((product) => (
-              <NavLink to={`/products/women/aa/${product.product_name}`} key={product.id}>
+              <NavLink to={`/products/${category && category[product.category-1].main_cat}/${category && category[product.category-1].secondary_cat}/${product.product_name.toLowerCase().replaceAll(' ','-')}`}>
                 <div
                   className="best-seller-links-item"
                   onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}

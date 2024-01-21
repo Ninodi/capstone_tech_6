@@ -15,7 +15,7 @@ import Breadcrumbs from '../components/Breadcrumbs'
 
 function ProductItemPage() {
   const { t, i18n } = useTranslation();
-  const { category, subcategory,itemName } = useParams()
+  const { category, subcategory, itemName } = useParams()
   const capitaliseCategory = useCapitalise(itemName)
   const formattedCategory = capitaliseCategory().replaceAll('-', ' ')
   
@@ -112,7 +112,7 @@ function ProductItemPage() {
           </div>
           <div className="call-now">Call now</div>
           <div className="product-items-slider-container">
-            <ProductsSlider products={productsResponse} header={t("AllProductPage.similarItems")}/>
+            <ProductsSlider products={productsResponse} header={t("AllProductPage.similarItems")} category={category} subcategory={subcategory}/>
           </div>
         </div>
       </main>

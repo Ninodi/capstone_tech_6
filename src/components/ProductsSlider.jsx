@@ -54,7 +54,7 @@ const ProductsSlider = ({ header, products, category, subcategory }) => {
         >
           {randomItems.map((product) => (
             <SwiperSlide key={product.id}>
-              <div onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}>
+              <div>
                 <NavLink to={`/products/${category}/${subcategory}/${product.product_name.toLowerCase().replaceAll(' ', '-')}`}>
                   <img className='product-slider-image' src={product.image} alt={product.product_name} />
                   <h4 className='product-title'>
