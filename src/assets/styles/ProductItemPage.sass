@@ -23,6 +23,7 @@
     gap: 25px
     @include plus600()
         margin-bottom: 77px
+        margin-top: 50px
         flex-direction: row
         align-items: flex-start
         
@@ -31,29 +32,31 @@
     @include verticalCenter()
     gap: 77px
     @include plus600()
-        max-width: 600px
+        // max-width: 600px
 
 
 .product-item-image-large, .prod-image-small
     width: 100%
-    object-fit: cover
+    border-radius: 20px
+    overflow: hidden
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 8px
     @include plus600()
         width: 100%
     img
+        display: block
+        object-fit: cover
         width: 100%
-        height: 100%
-
-.prod-image-small
-    width: 100%
-    object-fit: cover
-    @include plus600()
-        width: 100%
-        // max-height: 600px
         height: auto
-    img
-        width: 100%
-        height: 100%
-        flex-grow: 1
+
+// .prod-image-small
+//     width: 100%
+//     @include plus600()
+//         width: 100%
+//     img
+
+//         width: 100%
+//         height: auto
+//         object-fit: cover
 
 .prod-item-images-small-container
     width: 100%

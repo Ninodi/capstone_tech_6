@@ -10,11 +10,12 @@ import { useParams } from 'react-router-dom'
 import useCapitalise from '../hooks/useCapitalise'
 import { BounceLoader } from 'react-spinners'
 import { useTranslation } from 'react-i18next'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 
 function ProductItemPage() {
   const { t, i18n } = useTranslation();
-  const { itemName } = useParams()
+  const { category, subcategory, itemName } = useParams()
   const capitaliseCategory = useCapitalise(itemName)
   const formattedCategory = capitaliseCategory().replaceAll('-', ' ')
   
@@ -67,7 +68,7 @@ function ProductItemPage() {
         <div className="page-container">
           <Banner />
           <div className="breadcrumbs">
-            <p>{t('productItemPage.breadcrumbs')}</p>
+            <Breadcrumbs mainCategory={category} subcategory={subcategory} itemName={capitaliseCategory().replaceAll('-', " ")}/>
           </div>
           <div className="product-item-images">
             <div className='prod-item-large-image-container'>
@@ -111,7 +112,7 @@ function ProductItemPage() {
           </div>
           <div className="call-now">Call now</div>
           <div className="product-items-slider-container">
-            <ProductsSlider products={productsResponse} header={t("AllProductPage.similarItems")}/>
+            <ProductsSlider products={productsResponse} header={t("AllProductPage.similarItems")} category={category} subcategory={subcategory}/>
           </div>
         </div>
       </main>
