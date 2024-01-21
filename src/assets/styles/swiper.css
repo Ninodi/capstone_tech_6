@@ -1,5 +1,13 @@
 .swiper-button-next, .swiper-button-prev{
     color: #1C1B1F;
+    font-size: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; 
+    position: absolute;
+}
+.swiper-button-prev:after, .swiper-button-next:after{
+    font-size: 40px;
 }
 .swiper-pagination{
     margin-top: 28px;
@@ -20,3 +28,16 @@
 .swiper-pagination-bullet-active {
     background-color: #797979;
 }
+.product-slider-image{
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease
+}
+.product-title{
+    color: #171717;
+}
+.product-slider-image:hover{
+    transform: scale(1.1);
+}
+

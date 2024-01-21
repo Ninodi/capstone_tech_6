@@ -4,7 +4,7 @@
   height: 106px;
   background-color: #FF6767;
   border-radius: 12px;
-  padding: 0 20px;
+  padding: 70px 20px;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
@@ -104,7 +104,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 106px 20px;
-  max-width: 907px;
 }
 .products-desktop p {
   text-align: center;
@@ -141,8 +140,6 @@
   width: 100%;
   max-height: 180px;
   height: 180px;
-  -o-object-fit: contain;
-     object-fit: contain;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 8px;
@@ -156,6 +153,8 @@
 .prod-image img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #load-more {
@@ -167,6 +166,7 @@
   font-size: 16px;
   margin-top: 13px;
   border-radius: 12px;
+  cursor: pointer;
 }
 @media screen and (min-width: 1025px) {
   #load-more {
@@ -190,18 +190,22 @@
 }
 .filters-mobile .filters {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 20px;
 }
 .filters-mobile .filters button {
-  height: 25px;
-  flex: 1;
+  max-width: -moz-max-content;
+  max-width: max-content;
   font-size: 16px;
+  padding: 5px;
   border: 1px solid #616161;
   background-color: #fff;
   border-radius: 4px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .filters-mobile .filters button.active {
   background-color: #3391A1;
@@ -213,7 +217,8 @@
 .filters-desktop {
   display: none;
   width: 300px;
-  height: 444px;
+  height: -moz-max-content;
+  height: max-content;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 25px;
   border-radius: 20px;
@@ -309,21 +314,25 @@ input[type=checkbox]:checked + .checkmark::before {
   cursor: pointer;
 }
 
-.breadcrumbs {
+.breadcrumbs-bar-desktop {
   display: none;
 }
 @media screen and (min-width: 1025px) {
-  .breadcrumbs {
+  .breadcrumbs-bar-desktop {
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 65px;
   }
-  .breadcrumbs p {
-    color: #000000;
-    font-weight: 700;
-  }
+}
+
+.breadcrumbs {
+  margin-bottom: 25px;
+}
+.breadcrumbs a {
+  color: #000000;
+  font-weight: 700;
 }
 
 .sorting-button {

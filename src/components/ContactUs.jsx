@@ -53,7 +53,7 @@ useEffect(()=>
   
   setformData({fl_name:name,mail:email,mobile:phone,fb_url:url,message:message })
 
-  console.log(phone)
+  
 },[name,email,phone,url,message])
 
 
@@ -91,7 +91,7 @@ const fetchData = async () => {
   } catch (error) {
     
     setError(error.message)
-    setSubmitStatus('Error submitting form')
+    setSubmitStatus(t('contactForm.GENERALERROR'))
    
     console.log(error)
    
@@ -101,20 +101,20 @@ const fetchData = async () => {
   }
 };
 
-
-    
+  
+  
    const handleSubmit =(e)=>
     {
         e.preventDefault()
 
-        if(name==='')
+        if(name==='' || name.length<2)
         {
           setSubmitStatus(t('contactForm.EMPTYNAME'))
           return
           
         }
 
-        const isValidName = /^[A-Za-zა-ჰ]+$/.test(name);
+        const isValidName = /^[A-Za-zა-ჰ ]+$/.test(name);
        
 
       if(!isValidName)
@@ -158,15 +158,16 @@ const fetchData = async () => {
         }
 
 
-        if (phone.length <9)
+        if (phone.length !=9)
         {
-        // value = value.slice(0, maxLength);
+        
          setSubmitStatus(t('contactForm.SHORTPHONE'))
 
          return
         }
 
-          const isValidPhoneNumber = /^(\+?[0-9] ?){6,14}[0-9]$/.test(phone);
+         //const isValidPhoneNumber = /^(\+?[0-9] ?){6,14}[0-9]$/.test(phone); // accepts international
+         const isValidPhoneNumber = /^5\d{8}$/.test(phone); // accepts local
   
           if (!isValidPhoneNumber) {
           
@@ -190,7 +191,7 @@ const fetchData = async () => {
 
            
           
-
+         
 
     }
  
@@ -210,21 +211,22 @@ const fetchData = async () => {
   <div className={contactStyle['input-fields-container']}>
 
   <p className={contactStyle['contactus-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
+  <p className={contactStyle['contactus2-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
   <p className={contactStyle['fill-this-form-title'] }>{t('contactForm.FILLTHISFORM')}</p>
     
     
    <form id="contactus-form" className={contactStyle['contact-form']} onSubmit={handleSubmit}>
     <div>
-    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME')} value={name} onChange={(e)=>{setSubmitStatus('');setName(e.target.value)}} />
+    <input type="text" id="fname" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FULLNAME') + ' *'}  value={name} onChange={(e)=>{setSubmitStatus('');setName(e.target.value)}} />
     </div>
     
    
     <div>
-    <input type="text"  mask="*{1,}@*{1,}.*{1,}" className={contactStyle['contact-form-input']} placeholder={t('contactForm.EMAIL')} value={email}  onChange={(e)=>{setSubmitStatus('');setEmail(e.target.value)}} />
+    <input type="text"  mask="*{1,}@*{1,}.*{1,}" className={contactStyle['contact-form-input']} placeholder={t('contactForm.EMAIL') + ' *'} value={email}  onChange={(e)=>{setSubmitStatus('');setEmail(e.target.value)}} />
     </div>
 
     <div>
-    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE')} value={phone} onChange={(e)=>{setSubmitStatus('');setPhone(e.target.value);}}/>
+    <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.PHONE') + ' *'} value={phone} onChange={(e)=>{setSubmitStatus('');setPhone(e.target.value);}}/>
     </div>
     <div>
         <input type="text" className={contactStyle['contact-form-input']} placeholder={t('contactForm.FACEBOOKPROFILEURL')} value={url} onChange={(e)=>{setSubmitStatus('');setUrl(e.target.value)}}/>
@@ -233,10 +235,11 @@ const fetchData = async () => {
     
     <div>
       
-    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('contactForm.MESSAGE')} value={message} onChange={(e)=>{setSubmitStatus('');setMessage(e.target.value)}} />
+    <input type="text" className={`${contactStyle['contact-form-input']} ${contactStyle['contact-form-msg']}`} placeholder={t('contactForm.MESSAGE') + ' *'} value={message} onChange={(e)=>{setSubmitStatus('');setMessage(e.target.value)}} />
     </div>
     <div id={contactStyle['submit-status']}>{submitStatus}</div>
-    <button type="submit" className={contactStyle['contactus-btn']}>{t('contactForm.SEND')}</button> 
+    <div className={contactStyle['contactus-btn-container']}>
+    <button type="submit" className={contactStyle['contactus-btn']}>{t('contactForm.SEND')}</button>  </div>
     </form>
    
     
@@ -246,7 +249,7 @@ const fetchData = async () => {
 
 
 <div className={contactStyle['contact-info-container']}>
-<p className={contactStyle['contactus2-title']}>{t('contactForm.CONTACTUSTEXT')}</p>
+
    
  
    <p className={contactStyle['contact-info-title']}>{t('contactForm.CONTACT')}</p>

@@ -2,10 +2,11 @@ import AboutPage  from "./pages/AboutPage"
 import ContactPage from "./pages/ContactPage"
 import MainPage from "./pages/MainPage"
 import ProductPage from "./pages/ProductPage"
-import NotFoundPage from "./pages/NotFoundPage"
 import ProductCategoryPage from "./pages/ProductCategoryPage"
 import ProductItemPage from "./pages/ProductItemPage"
 import SubmitPage from "./pages/SubmitPage"
+import ParamPage from "./pages/ParamPage"
+import MainCategoryPage from "./pages/MainCategoryPage"
 
 
 const router = [
@@ -26,20 +27,24 @@ const router = [
         path: '/contact'
     },
     {
-        element: <ProductCategoryPage/>,
+        element: <MainCategoryPage/>,
         path: '/products/:category'
     },
     {
+        element: <ProductCategoryPage/>,
+        path: '/products/:category/:subcategory'
+    },
+    {
         element: <ProductItemPage/>,
-        path: '/products/:category/:itemName'
+        path: '/products/:category/:subcategory/:itemName'
     },
      {
         element: <SubmitPage/>,
-        path: ':SubmitPage'
+        path: '/SubmitPage'
     },
     {
-        element: <NotFoundPage/>,
-        path: ':pagenotfound'
+        element: <ParamPage/>,
+        path: '*'
     },
 ]
 export default router

@@ -8,9 +8,8 @@
   list-style: none;
   border-style: none;
 }
-
 .container{
-  padding: 108px;
+  padding:0 108px;
   margin:  auto;
 }
 .spiner{
