@@ -23,7 +23,6 @@ function ProductItemPage() {
   const { response, onFetch } = useFetch({url: `http://94.137.187.198:9876/images/`, method: 'GET'})
   const { response: productsResponse,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
 
-  console.log(productsResponse)
 
   const productInfo = productsResponse?.filter(each => each.product_name.toLowerCase().replaceAll(" ", '-') === itemName)
 
@@ -110,7 +109,7 @@ function ProductItemPage() {
                 </ul>
               </div>
           </div>
-          <div className="call-now">Call now</div>
+          <div className="call-now">{t("AllProductPage.callus")}</div>
           <div className="product-items-slider-container">
             <ProductsSlider products={productsResponse} header={t("AllProductPage.similarItems")} category={category} subcategory={subcategory}/>
           </div>

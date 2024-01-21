@@ -3,9 +3,6 @@
        import { useNavigate } from 'react-router-dom';
        import { Link } from 'react-router-dom'
        import { GrFacebookOption } from "react-icons/gr";
-       import { FiTwitter } from "react-icons/fi";
-       import { FaInstagram } from "react-icons/fa";
-       import { RiLinkedinLine } from "react-icons/ri";
 
        import styleSpa from '../assets/styles/contact-form-spa.module.css'
        import styleNav from '../assets/styles/contact-form-nav.module.css'
@@ -261,10 +258,8 @@ const fetchData = async () => {
    <p className={contactStyle['contact-info-text']}>{t('contactForm.BASEDIN')}</p>
                    
                    <div className="icons">
-                       <Link to={"https://www.facebook.com/"} target='_blank'> <GrFacebookOption className='icon' /> </Link>
-                       <Link to={"https://twitter.com/?lang=en"} target='_blank'><FiTwitter  className='icon'/></Link>
-                       <Link to={"https://www.instagram.com/"} target='_blank'><FaInstagram className='icon'/> </Link>
-                       <Link to={"https://www.linkedin.com/"} target='_blank'><RiLinkedinLine className='icon'/> </Link>
+                       <Link to={"https://www.facebook.com/mariamisatelie"} target='_blank'> <GrFacebookOption className='icon' /> </Link>
+                      
                    </div>
           
       <div className={contactStyle['location-div']}>
