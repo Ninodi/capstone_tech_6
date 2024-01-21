@@ -52,7 +52,7 @@ const BestSeller = () => {
 
   return (
     <div>
-      <div className="container best-seller-container">
+      <div className="page-container best-seller-container">
         <div className="best-seller-section">
           <h2>{t('productPage.bestSeller')}</h2>
           <hr />
