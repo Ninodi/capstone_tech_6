@@ -142,103 +142,138 @@
 
 
   @media (max-width: 767px) {
-    
+    .contactus-title
+{
+   display:none;
+   
+}
   
+    .fill-this-form-title
+{
+    display:block;
+    font-family: 'Quicksand-Bold';
+    font-size: 20px;
+    width:100%;
+    text-align: center;
+}
+
     .contact-form-container
     {
+        all:initial;
+        display:flex;
+        flex-direction: column;
+        width:100%;
         margin-top:35px;
         margin-bottom:25px;
-        justify-content: space-around;
+        align-items:center;
+        text-align:  center;
+       
+       
     }
+    
     .contact-form-img-container {
       display: none;
     }
 
-    .input-fields-container
-    {
-    margin-left:5px;
-    }
-  
-
-    .contactus-title
-    {
-        font-size:5.1vw;
-        margin-bottom:10px;
-        letter-spacing: 0em;   
-    }
 
    
+
+    .input-fields-container
+{
+    margin-left:0px;
+}
 
     .contact-form-input
     {
-   
         font-size:3.2vw;
-        width:45vw;
-        height:25.07px;
-        margin-top:25px;
-       
+        width:75vw;
+        height:28px;
+        margin-top:35px;
+        margin-left:0px;
     }
 
     .contact-form-input::placeholder
-{
-    font-size:calc(1vw + 8px);
-}
+    {
+        font-size:calc(1vw + 10px);
+    }
 
-
+    
     .contact-form-msg
     {
         
         margin-top:40px;
-    }
-
-
-    .contact-info-container
-    {
-        
-        margin-right:7px;
-        margin-top:10px;
-    }
-
-    .contact-info-title
-    {
-        font-family: 'Quicksand-Bold';
-        margin-top:15px;
-        font-size:3.5vw;
-        font-weight: bold;
-    }
-    
-
-    .contact-info-text
-    {
-      
-        font-size:calc(0.6vw + 8px);
+        margin-bottom:30px;
     }
 
     
     .contactus-btn
     {
-        font-size:10px;
-        width:109px;
-        height:21px;
+        font-size:18px;
+        width:276px;
+        height:50px;
         margin-top:10px;
+        align-self: center;
         letter-spacing: 0.02px;
+        margin-bottom:20px;
+        
     }
 
-   
-  
+    .contactus-btn-container
+    {
+       
+      
+       text-align:center;
+        
+    }
+
     #submit-status
   {
     
-    font-size:3.5vw;
-    width:160px;
-    margin-top:25px;
-    
+    font-size:3.2vw;
+    width:100%;
+    margin-top:15px;
     color:red;
     font-weight: bold;
+    text-align: center;
   }
 
+    .contact-info-container
+    {
+       width:100%;
+       text-align: center;
+       margin-top:10px;
+    }
+
+    .contact-info-title
+{
     
-   
+   font-family: 'Quicksand-Bold';
+   font-weight: bold;
+   font-size:18.95px;
+   margin-top:10px;
+   margin-bottom:10px;
+    
+
+}
+
+
+    .contact-info-text
+    {
+        font-size:calc(1vw + 10px);
+    }
+    
+    
+    .contactus2-title
+{
+    display:none;
+    
+}
+
+
+    .icons
+  {
+    margin-top:20px;
+  }
 
     .location-div
     {
