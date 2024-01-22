@@ -6,7 +6,7 @@ import useFetch from '../hooks/useFetch';
 import { BounceLoader } from 'react-spinners';
 
 const BestSeller = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { response: bestsellerData, onFetch: fetchBestsellers } = useFetch({
     url: 'http://94.137.187.198:9876/bestseller/',
@@ -17,6 +17,8 @@ const BestSeller = () => {
     url: 'http://94.137.187.198:9876/products/',
     method: 'GET',
   });
+
+  const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
 
   useEffect(() => {
     fetchBestsellers();
@@ -52,7 +54,7 @@ const BestSeller = () => {
 
   return (
     <div>
-      <div className="container best-seller-container">
+      <div className="page-container best-seller-container">
         <div className="best-seller-section">
           <h2>{t('productPage.bestSeller')}</h2>
           <hr />
@@ -60,13 +62,15 @@ const BestSeller = () => {
         <div className="product-section">
           <div className="best-seller-links">
             {getMatchingProducts().map((product) => (
-              <NavLink to={`/products/women/aa/${product.product_name}`} key={product.id}>
+              <NavLink to={`/products/${category && category[product.category-1].main_cat}/${category && category[product.category-1].secondary_cat.replaceAll(' ','')}/${product.product_name.toLowerCase().replaceAll(' ','-')}`} key={product.id}>
                 <div
                   className="best-seller-links-item"
                   onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}
                 >
                   <img src={product.image} alt="" />
-                  <h5>{product.product_name}</h5>
+                  <h5>{i18n.language === 'ka' && product?.product_name_geo
+                    ? product.product_name_geo
+                    : product.product_name}</h5>
                 </div>
               </NavLink>
             ))}

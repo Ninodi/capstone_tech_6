@@ -230,17 +230,19 @@ input[type="checkbox"]:checked
     border-radius: 30px
     cursor: pointer
 
-.breadcrumbs
+.breadcrumbs-bar-desktop
     display: none
     @include plus1025()
         @include center()
         justify-content: space-between
         margin-bottom: 65px
-        p
-            color: #000000
-            font-weight: 700
 
 
+.breadcrumbs
+    margin-bottom: 25px
+    a
+        color: #000000
+        font-weight: 700
 .sorting-button
     display: flex
     align-items: center

@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const ProductsSlider = ({ header, products }) => {
+const ProductsSlider = ({ header, products, category, subcategory }) => {
   const [slidesPerView, setSlidesPerView] = useState(3);
   const [showArrows, setShowArrows] = useState(true);
 
@@ -36,7 +36,7 @@ const ProductsSlider = ({ header, products }) => {
 
 
   return (
-    <div className="container">
+    <div className="page-container">
       <h2 className='heading'>{header}</h2>
       <div className="swiper-container">
         <Swiper
@@ -44,6 +44,7 @@ const ProductsSlider = ({ header, products }) => {
           spaceBetween={143}
           centeredSlides={true}
           freeMode={true}
+          loop={true}
           pagination={{
             clickable: true,
           }}
@@ -53,8 +54,8 @@ const ProductsSlider = ({ header, products }) => {
         >
           {randomItems.map((product) => (
             <SwiperSlide key={product.id}>
-              <div onClick={() => localStorage.setItem('productId', JSON.stringify(product.id))}>
-                <NavLink to={`/products/women/${product.product_name}`}>
+              <div>
+                <NavLink to={`/products/${category}/${subcategory}/${product.product_name.toLowerCase().replaceAll(' ', '-')}`}>
                   <img className='product-slider-image' src={product.image} alt={product.product_name} />
                   <h4 className='product-title'>
                     {i18n.language === 'ka' && product.product_name_geo

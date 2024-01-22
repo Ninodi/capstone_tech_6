@@ -9,13 +9,17 @@ import Banner from "./Banner";
 import useFetch from "../hooks/useFetch";
 import { useTranslation } from "react-i18next";
 import { BounceLoader } from 'react-spinners'
+import Breadcrumbs from "./Breadcrumbs";
 
 function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) {
   const {response, error,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
   const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
   const { t,i18n } = useTranslation();
 
-  const categoryInfo = category?.filter(each => each.main_cat.toLowerCase() === mainCategory.toLowerCase() && each.secondary_cat.toLowerCase() === subcategory.toLowerCase())
+  const categoryInfo = category?.filter(each => each.main_cat.toLowerCase().replaceAll(' ', '') === mainCategory.toLowerCase() && each.secondary_cat.toLowerCase().replaceAll(' ', '') === subcategory.toLowerCase())
+
+  console.log(mainCategory,subcategory)
+
   let categoryId;
   if (categoryInfo && categoryInfo.length > 0) {
   categoryId = categoryInfo[0].id
@@ -43,6 +47,7 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
   }, [categoryId, response])
   
   useEffect(() => {
+
     if(prodNum >= categoryProducts?.length){
       loadBtn.current.style.display = "none"
     }else loadBtn.current.style.display = "unset"
@@ -75,8 +80,8 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
   return (
     <div className="prod-list-container">
       <div className="products-desktop-container">
-        <div className="breadcrumbs">
-          <p>{t('productItemPage.breadcrumbs')} {mainCategory} / {subcategory}</p>
+        <div className="breadcrumbs-bar-desktop">
+          <Breadcrumbs mainCategory={mainCategory} subcategory={subcategory}/>
           <SortingOptions activeSorting='Most popular'/>
         </div>
         <div style={{width: '100%', display: 'flex', gap: '20px'}}>
@@ -93,7 +98,7 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
                 ? <h1 style={{textAlign: 'center'}}>{t("AllProductPage.noProducts")}</h1>
                 : <div className="products-desktop">
                   {displayedProducts?.map((prod, index) => index < prodNum && (
-                    <div onClick={() => localStorage.setItem('productId', JSON.stringify(prod.id))} key={prod.id}>
+                    <div key={prod.id}>
                       <NavLink 
                         to={`/products/${mainCategory}/${subcategory}/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`}
                         className="product-item">
@@ -131,7 +136,7 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
         <ProductDisplaySettings filteredProd={filteredProd} />
         <div className="products-mobile">
             {filteredProd?.map((prod, index) => index < prodNum && (
-              <NavLink to={`/products/women/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={prod.id}>
+              <NavLink to={`/products/${mainCategory}/${subcategory}/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={prod.id}>
                 <div className="prod-image">
                   <img src={prod.image} alt="" />
                 </div>
