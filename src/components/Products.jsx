@@ -16,14 +16,10 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
   const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
   const { t,i18n } = useTranslation();
 
-  const categoryInfo = category?.filter(each => {
-    const mainCategory = i18n.language === 'ka' ? each.main_cat_geo : each.main_cat;
-    const subcategory= i18n.language === 'ka' ? each.secondary_cat_geo : each.secondary_cat;
-  
-    return mainCategory.toLowerCase().replaceAll(' ', '') === mainCategory.toLowerCase() &&
-           subcategory.toLowerCase().replaceAll(' ', '') === subcategory.toLowerCase();
-  });
+  const categoryInfo = category?.filter(each => each.main_cat.toLowerCase().replaceAll(' ', '') === mainCategory.toLowerCase() && each.secondary_cat.toLowerCase().replaceAll(' ', '') === subcategory.toLowerCase())
+
   console.log(mainCategory,subcategory)
+
   let categoryId;
   if (categoryInfo && categoryInfo.length > 0) {
   categoryId = categoryInfo[0].id
