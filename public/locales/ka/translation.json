@@ -130,6 +130,10 @@
     "breadCrumbs":{
         "home":"მთავარი / ",
         "products":"პროდუქტები / "
+    },
+    "aboutUs":{
+        "aboutUs":"ჩვენ შესახებ",
+        "home":"მთავარი / "
     }
 
 }

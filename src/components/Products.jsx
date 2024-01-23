@@ -18,7 +18,6 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
 
   const categoryInfo = category?.filter(each => each.main_cat.toLowerCase().replaceAll(' ', '') === mainCategory.toLowerCase() && each.secondary_cat.toLowerCase().replaceAll(' ', '') === subcategory.toLowerCase())
 
-  console.log(mainCategory,subcategory)
 
   let categoryId;
   if (categoryInfo && categoryInfo.length > 0) {
