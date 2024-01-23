@@ -37,7 +37,9 @@
 
 .contact-form-input::placeholder
 {
-    font-size:calc(0.5vw + 10px);
+    font-size:calc(0.7vw + 8px);
+    font-weight: bold;
+    color:black;
 }
 
 
@@ -84,7 +86,8 @@
 {
     
    font-family: 'Quicksand-regular';
-   font-size:33px;
+   font-size: calc(0.7vw + 10px);
+   font-weight: bold;
    margin-top:30px;
    margin-bottom:10px;
     
@@ -96,7 +99,7 @@
     font-family: 'Quicksand-regular';
     margin-top:10px;
     margin-bottom:20px;
-    font-size:calc(0.5vw + 8px);
+    font-size:calc(0.7vw + 8px);
     
     
 
@@ -207,6 +210,8 @@
     .contact-form-input::placeholder
     {
         font-size:calc(1vw + 10px);
+        font-weight: bold;
+        color:black;
     }
 
     
@@ -260,8 +265,8 @@
 {
     
    font-family: 'Quicksand-Bold';
+   font-size: calc(1vw + 10px);
    font-weight: bold;
-   font-size:18.95px;
    margin-top:10px;
    margin-bottom:10px;
     
