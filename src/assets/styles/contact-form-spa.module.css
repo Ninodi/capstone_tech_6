@@ -44,6 +44,8 @@
 .contact-form-input::placeholder
 {
     font-size:calc(0.5vw + 10px);
+    font-weight: bold;
+    color:black;
 }
 
 
@@ -84,8 +86,10 @@
 .contact-info-title
 {
     font-family: 'Quicksand-Bold';
-    margin-top:15px;
     font-weight: bold;
+    font-size: calc(0.7vw + 10px);
+    margin-top:15px;
+    
 }
 
 .contact-info-text
@@ -195,6 +199,8 @@
     .contact-form-input::placeholder
     {
         font-size:calc(1vw + 10px);
+        font-weight: bold;
+        color:black;
     }
 
     
@@ -249,7 +255,7 @@
     
    font-family: 'Quicksand-Bold';
    font-weight: bold;
-   font-size:18.95px;
+   font-size: calc(1vw + 10px);
    margin-top:10px;
    margin-bottom:10px;
     
