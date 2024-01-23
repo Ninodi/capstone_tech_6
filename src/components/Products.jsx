@@ -24,6 +24,7 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
   categoryId = categoryInfo[0].id
   }
 
+  const [toggleColumns, setToggleColumns] = useState(false)
   const [prodNum, setProdNum] = useState(9)
   const [currentPage, setCurrentPage] = useState(1)
   const [filteredProd, setFilteredProd] = useState([])
@@ -132,8 +133,8 @@ function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) 
           mainCategory={mainCategory}
           subcategory={subcategory}
           />
-        <ProductDisplaySettings filteredProd={filteredProd} />
-        <div className="products-mobile">
+        <ProductDisplaySettings setToggleColumns={setToggleColumns} filteredProd={filteredProd} />
+        <div className={`products-mobile ${toggleColumns ? "one-column" : ''}`}>
             {filteredProd?.map((prod, index) => index < prodNum && (
               <NavLink to={`/products/${mainCategory}/${subcategory}/${prod.product_name.toLowerCase().replaceAll(" ", '-')}`} className="product-item" key={prod.id}>
                 <div className="prod-image">
