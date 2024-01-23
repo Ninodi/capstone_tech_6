@@ -9,16 +9,16 @@ const BestSeller = () => {
   const { t, i18n } = useTranslation();
 
   const { response: bestsellerData, onFetch: fetchBestsellers } = useFetch({
-    url: 'http://94.137.187.198:9876/bestseller/',
+    url: '/bestseller/',
     method: 'GET',
   });
 
   const { response: productsData, loading: productsLoading, onFetch: fetchProducts } = useFetch({
-    url: 'http://94.137.187.198:9876/products/',
+    url: '/products/',
     method: 'GET',
   });
 
-  const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
+  const {response: category} = useFetch({url: `/category/`, method: 'GET'})
 
   useEffect(() => {
     fetchBestsellers();

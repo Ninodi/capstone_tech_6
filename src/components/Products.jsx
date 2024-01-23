@@ -12,8 +12,8 @@ import { BounceLoader } from 'react-spinners'
 import Breadcrumbs from "./Breadcrumbs";
 
 function Products({filterOptions, setFilterOptions, mainCategory, subcategory}) {
-  const {response, error,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
-  const {response: category} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
+  const {response, error,loading} = useFetch({url: `/products/`, method: 'GET'})
+  const {response: category} = useFetch({url: `/category/`, method: 'GET'})
   const { t,i18n } = useTranslation();
 
   const categoryInfo = category?.filter(each => each.main_cat.toLowerCase().replaceAll(' ', '') === mainCategory.toLowerCase() && each.secondary_cat.toLowerCase().replaceAll(' ', '') === subcategory.toLowerCase())
