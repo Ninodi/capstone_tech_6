@@ -369,6 +369,7 @@ input[type=checkbox]:checked + .checkmark::before {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 @media screen and (min-width: 1025px) {
   .sorting-button {
@@ -395,6 +396,46 @@ input[type=checkbox]:checked + .checkmark::before {
 .sorting-arrow img {
   max-width: 100%;
   max-height: 100%;
+}
+
+.sortings {
+  position: relative;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sorting-options {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 15px;
+  font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: none;
+  top: calc(100% + 20px);
+  left: 0;
+}
+.sorting-options.visible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sorting-option {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(114, 114, 114, 0.5);
+  cursor: pointer;
+}
+.sorting-option:hover {
+  background-color: rgba(114, 114, 114, 0.2);
 }
 
 .prod-pagination {

@@ -267,6 +267,7 @@ input[type="checkbox"]:checked
     display: flex
     align-items: center
     margin-bottom: 20px
+    cursor: pointer
     @include plus1025()
         margin-bottom: 0
     p
@@ -283,6 +284,34 @@ input[type="checkbox"]:checked
     img
         max-width: 100%
         max-height: 100%
+.sortings
+    position: relative
+    width: 200px
+    @include center()
+    
+
+.sorting-options
+    position: absolute
+    width: 100%
+    padding: 10px
+    background-color: #fff
+    border-radius: 15px
+    font-size: 18px
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
+    display: none
+    top: calc( 100% + 20px )
+    left: 0
+    &.visible
+        @include verticalCenter()
+
+.sorting-option
+    width: 100%
+    @include center()
+    padding: 5px 0
+    border-bottom: 1px solid rgba(#727272, 0.5)
+    cursor: pointer
+    &:hover
+        background-color: rgba(#727272, 0.2)
         
 .prod-pagination
     width: 100%

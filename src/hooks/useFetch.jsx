@@ -22,7 +22,10 @@ function useFetch({url, method}) {
     .then(data => {
       setResponse(data)
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      setError(true)
+      console.log(err)
+    })
     .finally(() => setLoading(false))
 
 

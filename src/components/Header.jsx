@@ -146,7 +146,7 @@ const Header = () => {
                         <span><NavLink to={'/products/other'}>{t('Header.productsDrp.SpecialClothing')}</NavLink></span>
                         <ul className="mega-links">
                           {categories && categories
-                            .filter(category => category.main_cat === 'Other')
+                            .filter(category => category.main_cat === 'Special Clothing')
                             .map(category => (
                               <li key={category.id}>
                                 <Link to={`/products/${category.main_cat.replaceAll(' ', '')}/${category.secondary_cat.replaceAll(' ', '')}`} state={{ mainCategory: category.id }} className='mega-links-item'>

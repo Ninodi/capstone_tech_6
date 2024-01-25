@@ -11,16 +11,16 @@ const subcatImages = [subcatImg1, subcatImg2, subcatImg3, subcatImg4, subcatImg5
 
 
 
-function SubcategoriesList({category, subCategories}) {
+function SubcategoriesList({category, subCategories, subCategoriesImages}) {
   return (
     <div className='subcat-box-container'>
       {subCategories?.map((subcategory, index) => {
         const randomIndex = Math.floor(Math.random() * subcatImages.length)
-
+        console.log('eesaa', subCategoriesImages[index])
         return (
           <NavLink key={uuidv4()} className='subcat-box' to={`/products/${category}/${subcategory.replaceAll(" ", '')}`}>
             <div className="subcat-image">
-              <img src={subcatImages[randomIndex]} alt="" />
+              <img src={`${subCategoriesImages[index]}`} alt="" />
             </div>
             <p>{subcategory}</p>
             <div className="dropshadow"></div>

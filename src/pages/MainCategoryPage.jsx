@@ -10,13 +10,14 @@ import '../assets/styles/MainCategoryPage.css'
 
 function MainCategoryPage() {
     const {category} = useParams()
-    const {response} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
+    const {response, loading} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
     const capitaliseCategory = useCapitalise(category)
 
+    const filteredResponse = response?.filter(each => each.main_cat.toLowerCase() === category.toLowerCase())
+    const subCategories = filteredResponse?.map(each => each.secondary_cat)
+    const subCategoriesImages = filteredResponse?.map(each => each.image)
 
-    const subCategories = response?.filter(each => each.main_cat.toLowerCase() === category.toLowerCase()).map(each => each.secondary_cat)
-
-    console.log(subCategories)
+    console.log(subCategoriesImages)
 
     
   return (
@@ -24,7 +25,7 @@ function MainCategoryPage() {
         <Header />
             <div className="page-container">
                 <Breadcrumbs mainCategory={capitaliseCategory()}/>
-                <SubcategoriesList category={category} subCategories={subCategories}/>
+                <SubcategoriesList category={category} subCategories={subCategories} subCategoriesImages={subCategoriesImages}/>
             </div>
         <Footer />
     </div>
