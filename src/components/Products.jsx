@@ -7,8 +7,8 @@ import ProductsMobile from "./ProductsMobile";
 function Products({filterOptions, setFilterOptions,}) {
   const {category, subcategory} = useParams()
 
-  const {response, error, loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
-  const {response: categoryResponse, loading: categoryLoading} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
+  const {response, error, loading} = useFetch({url: `/products/`, method: 'GET'})
+  const {response: categoryResponse, loading: categoryLoading} = useFetch({url: `/category/`, method: 'GET'})
 
 
   const categoryInfo = categoryResponse?.filter(each => each.main_cat.toLowerCase().replaceAll(' ', '') === category.toLowerCase() && each.secondary_cat.toLowerCase().replaceAll(' ', '') === subcategory.toLowerCase())

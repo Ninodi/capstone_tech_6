@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { BounceLoader } from 'react-spinners'
 import useFetch from '../hooks/useFetch';
 
+
 const Header = () => {
 
   const [megaBoxOpen, setMegaBoxOpen] = useState(false);
@@ -41,10 +42,10 @@ const Header = () => {
     localStorage.getItem('selectedLanguage') || 'en'
   );
   const { response: categories,loading, onFetch } = useFetch({
-    url: 'http://94.137.187.198:9876/category/',
+    url: `/category/`,
     method: 'GET',
   });
-
+  
 
   useEffect(() => {
     onFetch(); 

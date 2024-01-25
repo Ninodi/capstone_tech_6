@@ -10,7 +10,7 @@ import '../assets/styles/MainCategoryPage.css'
 
 function MainCategoryPage() {
     const {category} = useParams()
-    const {response, loading} = useFetch({url: `http://94.137.187.198:9876/category/`, method: 'GET'})
+    const {response, loading} = useFetch({url: `/category/`, method: 'GET'})
     const capitaliseCategory = useCapitalise(category)
 
     const filteredResponse = response?.filter(each => each.main_cat.toLowerCase() === category.toLowerCase())

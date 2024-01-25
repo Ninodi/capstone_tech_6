@@ -125,5 +125,10 @@
         "breadCrumbs":{
             "home":"Home / ",
             "products":"Products / "
+        },
+        "aboutUs":{
+            "aboutUs":"About Us",
+            "home":"Home / "
+
         }
     }

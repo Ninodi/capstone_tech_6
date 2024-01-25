@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const ProductsSlider = ({ header, products, category, subcategory }) => {
+const ProductsSlider = React.memo(({ header, products, category, subcategory }) => {
   const [slidesPerView, setSlidesPerView] = useState(3);
   const [showArrows, setShowArrows] = useState(true);
 
@@ -70,6 +70,6 @@ const ProductsSlider = ({ header, products, category, subcategory }) => {
       </div>
     </div>
   );
-};
+});
 
 export default ProductsSlider;

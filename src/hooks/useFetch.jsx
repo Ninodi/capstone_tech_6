@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { API_BASE_URL } from '../apiConfig'; 
 
 function useFetch({url, method}) {
   const [response, setResponse] = useState(null)
@@ -6,7 +7,7 @@ function useFetch({url, method}) {
   const [loading,setLoading] = useState(null)
 
   const onFetch = useCallback (() => {
-    fetch(url, {
+    fetch(`${API_BASE_URL}/products${url}`, {
       method,
       headers: {
         "Content-Type": "application/json",

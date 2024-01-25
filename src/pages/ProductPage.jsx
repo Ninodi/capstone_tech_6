@@ -11,7 +11,7 @@ const ProductPage = () => {
 
 
   const { response: products,loading, onFetch } = useFetch({
-    url: 'http://94.137.187.198:9876/products/',
+    url: '/products/',
     method: 'GET',
   });
 

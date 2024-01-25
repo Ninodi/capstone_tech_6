@@ -7,6 +7,7 @@
        import styleSpa from '../assets/styles/contact-form-spa.module.css'
        import styleNav from '../assets/styles/contact-form-nav.module.css'
        import contactFormImg from '../assets/img/contact-form-img.png'
+       import { API_BASE_URL } from '../apiConfig';
    
        import { useTranslation } from 'react-i18next';
       
@@ -36,8 +37,7 @@
 
         //const {jsonData,error,loading} = useFetch(request_url, 'POST', formData)
        
-        const request_url = 'http://94.137.187.198:9876/leadcreate/'
-
+        const request_url = `${API_BASE_URL}/contacts/leadcreate/`
        
 
 useEffect(()=>

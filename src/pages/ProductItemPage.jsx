@@ -22,8 +22,8 @@ function ProductItemPage() {
   const formattedCategory = capitaliseCategory().replaceAll('-', ' ')
   
   const [toggleInfo, setToggleInfo] = useState(true)
-  const { response, onFetch } = useFetch({url: `http://94.137.187.198:9876/images/`, method: 'GET'})
-  const { response: productsResponse,loading} = useFetch({url: `http://94.137.187.198:9876/products/`, method: 'GET'})
+  const { response, onFetch } = useFetch({url: `/images/`, method: 'GET'})
+  const { response: productsResponse,loading} = useFetch({url: `/products/`, method: 'GET'})
 
 
   const productInfo = productsResponse?.filter(each => each.product_name.toLowerCase().replaceAll(" ", '-') === itemName)

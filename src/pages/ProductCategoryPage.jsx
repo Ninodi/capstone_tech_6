@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 
 function ProductCategoryPage() {
   const { category, subcategory } = useParams()
-  const {response} = useFetch({url: `http://94.137.187.198:9876/filter/`, method: 'GET'})
+  const {response} = useFetch({url: `/filter/`, method: 'GET'})
 
   const mainCategory = useCapitalise(category)
   const subCategory= useCapitalise(subcategory)
