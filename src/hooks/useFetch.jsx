@@ -7,7 +7,7 @@ function useFetch({url, method}) {
   const [loading,setLoading] = useState(null)
 
   const onFetch = useCallback (() => {
-    fetch(`${API_BASE_URL}${url}`, {
+    fetch(`${API_BASE_URL}/products${url}`, {
       method,
       headers: {
         "Content-Type": "application/json",

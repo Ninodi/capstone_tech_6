@@ -37,8 +37,7 @@
 
         //const {jsonData,error,loading} = useFetch(request_url, 'POST', formData)
        
-        const request_url = `${API_BASE_URL}/leadcreate/`
-
+        const request_url = `${API_BASE_URL}/contacts/leadcreate/`
        
 
 useEffect(()=>
