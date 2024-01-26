@@ -144,7 +144,7 @@ const Header = () => {
                         </ul>
                       </div>
                       <div className="row">
-                        <span><NavLink to={'/products/other'}>{t('Header.productsDrp.SpecialClothing')}</NavLink></span>
+                        <span><NavLink to={'/products/SpecialClothing'}>{t('Header.productsDrp.SpecialClothing')}</NavLink></span>
                         <ul className="mega-links">
                           {categories && categories
                             .filter(category => category.main_cat === 'Special Clothing')

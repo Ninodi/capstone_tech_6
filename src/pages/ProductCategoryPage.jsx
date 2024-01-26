@@ -41,7 +41,6 @@ function ProductCategoryPage() {
     setFilterOptions(filters || []);
   }, [response, category, t]);
 
-  const capitaliseCategory = useCapitalise(category);
 
   return (
     <div>
@@ -50,7 +49,6 @@ function ProductCategoryPage() {
           <Products 
             filterOptions={filterOptions} 
             setFilterOptions={setFilterOptions} 
-            capitaliseCategory={capitaliseCategory}
             subcategory={subCategory()}
             mainCategory={mainCategory()}
             />

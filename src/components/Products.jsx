@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import ProductsDesktop from "./ProductsDesktop";
 import ProductsMobile from "./ProductsMobile";

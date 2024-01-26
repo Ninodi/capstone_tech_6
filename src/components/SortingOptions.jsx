@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import SortingArrow from '../assets/img/sortingArrow.png'
-import { use } from "i18next";
 
-function SortingOptions() {
+function SortingOptions({setFilteredProd}) {
   const [activeSorting, setActiveSorting] = useState('New First')
   const [showSortings, setShowSortings] = useState(false)
 
@@ -25,7 +24,18 @@ function SortingOptions() {
   const selectSorting = (value) => {
     setActiveSorting(prev => value)
     setShowSortings(false)
+
+    // Sorting logic based on the selected sorting option
+    if (value === 'A to Z') {
+      setFilteredProd(prevProducts => prevProducts.slice().sort((a, b) => a.product_name.localeCompare(b.product_name)))
+    } else if (value === 'Z to A') {
+      setFilteredProd(prevProducts => prevProducts.slice().sort((a, b) => b.product_name.localeCompare(a.product_name)))
+    } else if(value === 'New First') {
+      setFilteredProd(prevProducts => prevProducts.slice().sort((a, b) => a.date_time.localeCompare(b.date_time)))
+    }else setFilteredProd(prevProducts => prevProducts.slice().sort((a, b) => b.date_time.localeCompare(a.date_time)));
+
   }
+
   return (
     <div className="sortings" ref={dropdownRef}>
       <div className="sorting-button" onClick={() => setShowSortings(prev => !prev)}>

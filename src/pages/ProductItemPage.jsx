@@ -21,14 +21,14 @@ function ProductItemPage() {
   const capitaliseCategory = useCapitalise(itemName)
   const formattedCategory = capitaliseCategory().replaceAll('-', ' ')
   
-  const [toggleInfo, setToggleInfo] = useState(true)
+  const [toggleInfo, setToggleInfo] = useState(false)
   const { response, onFetch } = useFetch({url: `/images/`, method: 'GET'})
   const { response: productsResponse,loading} = useFetch({url: `/products/`, method: 'GET'})
 
 
   const productInfo = productsResponse?.filter(each => each.product_name.toLowerCase().replaceAll(" ", '-') === itemName)
 
-  console.log(productInfo)
+  // console.log(productInfo)
 
   let productId
   if (productInfo && productInfo.length > 0) {

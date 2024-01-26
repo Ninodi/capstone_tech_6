@@ -30,7 +30,7 @@ function ProductsDesktop({
     <div className="products-desktop-container">
       <div className="breadcrumbs-bar-desktop">
         <Breadcrumbs mainCategory={mainCategory} subcategory={subcategory} />
-        <SortingOptions activeSorting="Most popular" />
+        <SortingOptions setFilteredProd={setFilteredProd}/>
       </div>
       <div style={{ width: "100%", display: "flex", gap: "20px" }}>
         <ProductFilters

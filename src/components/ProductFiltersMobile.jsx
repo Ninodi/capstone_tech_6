@@ -12,7 +12,6 @@ function ProductFiltersMobile({ setFilterOptions, filterOptions, categoryProduct
     setFilterOptions(updatedFilterOptions)
   };
 
-  let activeSorting = "Most popular"
 
   return (
     <div className="filters-mobile">
@@ -31,7 +30,7 @@ function ProductFiltersMobile({ setFilterOptions, filterOptions, categoryProduct
             </button>
           ))}
         </div>
-        <SortingOptions activeSorting={activeSorting} />
+        <SortingOptions setFilteredProd={setFilteredProd}/>
       </div>
     </div>
   );

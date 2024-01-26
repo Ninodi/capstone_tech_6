@@ -25,7 +25,6 @@ function ProductsMobile({
   const loadBtn = useRef(null);
   const { t, i18n } = useTranslation();
 
-  // const sortedFilteredProd = [...filteredProd].sort((a, b) => new Date(b.date_time) - new Date(a.date_time))
 
   useEffect(() => {
     if (prodNum >= categoryProducts?.length) {
